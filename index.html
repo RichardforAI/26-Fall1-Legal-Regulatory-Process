@@ -17,17 +17,10 @@
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html{-webkit-text-size-adjust:100%;}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-    line-height:1.7; font-size:16px; padding-bottom:env(safe-area-inset-bottom);
-  }
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; line-height:1.7; font-size:16px; padding-bottom:env(safe-area-inset-bottom);}
   .wrap{max-width:860px; margin:0 auto; padding:0 12px 48px;}
 
-  .topbar{
-    position:sticky; top:0; z-index:50; background:var(--card); border-bottom:1px solid var(--line);
-    padding:10px 12px; box-shadow:0 2px 8px rgba(0,0,0,.05);
-  }
+  .topbar{position:sticky; top:0; z-index:50; background:var(--card); border-bottom:1px solid var(--line); padding:10px 12px; box-shadow:0 2px 8px rgba(0,0,0,.05);}
   .topbar .title{font-weight:700; font-size:17px; color:var(--blue); margin-bottom:8px;}
   .search-row{display:flex; gap:8px; align-items:center;}
   .search-box{position:relative; flex:1;}
@@ -51,10 +44,11 @@
   .toc-sub a{color:var(--ink); text-decoration:none; display:block; padding:2px 0; font-weight:600;}
   .toc-l3{margin:1px 0 1px 30px; font-size:12.5px; color:var(--soft);}
   .toc-l3 a{color:var(--soft); text-decoration:none; display:block; padding:1px 0;}
+  .toc-sec .num, .toc-sub .num, .toc-l3 .num{color:var(--blue2); font-weight:700; margin-right:5px; font-variant-numeric:tabular-nums;}
 
   section.card{background:var(--card); border:1px solid var(--line); border-radius:12px; margin-bottom:14px; overflow:hidden; scroll-margin-top:120px;}
   section.card > h2{margin:0; padding:13px 14px; font-size:17px; color:var(--blue); display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--line);}
-  section.card > h2 .num{color:#fff; background:var(--blue); border-radius:7px; min-width:34px; text-align:center; font-size:13px; padding:3px 6px; flex:none;}
+  section.card > h2 .num{color:#fff; background:var(--blue); border-radius:7px; min-width:42px; text-align:center; font-size:13px; padding:3px 6px; flex:none;}
 
   details.branch{border-top:1px solid var(--line); scroll-margin-top:120px;}
   details.branch:first-of-type{border-top:none;}
@@ -62,6 +56,7 @@
   details.branch > summary::-webkit-details-marker{display:none;}
   details.branch > summary .arrow{flex:none; width:16px; text-align:center; color:var(--blue); font-weight:700; transition:transform .18s; display:inline-block; font-size:12px; margin-top:2px;}
   details.branch[open] > summary .arrow{transform:rotate(90deg);}
+  details.branch > summary .bnum{color:var(--blue2); font-weight:700; flex:none; font-variant-numeric:tabular-nums;}
   details.branch > summary .en{font-weight:400; color:var(--muted); font-size:13px; font-style:italic;}
   details.branch.marked > summary{background:var(--mark);}
 
@@ -71,17 +66,19 @@
 
   .sub3{margin:10px 0 4px; scroll-margin-top:130px;}
   .sub3 h4{margin:0; font-size:15px; color:var(--blue2); font-weight:700;}
+  .sub3 h4 .snum{color:var(--blue2); font-weight:700;}
   .sub3 h4 .en{font-weight:400; font-style:italic; color:var(--muted); font-size:13px;}
   .sub3 p{margin:3px 0 8px; font-size:14.5px; color:var(--ink);}
-  .sub3 p.en{margin:0 0 8px; font-size:13px; color:var(--muted); font-style:italic;}
+  .sub3 p.en{margin:0 0 8px; font-size:13.5px; color:var(--muted); font-style:italic;}
   .sub3 ul{margin:2px 0 8px; padding-left:20px;}
   .sub3 li{margin:3px 0; font-size:14.5px;}
   .sub3 li b{color:var(--blue2);}
+  .sub3 li .en{color:var(--muted); font-style:italic; font-size:13px;}
 
   .case{background:var(--case-bg); border-left:3px solid var(--case-border); border-radius:8px; padding:10px 12px; margin:10px 0 12px;}
   .case .c-title{font-weight:700; color:var(--blue); margin-bottom:4px;}
   .case p{margin:4px 0; font-size:14.5px;}
-  .case p.en{font-size:13px; color:var(--muted); font-style:italic;}
+  .case p.en{font-size:13.5px; color:var(--muted); font-style:italic;}
 
   table{width:100%; border-collapse:collapse; margin:10px 0 14px; font-size:13.5px;}
   th,td{border:1px solid var(--line); padding:6px 8px; text-align:left; vertical-align:top;}
@@ -111,80 +108,71 @@
   </div>
 </div>
 
-<!-- ============ 目录（三级） ============ -->
+<!-- ============ 目录（三级编号） ============ -->
 <details class="toc" open>
 <summary><span class="arrow">▶</span> 完整目录（点击跳转）</summary>
 <div class="toc-body">
-  <div class="toc-sec"><a href="#s1">1.1 课程导论</a></div>
-  <div class="toc-sub"><a href="#b1-1">三大核心问题</a></div>
-  <div class="toc-l3"><a href="#b1-1-1">法律如何制定</a></div>
-  <div class="toc-l3"><a href="#b1-1-2">法律如何实施</a></div>
-  <div class="toc-l3"><a href="#b1-1-3">法律如何解释</a></div>
-  <div class="toc-sub"><a href="#b1-2">造法流程（三方互动）</a></div>
-  <div class="toc-l3"><a href="#b1-2-1">立法阶段</a></div>
-  <div class="toc-l3"><a href="#b1-2-2">行政阶段</a></div>
-  <div class="toc-l3"><a href="#b1-2-3">司法阶段</a></div>
-  <div class="toc-l3"><a href="#b1-2-4">例：自动驾驶汽车</a></div>
-  <div class="toc-sub"><a href="#b1-3">核心概念：书本 vs 行动</a></div>
-  <div class="toc-l3"><a href="#b1-3-1">书本上的法</a></div>
-  <div class="toc-l3"><a href="#b1-3-2">行动中的法</a></div>
-  <div class="toc-sub"><a href="#b1-4">典型案例：大麻</a></div>
-  <div class="toc-l3"><a href="#b1-4-1">联邦立场</a></div>
-  <div class="toc-l3"><a href="#b1-4-2">州的现实</a></div>
-  <div class="toc-l3"><a href="#b1-4-3">冲突与原因</a></div>
+  <div class="toc-sec"><span class="num">1.1</span><a href="#s1">课程导论</a></div>
+  <div class="toc-sub"><span class="num">1.1.1</span><a href="#b1-1">三大核心问题</a></div>
+  <div class="toc-l3"><span class="num">1.1.1.1</span><a href="#b1-1-1">法律如何制定</a></div>
+  <div class="toc-l3"><span class="num">1.1.1.2</span><a href="#b1-1-2">法律如何实施</a></div>
+  <div class="toc-l3"><span class="num">1.1.1.3</span><a href="#b1-1-3">法律如何解释</a></div>
+  <div class="toc-sub"><span class="num">1.1.2</span><a href="#b1-2">造法流程（三方互动）</a></div>
+  <div class="toc-l3"><span class="num">1.1.2.1</span><a href="#b1-2-1">立法阶段</a></div>
+  <div class="toc-l3"><span class="num">1.1.2.2</span><a href="#b1-2-2">行政阶段</a></div>
+  <div class="toc-l3"><span class="num">1.1.2.3</span><a href="#b1-2-3">司法阶段</a></div>
+  <div class="toc-l3"><span class="num">1.1.2.4</span><a href="#b1-2-4">例：自动驾驶汽车</a></div>
+  <div class="toc-sub"><span class="num">1.1.3</span><a href="#b1-3">核心概念：书本 vs 行动</a></div>
+  <div class="toc-sub"><span class="num">1.1.4</span><a href="#b1-4">典型案例：大麻</a></div>
+  <div class="toc-sub"><span class="num">1.1.5</span><a href="#b1-5">八周课程大纲</a></div>
 
-  <div class="toc-sec"><a href="#s2">1.2 法律渊源与普通法</a></div>
-  <div class="toc-sub"><a href="#b2-1">法律渊源等级</a></div>
-  <div class="toc-l3"><a href="#b2-1-1">宪法（至上条款）</a></div>
-  <div class="toc-l3"><a href="#b2-1-2">联邦法律/条约</a></div>
-  <div class="toc-l3"><a href="#b2-1-3">州法与市政法律</a></div>
-  <div class="toc-sub"><a href="#b2-2">普通法（规则+方法+历史）</a></div>
-  <div class="toc-l3"><a href="#b2-2-1">双重含义</a></div>
-  <div class="toc-l3"><a href="#b2-2-2">构成要素</a></div>
-  <div class="toc-l3"><a href="#b2-2-3">宪政维度与历史</a></div>
-  <div class="toc-sub"><a href="#b2-3">普通法推理工具</a></div>
-  <div class="toc-l3"><a href="#b2-3-1">先例/遵循先例</a></div>
-  <div class="toc-l3"><a href="#b2-3-2">区分案件</a></div>
-  <div class="toc-l3"><a href="#b2-3-3">判决理由</a></div>
-  <div class="toc-l3"><a href="#b2-3-4">首例案件</a></div>
-  <div class="toc-sub"><a href="#b2-4">Pierson v. Post（狐狸案）</a></div>
-  <div class="toc-sub"><a href="#b2-5">Popov v. Hayashi（棒球案）</a></div>
+  <div class="toc-sec"><span class="num">1.2</span><a href="#s2">法律渊源与普通法</a></div>
+  <div class="toc-sub"><span class="num">1.2.1</span><a href="#b2-1">法律渊源等级</a></div>
+  <div class="toc-l3"><span class="num">1.2.1.1</span><a href="#b2-1-1">宪法（至上条款）</a></div>
+  <div class="toc-l3"><span class="num">1.2.1.2</span><a href="#b2-1-2">联邦法律/条约</a></div>
+  <div class="toc-l3"><span class="num">1.2.1.3</span><a href="#b2-1-3">州法与市政法律</a></div>
+  <div class="toc-sub"><span class="num">1.2.2</span><a href="#b2-2">普通法（规则+方法+历史）</a></div>
+  <div class="toc-sub"><span class="num">1.2.3</span><a href="#b2-3">普通法推理工具</a></div>
+  <div class="toc-l3"><span class="num">1.2.3.1</span><a href="#b2-3-1">先例/遵循先例</a></div>
+  <div class="toc-l3"><span class="num">1.2.3.2</span><a href="#b2-3-2">区分案件</a></div>
+  <div class="toc-l3"><span class="num">1.2.3.3</span><a href="#b2-3-3">判决理由</a></div>
+  <div class="toc-l3"><span class="num">1.2.3.4</span><a href="#b2-3-4">首例案件</a></div>
+  <div class="toc-sub"><span class="num">1.2.4</span><a href="#b2-4">Pierson v. Post（狐狸案）</a></div>
+  <div class="toc-sub"><span class="num">1.2.5</span><a href="#b2-5">Popov v. Hayashi（棒球案）</a></div>
 
-  <div class="toc-sec"><a href="#s3">1.3 宪政体系与解释</a></div>
-  <div class="toc-sub"><a href="#b3-1">三大结构原则</a></div>
-  <div class="toc-sub"><a href="#b3-2">宪法条文三类</a></div>
-  <div class="toc-sub"><a href="#b3-3">关键权力</a></div>
-  <div class="toc-l3"><a href="#b3-3-1">商业条款</a></div>
-  <div class="toc-l3"><a href="#b3-3-2">必要与适当条款</a></div>
-  <div class="toc-l3"><a href="#b3-3-3">司法审查</a></div>
-  <div class="toc-sub"><a href="#b3-4">权利法案</a></div>
-  <div class="toc-sub"><a href="#b3-5">第十四修正案</a></div>
-  <div class="toc-l3"><a href="#b3-5-1">正当程序</a></div>
-  <div class="toc-l3"><a href="#b3-5-2">平等保护</a></div>
-  <div class="toc-sub"><a href="#b3-6">隐私权</a></div>
-  <div class="toc-sub"><a href="#b3-7">解释哲学之争</a></div>
+  <div class="toc-sec"><span class="num">1.3</span><a href="#s3">宪政体系与解释</a></div>
+  <div class="toc-sub"><span class="num">1.3.1</span><a href="#b3-1">三大结构原则</a></div>
+  <div class="toc-sub"><span class="num">1.3.2</span><a href="#b3-2">宪法条文三类</a></div>
+  <div class="toc-sub"><span class="num">1.3.3</span><a href="#b3-3">关键权力</a></div>
+  <div class="toc-l3"><span class="num">1.3.3.1</span><a href="#b3-3-1">商业条款</a></div>
+  <div class="toc-l3"><span class="num">1.3.3.2</span><a href="#b3-3-2">必要与适当条款</a></div>
+  <div class="toc-l3"><span class="num">1.3.3.3</span><a href="#b3-3-3">司法审查</a></div>
+  <div class="toc-sub"><span class="num">1.3.4</span><a href="#b3-4">权利法案</a></div>
+  <div class="toc-sub"><span class="num">1.3.5</span><a href="#b3-5">第十四修正案</a></div>
+  <div class="toc-sub"><span class="num">1.3.6</span><a href="#b3-6">隐私权</a></div>
+  <div class="toc-sub"><span class="num">1.3.7</span><a href="#b3-7">解释哲学之争</a></div>
 
-  <div class="toc-sec"><a href="#s4">1.4 联邦政府</a></div>
-  <div class="toc-sub"><a href="#b4-1">三权分立</a></div>
-  <div class="toc-sub"><a href="#b4-2">选举程序</a></div>
-  <div class="toc-l3"><a href="#b4-2-1">国会两院</a></div>
-  <div class="toc-l3"><a href="#b4-2-2">现任者优势</a></div>
-  <div class="toc-l3"><a href="#b4-2-3">总统选举人团</a></div>
-  <div class="toc-sub"><a href="#b4-3">党派</a></div>
+  <div class="toc-sec"><span class="num">1.4</span><a href="#s4">联邦政府</a></div>
+  <div class="toc-sub"><span class="num">1.4.1</span><a href="#b4-1">三权分立</a></div>
+  <div class="toc-sub"><span class="num">1.4.2</span><a href="#b4-2">选举程序</a></div>
+  <div class="toc-l3"><span class="num">1.4.2.1</span><a href="#b4-2-1">国会两院</a></div>
+  <div class="toc-l3"><span class="num">1.4.2.2</span><a href="#b4-2-2">现任者优势</a></div>
+  <div class="toc-l3"><span class="num">1.4.2.3</span><a href="#b4-2-3">总统选举人团</a></div>
+  <div class="toc-sub"><span class="num">1.4.3</span><a href="#b4-3">党派</a></div>
 
-  <div class="toc-sec"><a href="#s5">1.5 州与地方政府</a></div>
-  <div class="toc-sub"><a href="#b5-1">警察权</a></div>
-  <div class="toc-sub"><a href="#b5-2">州政府结构</a></div>
-  <div class="toc-sub"><a href="#b5-3">地方政府</a></div>
+  <div class="toc-sec"><span class="num">1.5</span><a href="#s5">州与地方政府</a></div>
+  <div class="toc-sub"><span class="num">1.5.1</span><a href="#b5-1">警察权</a></div>
+  <div class="toc-sub"><span class="num">1.5.2</span><a href="#b5-2">州政府结构</a></div>
+  <div class="toc-sub"><span class="num">1.5.3</span><a href="#b5-3">地方政府</a></div>
 
-  <div class="toc-sec"><a href="#s6">1.6 联邦制</a></div>
-  <div class="toc-sub"><a href="#b6-1">定义与理由</a></div>
-  <div class="toc-sub"><a href="#b6-2">结构保障</a></div>
-  <div class="toc-sub"><a href="#b6-3">商业条款冲突</a></div>
-  <div class="toc-sub"><a href="#b6-4">Gonzales v. Raich 案例</a></div>
-  <div class="toc-sub"><a href="#b6-5">思考题解答</a></div>
+  <div class="toc-sec"><span class="num">1.6</span><a href="#s6">联邦制</a></div>
+  <div class="toc-sub"><span class="num">1.6.1</span><a href="#b6-1">定义与理由</a></div>
+  <div class="toc-sub"><span class="num">1.6.2</span><a href="#b6-2">结构保障</a></div>
+  <div class="toc-sub"><span class="num">1.6.3</span><a href="#b6-3">商业条款冲突</a></div>
+  <div class="toc-sub"><span class="num">1.6.4</span><a href="#b6-4">Gonzales v. Raich 案例</a></div>
+  <div class="toc-sub"><span class="num">1.6.5</span><a href="#b6-5">思考题解答</a></div>
 
-  <div class="toc-sec"><a href="#cases">⚖ 核心判例速览</a></div>
+  <div class="toc-sec"><span class="num">⚖</span><a href="#cases">核心判例速览</a></div>
 </div>
 </details>
 
@@ -193,102 +181,104 @@
 <h2><span class="num">1.1</span>课程导论 · Course Introduction</h2>
 
 <details class="branch" id="b1-1">
-<summary><span class="arrow">▶</span><span>三大核心问题 <span class="en">Three core questions</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.1.1</span><span>三大核心问题 <span class="en">Three core questions</span></span></summary>
 <div class="body">
-  <p class="lead">本课程研究美国法律与规制程序，核心是回答三个问题，贯穿整个 MSL 项目。</p>
+  <p class="lead">本课程研究美国法律与规制程序，核心是回答三个问题，贯穿整个 MSL 项目，是理解美国「造法体系」（lawmaking system）的骨架。</p>
+  <p class="lead en">This course examines the American legal and regulatory process. It revolves around three questions that run through the entire MSL program — the skeleton for understanding the American "lawmaking system."</p>
   <div class="sub3" id="b1-1-1">
-    <h4>法律如何制定？ <span class="en">How are laws made?</span></h4>
+    <h4><span class="snum">1.1.1.1</span> 法律如何制定？ <span class="en">How are laws made?</span></h4>
     <p>关注谁起草、谁通过、谁授权——立法机关、总统与行政机构如何共同「造法」。</p>
-    <p class="en">Who drafts, enacts, and authorizes law — how the legislature, president, and agencies jointly "make" law.</p>
+    <p class="en">This asks who drafts, who enacts, and who authorizes law — that is, how the legislature, the president, and the administrative agencies jointly "make" law through their respective roles.</p>
   </div>
   <div class="sub3" id="b1-1-2">
-    <h4>法律如何实施？ <span class="en">How are they implemented?</span></h4>
+    <h4><span class="snum">1.1.1.2</span> 法律如何实施？ <span class="en">How are they implemented?</span></h4>
     <p>关注负责执行法律的各政府机构如何把成文规则落到现实。</p>
-    <p class="en">How the governmental institutions charged with applying law put written rules into practice.</p>
+    <p class="en">This asks how the various governmental institutions charged with applying law actually translate written rules into real-world practice and enforcement.</p>
   </div>
   <div class="sub3" id="b1-1-3">
-    <h4>法律如何解释？ <span class="en">How are they interpreted?</span></h4>
+    <h4><span class="snum">1.1.1.3</span> 法律如何解释？ <span class="en">How are they interpreted?</span></h4>
     <p>当条文或规章含义模糊时，由谁、以何种原则确定其含义。</p>
-    <p class="en">By whom, and under what principles, ambiguous statutory or regulatory meaning is resolved.</p>
+    <p class="en">This asks who, and under what principles, determines the meaning of a statute or regulation when its language is ambiguous.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b1-2">
-<summary><span class="arrow">▶</span><span>造法流程（三方互动） <span class="en">Lawmaking flow</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.1.2</span><span>造法流程（三方互动） <span class="en">Lawmaking flow</span></span></summary>
 <div class="body">
-  <p class="lead">一部法律从无到有的完整旅程，展示三权如何共同参与造法。</p>
+  <p class="lead">一部法律从无到有的完整旅程，展示立法、行政、司法三权如何共同参与造法。</p>
+  <p class="lead en">The complete journey of a law from nothing to something, showing how all three branches — legislative, executive, and judicial — participate in lawmaking.</p>
   <div class="sub3" id="b1-2-1">
-    <h4>立法阶段 <span class="en">Legislative stage</span></h4>
+    <h4><span class="snum">1.1.2.1</span> 立法阶段 <span class="en">Legislative stage</span></h4>
     <p>立法者起草法案 → 国会通过制定法（statute）→ 送交总统签署。</p>
-    <p class="en">Legislators draft → Congress passes a statute → sent to the president for signature.</p>
+    <p class="en">Legislators draft a bill; Congress passes it into a statute; and if all goes well, it is sent to the president for signature.</p>
   </div>
   <div class="sub3" id="b1-2-2">
-    <h4>行政阶段 <span class="en">Administrative stage</span></h4>
+    <h4><span class="snum">1.1.2.2</span> 行政阶段 <span class="en">Administrative stage</span></h4>
     <p>往往创设行政机构/监管局，负责将国会意志转化为实际执行的规章（regulations），并建立资金机制。</p>
-    <p class="en">A new agency or bureau is created to turn congressional will into regulations and set up a funding scheme.</p>
+    <p class="en">A new administrative agency or regulatory bureau is often created, charged with turning congressional will into concrete regulations and setting up a funding scheme to carry the venture forward.</p>
   </div>
   <div class="sub3" id="b1-2-3">
-    <h4>司法阶段 <span class="en">Judicial stage</span></h4>
+    <h4><span class="snum">1.1.2.3</span> 司法阶段 <span class="en">Judicial stage</span></h4>
     <p>法院介入：解释条文中模糊语言，或审理个人为执行法定要求提起的诉讼。</p>
-    <p class="en">Courts interpret ambiguous language or hear suits brought to enforce the statutory mandate.</p>
+    <p class="en">Courts then enter the process — interpreting ambiguous statutory language, or hearing lawsuits brought by individuals seeking to enforce the statutory mandate.</p>
   </div>
   <div class="sub3" id="b1-2-4">
-    <h4>例：自动驾驶汽车 <span class="en">Example: autonomous vehicles</span></h4>
+    <h4><span class="snum">1.1.2.4</span> 例：自动驾驶汽车 <span class="en">Example: autonomous vehicles</span></h4>
     <p>平衡「便利 vs 公共安全」→ 国会立法 → 行政机构制定规章与资金 → 法院解释条款。造法从不是「国会通过一部法律」那么简单，而是三方持续互动。</p>
-    <p class="en">Balance convenience vs safety → Congress legislates → agencies regulate → courts interpret. Lawmaking is a dynamic three-branch interaction.</p>
+    <p class="en">To balance convenience against public safety: Congress legislates, agencies issue regulations and funding, and courts interpret the terms. Lawmaking is never simply "Congress passes a law" — it is a continuous, dynamic interaction among the three branches.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b1-3">
-<summary><span class="arrow">▶</span><span>核心概念：书本 vs 行动 <span class="en">Law on the books vs in action</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.1.3</span><span>核心概念：书本 vs 行动 <span class="en">Law on the books vs in action</span></span></summary>
 <div class="body">
   <div class="sub3" id="b1-3-1">
-    <h4>书本上的法 <span class="en">Law on the books</span></h4>
+    <h4><span class="snum">1.1.3.1</span> 书本上的法 <span class="en">Law on the books</span></h4>
     <p>写在纸面、印在法律书里的规则与造法制度。</p>
-    <p class="en">The rules and structures written on paper and printed in the law books.</p>
+    <p class="en">The rules and structures that are written on paper and printed in the law books — the formal, written side of the legal system.</p>
   </div>
   <div class="sub3" id="b1-3-2">
-    <h4>行动中的法 <span class="en">Law in action</span></h4>
-    <p>法律本质上是社会建构，其真实面目体现在人类决策者（法官、官员）如何在约束条件下实际适用。教授强调「保持真实」（keeping it real）。</p>
-    <p class="en">Law as a social construct, understood by how human decision-makers actually apply it under constraint — hence "keeping it real."</p>
+    <h4><span class="snum">1.1.3.2</span> 行动中的法 <span class="en">Law in action</span></h4>
+    <p>法律本质上是社会建构，其真实面目体现在人类决策者（法官、官员）如何在约束条件下实际适用。教授强调「保持真实」（keeping it real）——理解现实世界才能理解法律。</p>
+    <p class="en">Law is fundamentally also a social construct, best understood by how human decision-makers (judges, officials) actually apply it under conditions of constraint. The instructor stresses "keeping it real" — to understand how law works, you must understand the real world.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b1-4">
-<summary><span class="arrow">▶</span><span>典型案例：大麻 <span class="en">Marijuana / federalism conflict</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.1.4</span><span>典型案例：大麻 <span class="en">Marijuana / federalism conflict</span></span></summary>
 <div class="body">
   <div class="sub3" id="b1-4-1">
-    <h4>联邦立场 <span class="en">Federal position</span></h4>
+    <h4><span class="snum">1.1.4.1</span> 联邦立场 <span class="en">Federal position</span></h4>
     <p>数十年来大麻是附表 I（Schedule I）管制物质，无论数量，持有、销售、分销均非法。</p>
-    <p class="en">Marijuana is a Schedule I controlled substance — illegal to possess, sell, or distribute.</p>
+    <p class="en">For decades the federal law has been clear: marijuana is a Schedule I controlled substance, illegal to possess (in any amount), sell, or distribute.</p>
   </div>
   <div class="sub3" id="b1-4-2">
-    <h4>州的现实 <span class="en">State reality</span></h4>
+    <h4><span class="snum">1.1.4.2</span> 州的现实 <span class="en">State reality</span></h4>
     <p>越来越多州将大麻合法化（先医疗、后娱乐用途）。</p>
-    <p class="en">A growing number of states have legalized it — first medically, then recreationally.</p>
+    <p class="en">Yet a growing number of states have legalized marijuana — first for medical use, and more recently for recreational use.</p>
   </div>
   <div class="sub3" id="b1-4-3">
-    <h4>冲突与原因 <span class="en">Conflict & reasons</span></h4>
+    <h4><span class="snum">1.1.4.3</span> 冲突与原因 <span class="en">Conflict & reasons</span></h4>
     <p>冲突本质：联邦法（书本上的法）vs 州法/现实（行动中的法）。联邦容忍的可能原因：① 执法裁量权；② 联邦制下更适合在州/地方处理。</p>
-    <p class="en">"Law on the books vs law in action." Federal tolerance: (1) law-enforcement discretion; (2) federalism — better handled at state/local level.</p>
+    <p class="en">The essence is the clash between "law on the books" (federal prohibition) and "law in action" (state legalization). Why does the federal government tolerate it? (1) law-enforcement discretion — prosecuting small-time users is neither economical nor socially acceptable; and (2) a broader judgment that, under federalism, such questions are best handled at the state and local level.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b1-5">
-<summary><span class="arrow">▶</span><span>八周课程大纲 <span class="en">8-week roadmap</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.1.5</span><span>八周课程大纲 <span class="en">8-week roadmap</span></span></summary>
 <div class="body">
   <ul>
-    <li><b>W1</b> 宪政体系·三权·州与地方·联邦制·选举与党派</li>
-    <li><b>W2</b> 立法与行政造法实践、对权力的制衡</li>
-    <li><b>W3</b> 法院：法官职能·最高法院·与下级/州法院的关系</li>
-    <li><b>W4</b> 纠纷解决：诉讼解剖（起诉→审前→审判→判决→上诉）</li>
-    <li><b>W5–6</b> 行政程序：法律如何通过行政程序被实施</li>
-    <li><b>W7</b> 法律解释（statutory interpretation）</li>
-    <li><b>W8</b> 法律如何应对新技术与复杂公共政策</li>
+    <li><b>W1</b> 宪政体系·三权·州与地方·联邦制·选举与党派 <span class="en">Constitution, three branches, state/local, federalism, elections &amp; partisanship</span></li>
+    <li><b>W2</b> 立法与行政造法实践、对权力的制衡 <span class="en">Legislative &amp; executive lawmaking, checks on power</span></li>
+    <li><b>W3</b> 法院：法官职能·最高法院·与下级/州法院的关系 <span class="en">Courts: judges, the Supreme Court, lower &amp; state courts</span></li>
+    <li><b>W4</b> 纠纷解决：诉讼解剖（起诉→审前→审判→判决→上诉） <span class="en">Dispute resolution: anatomy of a trial</span></li>
+    <li><b>W5–6</b> 行政程序：法律如何通过行政程序被实施 <span class="en">Administrative process: how law is implemented</span></li>
+    <li><b>W7</b> 法律解释（statutory interpretation） <span class="en">Statutory interpretation</span></li>
+    <li><b>W8</b> 法律如何应对新技术与复杂公共政策 <span class="en">Law, new technology &amp; complex public policy</span></li>
   </ul>
 </div>
 </details>
@@ -299,113 +289,114 @@
 <h2><span class="num">1.2</span>法律渊源与普通法 · Sources of Law &amp; Common Law</h2>
 
 <details class="branch" id="b2-1">
-<summary><span class="arrow">▶</span><span>法律渊源等级（由高到低） <span class="en">Hierarchy of sources</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.2.1</span><span>法律渊源等级（由高到低） <span class="en">Hierarchy of sources</span></span></summary>
 <div class="body">
-  <p class="lead">法官不能凭空造法，必须「寻找并适用控制性法律」。美国法律渊源由高到低：</p>
+  <p class="lead">法官不能凭空造法，必须「寻找并适用控制性法律」（controlling law）。美国法律渊源由高到低：</p>
+  <p class="lead en">Judges cannot simply make up law; they must "ferret out and apply" the controlling law. American sources of law, from highest to lowest, are:</p>
   <div class="sub3" id="b2-1-1">
-    <h4>宪法（至上条款） <span class="en">Constitution (Supremacy Clause)</span></h4>
+    <h4><span class="snum">1.2.1.1</span> 宪法（至上条款） <span class="en">Constitution (Supremacy Clause)</span></h4>
     <p>第六条宣布宪法及依宪法程序制定的法律、条约为「全国最高法律」（supreme law of the land）。</p>
-    <p class="en">Article VI declares the Constitution, laws, and treaties the "supreme law of the land."</p>
+    <p class="en">Article VI declares the Constitution, and the laws and treaties made under it, to be the "supreme law of the land" — the highest source of law.</p>
   </div>
   <div class="sub3" id="b2-1-2">
-    <h4>联邦法律 / 条约 <span class="en">Federal statutes / treaties</span></h4>
+    <h4><span class="snum">1.2.1.2</span> 联邦法律 / 条约 <span class="en">Federal statutes / treaties</span></h4>
     <p>但联邦法受宪法列举事项限制——如「野生动物财产权」不在其中，国会无权分配纽约州海滩狐狸的归属。</p>
-    <p class="en">But federal reach is limited to enumerated subjects — e.g., not property in wild animals.</p>
+    <p class="en">But federal law's reach is limited by the Constitution to enumerated subjects. Property in wild animals is not among them, so Congress had no business allocating rights in foxes on a New York beach.</p>
   </div>
   <div class="sub3" id="b2-1-3">
-    <h4>州法与市政法律 <span class="en">State & municipal law</span></h4>
+    <h4><span class="snum">1.2.1.3</span> 州法与市政法律 <span class="en">State & municipal law</span></h4>
     <p>联邦制允许州在多数财产权领域立法；宪法与制定法都无规定时（法律空白 lacuna），诉诸普通法（判例法）。</p>
-    <p class="en">States legislate in most property areas; when there is a "lacuna," courts turn to the common law (case law).</p>
+    <p class="en">Federalism lets states legislate in most property areas. When constitutions and statutes are silent — a "lacuna" — courts turn to the common law (decisional or case law).</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b2-2">
-<summary><span class="arrow">▶</span><span>普通法（规则+方法+历史） <span class="en">Common law: rules &amp; method</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.2.2</span><span>普通法（规则+方法+历史） <span class="en">Common law: rules &amp; method</span></span></summary>
 <div class="body">
   <div class="sub3" id="b2-2-1">
-    <h4>双重含义 <span class="en">Two meanings</span></h4>
+    <h4><span class="snum">1.2.2.1</span> 双重含义 <span class="en">Two meanings</span></h4>
     <p>普通法既是「一套法律规则」，也是「一套分析方法」，发端于中世纪英格兰王室法院，是法官与律师间的「对话」产物。</p>
-    <p class="en">Both a set of rules and a method of analysis, forged in the English royal courts as a judge–lawyer dialogue.</p>
+    <p class="en">The common law is both a set of legal rules and a method of analysis. It was forged in the English royal courts in the Middle Ages, beginning as a dialogue between judges and lawyers.</p>
   </div>
   <div class="sub3" id="b2-2-2">
-    <h4>构成要素 <span class="en">Components</span></h4>
+    <h4><span class="snum">1.2.2.2</span> 构成要素 <span class="en">Components</span></h4>
     <p>理性（reason）、自然法、逻辑、习惯（customs）、先例（precedent）及对制定法的解释。</p>
-    <p class="en">Reason, natural law, logic, custom, precedent, and statutory interpretation.</p>
+    <p class="en">Reason, natural law, logic, custom, precedent, and the interpretation of statutes were all used by litigants — and so can all be regarded as components of the common law.</p>
   </div>
   <div class="sub3" id="b2-2-3">
-    <h4>宪政维度与历史 <span class="en">Constitutional dimension & history</span></h4>
+    <h4><span class="snum">1.2.2.3</span> 宪政维度与历史 <span class="en">Constitutional dimension & history</span></h4>
     <p>普通法还含「君主权力非绝对」原则——税收需议会同意、1215《大宪章》（Magna Carta）禁止不经审判监禁，影响了美国革命与宪法。独立后各州「继受」并「美国化」英格兰普通法。</p>
-    <p class="en">It embodied "monarchical power is not absolute" (Magna Carta 1215). After independence the states "received" and "Americanized" the common law.</p>
+    <p class="en">It also embodied the principle that monarchical power is not absolute — taxation required Parliament's consent, and the Magna Carta (1215) barred imprisonment without trial. These ideas shaped the American Revolution and Constitution. After independence, the states "received" and then "Americanized" the English common law.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b2-3">
-<summary><span class="arrow">▶</span><span>普通法推理工具 <span class="en">Reasoning tools</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.2.3</span><span>普通法推理工具 <span class="en">Reasoning tools</span></span></summary>
 <div class="body">
   <div class="sub3" id="b2-3-1">
-    <h4>先例 / 遵循先例 <span class="en">Precedent / stare decisis</span></h4>
+    <h4><span class="snum">1.2.3.1</span> 先例 / 遵循先例 <span class="en">Precedent / stare decisis</span></h4>
     <p>判决正确的案件加入普通法体系，成为先例，用以解决类似纠纷（未必有拘束力，但会被援引）。</p>
-    <p class="en">Correctly-decided cases become precedent, used to resolve similar disputes.</p>
+    <p class="en">Correctly-decided cases are added to the body of common law as precedent; though not necessarily binding, they are used to resolve similar disputes.</p>
   </div>
   <div class="sub3" id="b2-3-2">
-    <h4>区分案件 <span class="en">Distinguishing</span></h4>
+    <h4><span class="snum">1.2.3.2</span> 区分案件 <span class="en">Distinguishing</span></h4>
     <p>当先例与本案事实相似但不完全相同，律师可主张「区分」以规避先例的拘束。</p>
-    <p class="en">Where precedent is factually similar but not identical, a lawyer may "distinguish" to avoid being bound.</p>
+    <p class="en">Where a precedent is factually similar but not identical, a lawyer may "distinguish" the case at bar — pointing out differences of fact or circumstance to avoid being bound by it.</p>
   </div>
   <div class="sub3" id="b2-3-3">
-    <h4>判决理由 <span class="en">Ratio decidendi</span></h4>
+    <h4><span class="snum">1.2.3.3</span> 判决理由 <span class="en">Ratio decidendi</span></h4>
     <p>拘束力来自判例中的「逻辑/理由」，而非结果——推理错误的案件不构成先例（Sir Edward Coke 语）。</p>
-    <p class="en">What binds is the logic/reasoning, not the bare result — a wrongly-reasoned case is not precedent (Coke).</p>
+    <p class="en">What binds is the logic or reasoning within the past case (the ratio decidendi), not the bare result. A wrongly-reasoned case is not precedent — as Sir Edward Coke observed, precedent binds because of the reasoned opinion, not merely because it was decided.</p>
   </div>
   <div class="sub3" id="b2-3-4">
-    <h4>首例案件 <span class="en">Case of first impression</span></h4>
+    <h4><span class="snum">1.2.3.4</span> 首例案件 <span class="en">Case of first impression</span></h4>
     <p>无先例可循，法院须另寻法理（博学评注、政策考量）；亦可推翻先例或前瞻性推翻。</p>
-    <p class="en">With no precedent, the court seeks law elsewhere; it may also overrule or prospectively overrule.</p>
+    <p class="en">With no precedent to follow, the court must seek law elsewhere (learned commentary, policy concerns). A court may also overrule precedent, or apply the old law now while announcing a different rule prospectively.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b2-4">
-<summary><span class="arrow">▶</span><span>Pierson v. Post（1805 狐狸案） <span class="en">The fox case</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.2.4</span><span>Pierson v. Post（1805 狐狸案） <span class="en">The fox case</span></span></summary>
 <div class="body">
   <div class="case"><div class="c-title">案情 Facts</div>
     <p>猎人 Post 追猎狐狸，即将得手时被闯入者 Pierson 抢走。初审判归 Post；纽约州最高法院改判归 Pierson。</p>
-    <p class="en">Hunter Post chased a fox; interloper Pierson grabbed it. Trial court: Post; NY Supreme Court reversed: Pierson.</p>
+    <p class="en">Hunter Post chased a fox; just as he was about to catch it, interloper Pierson grabbed it and carried it away. The trial court awarded the fox to Post, but the NY Supreme Court reversed — awarding it to Pierson.</p>
   </div>
-  <div class="sub3"><h4>法律争点 <span class="en">Issue</span></h4>
+  <div class="sub3"><h4><span class="snum">1.2.4.1</span> 法律争点 <span class="en">Issue</span></h4>
     <p>人何时对野生动物取得财产权？（也是知识产权法的本质问题：创意何时受保护）</p>
-    <p class="en">When does a person acquire property in a wild animal? (Also the essence of IP law.)</p>
+    <p class="en">When does a person acquire property in a wild animal? (This is also the essence of intellectual-property law: when does a "floating" idea become protectable?)</p>
   </div>
-  <div class="sub3"><h4>最终规则 <span class="en">Rule</span></h4>
+  <div class="sub3"><h4><span class="snum">1.2.4.2</span> 最终规则 <span class="en">Rule</span></h4>
     <p>采纳 Barbeyrac 观点：野生动物在被「击伤、围困或捕获……以致丧失天然自由」时才取得所有权。</p>
-    <p class="en">Ownership when "wounded, circumvented or ensnared … so as to deprive them of their natural liberty."</p>
+    <p class="en">Adopting Barbeyrac's view, the majority held that ownership in a wild animal occurs when it is "wounded, circumvented or ensnared … so as to deprive them of their natural liberty."</p>
   </div>
-  <div class="sub3"><h4>政策之争 <span class="en">Policy debate</span></h4>
+  <div class="sub3"><h4><span class="snum">1.2.4.3</span> 政策之争 <span class="en">Policy debate</span></h4>
     <ul>
       <li><b>多数（Tompkins）</b>：明确界限规则（bright-line），行政效率高、易执行。</li>
       <li><b>异议（Livingston）</b>：经济效率——奖励猎人劳动、鼓励投资创业；预示现代 ADR。</li>
     </ul>
-    <p class="en">Majority = administrative efficiency (bright-line); dissent = economic efficiency (reward labor).</p>
+    <p class="en">Majority (Tompkins): a bright-line rule that is easy to apply and administratively efficient. Dissent (Livingston): economic efficiency — rewarding the hunter's labor and encouraging enterprise; his comment also foreshadows modern ADR.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b2-5">
-<summary><span class="arrow">▶</span><span>Popov v. Hayashi（2002 棒球案） <span class="en">The baseball case</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.2.5</span><span>Popov v. Hayashi（2002 棒球案） <span class="en">The baseball case</span></span></summary>
 <div class="body">
   <div class="case"><div class="c-title">案情 Facts</div>
     <p>Barry Bonds 破纪录本垒打球飞入 Popov 手套，遭球迷袭击脱手，滚入 Hayashi 手中。Popov 诉返还。</p>
-    <p class="en">Bonds' record home-run ball landed in Popov's glove, was knocked loose by a mob, and rolled to Hayashi.</p>
+    <p class="en">Barry Bonds' record home-run ball landed in Popov's glove, but a mob knocked it loose and it rolled into Hayashi's hands. Popov sued for conversion.</p>
   </div>
-  <div class="sub3"><h4>区分案件 <span class="en">Distinguishing</span></h4>
+  <div class="sub3"><h4><span class="snum">1.2.5.1</span> 区分案件 <span class="en">Distinguishing</span></h4>
     <p>法院采纳 Gray 规则（占有须「保持控制」），并区分 Pierson（放宽标准的情境不适用于棒球）。</p>
-    <p class="en">The court adopted Gray's Rule and distinguished Pierson (its relaxed standard doesn't apply to a baseball).</p>
+    <p class="en">The court adopted Gray's Rule — possession requires retaining control — and distinguished Pierson, whose relaxed standard (for a harpooned whale, fleeing fox, or sunken ship) does not apply to a baseball.</p>
   </div>
-  <div class="sub3"><h4>占有前利益 + 衡平分割 <span class="en">Pre-possessory interest & equitable division</span></h4>
+  <div class="sub3"><h4><span class="snum">1.2.5.2</span> 占有前利益 + 衡平分割 <span class="en">Pre-possessory interest & equitable division</span></h4>
     <p>Popov 被暴力剥夺控制，法院创设「占有前利益」（不能让结果由暴力决定）；双方均无过错，球须出售、价款平分。</p>
-    <p class="en">A pre-possessory interest for Popov (violence can't decide); then equitable division — the ball sold, proceeds split.</p>
+    <p class="en">Because Popov was deprived of control by violence, the court created a "pre-possessory interest" (the result must not be dictated by violence). Since both parties were innocent victims, it ordered equitable division — the ball sold and the proceeds split equally.</p>
   </div>
 </div>
 </details>
@@ -416,105 +407,126 @@
 <h2><span class="num">1.3</span>宪政体系与解释 · Constitutional System &amp; Interpretation</h2>
 
 <details class="branch" id="b3-1">
-<summary><span class="arrow">▶</span><span>三大结构原则 <span class="en">Three structural principles</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.3.1</span><span>三大结构原则 <span class="en">Three structural principles</span></span></summary>
 <div class="body">
-  <ul>
-    <li><b>联邦制</b>（federalism）：纵向分权（国家 vs 州）。</li>
-    <li><b>三权分立</b>（separation of powers）：横向制衡（checks and balances）。</li>
-    <li><b>至上条款</b>（Supremacy Clause）：联邦法最高。</li>
-  </ul>
+  <div class="sub3" id="b3-1-1">
+    <h4><span class="snum">1.3.1.1</span> 联邦制 <span class="en">Federalism</span></h4>
+    <p>纵向分权（国家 vs 州），通过「分割」限制政府权力。</p>
+    <p class="en">The vertical division of power between the national and state governments, limiting governmental power by fragmenting it.</p>
+  </div>
+  <div class="sub3" id="b3-1-2">
+    <h4><span class="snum">1.3.1.2</span> 三权分立 <span class="en">Separation of powers</span></h4>
+    <p>横向制衡（checks and balances），各平等分支需相互同意才能行动。</p>
+    <p class="en">The horizontal division of power among the three co-equal federal branches, creating checks and balances that require the concurrence of the others.</p>
+  </div>
+  <div class="sub3" id="b3-1-3">
+    <h4><span class="snum">1.3.1.3</span> 至上条款 <span class="en">Supremacy Clause</span></h4>
+    <p>联邦宪法、法律、条约优先于相冲突的州法。</p>
+    <p class="en">Federal law — the Constitution, statutes, and treaties — prevails over conflicting state law.</p>
+  </div>
   <p class="lead">宪法是「授权文件」（document of grant）：国家政府只有宪法授予的权力；第十修正案把未授予的权力保留给州或人民。</p>
-  <p class="en">Federalism (vertical), separation of powers (horizontal), Supremacy Clause. The Constitution is a "document of grant."</p>
+  <p class="en">The Constitution is a "document of grant" — the national government has only the powers delegated to it; the Tenth Amendment reserves all other powers to the states or the people.</p>
 </div>
 </details>
 
 <details class="branch" id="b3-2">
-<summary><span class="arrow">▶</span><span>宪法条文三类 <span class="en">Three types of provisions</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.3.2</span><span>宪法条文三类 <span class="en">Three types of provisions</span></span></summary>
 <div class="body">
-  <ul>
-    <li><b>具体规则</b>：总统须出生公民、年满 35 岁、最多两届（无歧义）。</li>
-    <li><b>相当具体</b>：言论自由（内容中立、时间地点方式限制）。</li>
-    <li><b>开放式</b>：第八修正案「残酷异常刑罚」、正当程序、平等保护。</li>
-  </ul>
+  <div class="sub3" id="b3-2-1">
+    <h4><span class="snum">1.3.2.1</span> 具体规则 <span class="en">Specific rules</span></h4>
+    <p>总统须出生公民、年满 35 岁、最多两届（无歧义，可能有争议）。</p>
+    <p class="en">The president must be a natural-born citizen, at least 35 years old, and serve no more than two terms — rules with no ambiguity (though possibly controversy).</p>
+  </div>
+  <div class="sub3" id="b3-2-2">
+    <h4><span class="snum">1.3.2.2</span> 相当具体 <span class="en">Reasonably specific</span></h4>
+    <p>言论自由（内容中立、观点中立、时间地点方式限制）。</p>
+    <p class="en">Free speech, with its built-in principles of content and viewpoint neutrality and "time, place, and manner" restrictions — provisions that still require some judicial judgment.</p>
+  </div>
+  <div class="sub3" id="b3-2-3">
+    <h4><span class="snum">1.3.2.3</span> 开放式 <span class="en">Open-ended</span></h4>
+    <p>第八修正案「残酷异常刑罚」、正当程序（what process is due）、平等保护（最棘手）。</p>
+    <p class="en">The Eighth Amendment's "cruel and unusual punishment," due process ("what process is due"), and equal protection — the most vexing open-ended provision, whose text offers little guidance.</p>
+  </div>
   <p class="lead">谁解释？三个分支都宣誓捍卫宪法；但法院通常有「最后发言权」（last word）。</p>
-  <p class="en">Specific / reasonably specific / open-ended. All branches take the oath, but courts have the last word.</p>
+  <p class="en">Who interprets? All three branches take an oath to the Constitution, but the courts generally have the last word.</p>
 </div>
 </details>
 
 <details class="branch" id="b3-3">
-<summary><span class="arrow">▶</span><span>关键权力 <span class="en">Key powers</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.3.3</span><span>关键权力 <span class="en">Key powers</span></span></summary>
 <div class="body">
   <div class="sub3" id="b3-3-1">
-    <h4>商业条款 <span class="en">Commerce Clause</span></h4>
+    <h4><span class="snum">1.3.3.1</span> 商业条款 <span class="en">Commerce Clause</span></h4>
     <ul>
       <li><b>Wickard v. Filburn (1942)</b>：聚合效应（自用小麦也影响州际市场）——最广读法。</li>
       <li><b>Lopez (1995) / Morrison (2000)</b>：收窄——须经济/商业性质。</li>
       <li><b>NFIB v. Sebelius (2012)</b>：不能规制「不行为」（inactivity）。</li>
       <li><b>Gonzales v. Raich (2005)</b>：纯州内大麻也可被联邦规制。</li>
     </ul>
-    <p class="en">Wickard (aggregate effects) → Lopez/Morrison (narrowing) → Obamacare (no inactivity) → Raich.</p>
+    <p class="en">Wickard (1942) established the "aggregate effects" test — even home-consumed wheat affects the interstate market. Lopez (1995) and Morrison (2000) narrowed the power to economic/commercial activity. NFIB v. Sebelius (2012) barred regulating "inactivity." Raich (2005) held that even purely intrastate marijuana is regulable.</p>
   </div>
   <div class="sub3" id="b3-3-2">
-    <h4>必要与适当条款 <span class="en">Necessary and Proper Clause</span></h4>
+    <h4><span class="snum">1.3.3.2</span> 必要与适当条款 <span class="en">Necessary and Proper Clause</span></h4>
     <p>McCulloch v. Maryland (1819)：只要「目的合法＋手段适当」，即为合宪。</p>
-    <p class="en">McCulloch (1819): "let the end be legitimate … and all means … plainly adapted" are constitutional.</p>
+    <p class="en">McCulloch v. Maryland (1819): so long as the end is legitimate and the means are appropriate and plainly adapted to it, the law is constitutional.</p>
   </div>
   <div class="sub3" id="b3-3-3">
-    <h4>司法审查 <span class="en">Judicial review</span></h4>
+    <h4><span class="snum">1.3.3.3</span> 司法审查 <span class="en">Judicial review</span></h4>
     <p>Marbury v. Madison (1803)：「阐明法律是什么，是司法部门的职责」——「与宪法抵触的法律无效」。也带来 Bickel 的「反多数难题」（countermajoritarian difficulty）。</p>
-    <p class="en">Marbury (1803): "it is emphatically the province of the judiciary to say what the law is." Raises the countermajoritarian difficulty.</p>
+    <p class="en">Marbury v. Madison (1803): "It is emphatically the province and duty of the judicial department to say what the law is" — and "a law repugnant to the Constitution is void." This also raises Bickel's "countermajoritarian difficulty": unelected judges have the final word.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b3-4">
-<summary><span class="arrow">▶</span><span>权利法案（前十修正案） <span class="en">Bill of Rights</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.3.4</span><span>权利法案（前十修正案） <span class="en">Bill of Rights</span></span></summary>
 <div class="body">
   <ul>
-    <li><b>第一</b>：宗教（政教分离/自由行使）、言论、集会、请愿</li>
-    <li><b>第二</b>：持有与携带武器</li>
-    <li><b>第四五六</b>：刑事司法保护</li>
-    <li><b>第五</b>：正当程序（未经正当程序不得剥夺生命、自由、财产）</li>
-    <li><b>第七</b>：陪审团</li>
-    <li><b>第八</b>：禁止残酷异常刑罚</li>
+    <li><b>第一</b>：宗教（政教分离/自由行使）、言论、集会、请愿 <span class="en">religion, speech, assembly, petition</span></li>
+    <li><b>第二</b>：持有与携带武器 <span class="en">keep and bear arms</span></li>
+    <li><b>第四五六</b>：刑事司法保护 <span class="en">criminal-justice protections</span></li>
+    <li><b>第五</b>：正当程序（未经正当程序不得剥夺生命、自由、财产） <span class="en">due process of law</span></li>
+    <li><b>第七</b>：陪审团 <span class="en">jury trial</span></li>
+    <li><b>第八</b>：禁止残酷异常刑罚 <span class="en">no cruel and unusual punishment</span></li>
   </ul>
-  <p class="lead">应「整体地」（holistically）看待权利法案乃至整部宪法。</p>
+  <p class="lead">应「整体地」（holistically）看待权利法案乃至整部宪法——它们共同构成公民权利与自由的基本架构。</p>
+  <p class="en">The Bill of Rights — and indeed the whole Constitution — should be viewed holistically, as providing the basic architecture of American civil rights and liberties.</p>
 </div>
 </details>
 
 <details class="branch" id="b3-5">
-<summary><span class="arrow">▶</span><span>第十四修正案 <span class="en">Fourteenth Amendment</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.3.5</span><span>第十四修正案 <span class="en">Fourteenth Amendment</span></span></summary>
 <div class="body">
   <div class="sub3" id="b3-5-1">
-    <h4>正当程序 <span class="en">Due process</span></h4>
+    <h4><span class="snum">1.3.5.1</span> 正当程序 <span class="en">Due process</span></h4>
     <p>程序性＋实体性；<b>合并原则</b>（incorporation）把权利法案适用于州；经济（Lochner 1905，后被摒弃）→ 个人（Lawrence 2003）。</p>
-    <p class="en">Procedural + substantive + incorporation; economic (Lochner) → personal (Lawrence).</p>
+    <p class="en">Due process is both procedural and substantive. The "incorporation" doctrine applies virtually all Bill of Rights protections against the states. Its substantive focus shifted from economic liberty (Lochner 1905, later repudiated) to personal rights (Lawrence 2003).</p>
   </div>
   <div class="sub3" id="b3-5-2">
-    <h4>平等保护 <span class="en">Equal protection</span></h4>
+    <h4><span class="snum">1.3.5.2</span> 平等保护 <span class="en">Equal protection</span></h4>
     <p>Civil Rights Cases (1883) → Plessy「隔离但平等」(1896) → Brown「本质上不平等」(1954)；平权行动（Gratz/Fisher）；性别歧视中间审查（VMI 1996）。</p>
-    <p class="en">Plessy → Brown; affirmative action (Gratz/Fisher); intermediate scrutiny for gender (VMI).</p>
+    <p class="en">From the Civil Rights Cases (1883) to Plessy's "separate but equal" (1896) to Brown's "inherently unequal" (1954); affirmative action (Gratz/Fisher); and intermediate scrutiny for gender discrimination (VMI 1996).</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b3-6">
-<summary><span class="arrow">▶</span><span>隐私权 <span class="en">Privacy</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.3.6</span><span>隐私权 <span class="en">Privacy</span></span></summary>
 <div class="body">
   <ul>
-    <li><b>第九修正案</b>：暗示存在未列举的权利。</li>
-    <li><b>Griswold (1965)</b>：从宪法「半影」（penumbra）确立隐私权。</li>
-    <li><b>Roe v. Wade (1973)</b>：堕胎权；<b>Obergefell (2015)</b>：同性婚姻；<b>Bostock (2020)</b>：LGBTQ 职场保护。</li>
+    <li><b>第九修正案</b>：暗示存在未列举的权利。 <span class="en">The Ninth Amendment implies unenumerated rights exist.</span></li>
+    <li><b>Griswold (1965)</b>：从宪法「半影」（penumbra）确立隐私权。 <span class="en">Griswold located a right to privacy in the Constitution's "penumbra."</span></li>
+    <li><b>Roe v. Wade (1973)</b>：堕胎权；<b>Obergefell (2015)</b>：同性婚姻；<b>Bostock (2020)</b>：LGBTQ 职场保护。 <span class="en">Roe (abortion), Obergefell (same-sex marriage), Bostock (LGBTQ workplace protection).</span></li>
   </ul>
 </div>
 </details>
 
 <details class="branch" id="b3-7">
-<summary><span class="arrow">▶</span><span>解释哲学之争 <span class="en">Interpretive debate</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.3.7</span><span>解释哲学之争 <span class="en">Interpretive debate</span></span></summary>
 <div class="body">
   <p class="lead"><b>原旨主义</b>（originalism）：只保护制宪者原本明确阐述的权利，变化应诉诸修宪（旗手 Scalia）。</p>
   <p class="lead"><b>活的宪法</b>（living constitution）：权利法案是「有机的」，可适用于现代情境。</p>
-  <p class="en">Originalism vs the living constitution.</p>
+  <p class="en">Originalism protects only rights the Framers expressly elaborated, resorting to amendment for change (championed by Justice Scalia). The "living constitution" view treats the Bill of Rights as organic, applying to modern contexts.</p>
 </div>
 </details>
 </section>
@@ -524,44 +536,54 @@
 <h2><span class="num">1.4</span>联邦政府 · Federal Government</h2>
 
 <details class="branch" id="b4-1">
-<summary><span class="arrow">▶</span><span>三权分立 <span class="en">Separation of powers</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.4.1</span><span>三权分立 <span class="en">Separation of powers</span></span></summary>
 <div class="body">
-  <ul>
-    <li><b>立法</b>：国会 = 参议院 100 + 众议院 435，制定法律、批准法官、预算、宣战。</li>
-    <li><b>行政</b>：总统 + 副总统 + 内阁，执行法律，雇员超 400 万。</li>
-    <li><b>司法</b>：法院至最高法院，解释法律，9 名大法官终身任职。</li>
-  </ul>
+  <div class="sub3" id="b4-1-1">
+    <h4><span class="snum">1.4.1.1</span> 立法 <span class="en">Legislative</span></h4>
+    <p>国会 = 参议院 100 + 众议院 435，制定法律、批准法官、预算、宣战。</p>
+    <p class="en">Congress (Senate 100 + House 435) makes the laws, approves judges, passes the budget, and declares war.</p>
+  </div>
+  <div class="sub3" id="b4-1-2">
+    <h4><span class="snum">1.4.1.2</span> 行政 <span class="en">Executive</span></h4>
+    <p>总统 + 副总统 + 内阁（Cabinet），执行法律，雇员超 400 万。</p>
+    <p class="en">The President, Vice President, and Cabinet enforce the law; the branch employs over four million people.</p>
+  </div>
+  <div class="sub3" id="b4-1-3">
+    <h4><span class="snum">1.4.1.3</span> 司法 <span class="en">Judicial</span></h4>
+    <p>法院至最高法院，解释法律，9 名大法官终身任职（唯一终身制职位）。</p>
+    <p class="en">The courts, up to the Supreme Court, interpret the law; its nine justices serve for life — the only life-tenured office.</p>
+  </div>
   <p class="lead">制衡理念：「野心用野心对抗」（ambition counteracts ambition，麦迪逊语）。</p>
-  <p class="en">Legislative, Executive, Judicial — "ambition counteracts ambition" (Madison).</p>
+  <p class="en">The underlying idea is checks and balances — "ambition counteracts ambition" (Madison).</p>
 </div>
 </details>
 
 <details class="branch" id="b4-2">
-<summary><span class="arrow">▶</span><span>选举程序 <span class="en">Electoral process</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.4.2</span><span>选举程序 <span class="en">Electoral process</span></span></summary>
 <div class="body">
   <div class="sub3" id="b4-2-1">
-    <h4>国会两院 <span class="en">Congress</span></h4>
+    <h4><span class="snum">1.4.2.1</span> 国会两院 <span class="en">Congress</span></h4>
     <p>众议院：按人口、一人一票、任期 2 年；参议院：每州 2 名（共 100）、任期 6 年、第 17 修正案（1913）改由人民直选。</p>
-    <p class="en">House: by population, one-person-one-vote, 2-yr terms. Senate: 2/state, 6-yr terms, direct election since the 17th Amendment.</p>
+    <p class="en">The House: allocated by population under "one person, one vote," with 2-year terms. The Senate: two per state (100 total), 6-year terms, directly elected since the 17th Amendment (1913).</p>
   </div>
   <div class="sub3" id="b4-2-2">
-    <h4>现任者优势 <span class="en">Incumbency</span></h4>
+    <h4><span class="snum">1.4.2.2</span> 现任者优势 <span class="en">Incumbency</span></h4>
     <p>参 87% / 众 95%。四原因：知名度、资金（参 $1000 万/众 $150 万）、照顾选民、选区划分（gerrymandering）。</p>
-    <p class="en">Senate 87% / House 95%. Reasons: name recognition, money, serving constituents, gerrymandering.</p>
+    <p class="en">Re-election rates are 87% (Senate) and over 95% (House). Four reasons: name recognition, money (Senate ~$10M, House ~$1.5M), the ability to serve constituents' interests, and gerrymandered districts.</p>
   </div>
   <div class="sub3" id="b4-2-3">
-    <h4>总统选举人团 <span class="en">Electoral College</span></h4>
+    <h4><span class="snum">1.4.2.3</span> 总统选举人团 <span class="en">Electoral College</span></h4>
     <p>538 人、270 票当选、赢者通吃；第 22 修正案限两届；失信选举人极少。2016/2000：普选票多却输选举人团。</p>
-    <p class="en">538 electors, 270 to win, winner-take-all; two terms (22nd Amend.). 2016 &amp; 2000: popular vote ≠ electoral win.</p>
+    <p class="en">538 electors, 270 votes to win, and a "winner-take-all" rule in all but two states; the 22nd Amendment caps presidents at two terms. In 2016 and 2000 the popular-vote winner lost the Electoral College.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b4-3">
-<summary><span class="arrow">▶</span><span>党派 <span class="en">Partisanship</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.4.3</span><span>党派 <span class="en">Partisanship</span></span></summary>
 <div class="body">
   <p class="lead">两党制高度极化 → 跨党妥协困难 → 「僵局」（gridlock）。例：2016 奥巴马提名 Garland 填补 Scalia 空缺，因僵局失败。多数党控制国会领导权、委员会任命与议程。</p>
-  <p class="en">Polarization → gridlock (e.g., Garland 2016). The majority party controls leadership, committees, and the agenda.</p>
+  <p class="en">Deep two-party polarization makes compromise hard, producing "gridlock" — e.g., Obama's 2016 nomination of Garland (after Scalia's death) failed. The majority party controls congressional leadership, committee assignments, and the agenda.</p>
 </div>
 </details>
 </section>
@@ -571,36 +593,52 @@
 <h2><span class="num">1.5</span>州与地方政府 · State &amp; Local Government</h2>
 
 <details class="branch" id="b5-1">
-<summary><span class="arrow">▶</span><span>警察权 <span class="en">Police power</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.5.1</span><span>警察权 <span class="en">Police power</span></span></summary>
 <div class="body">
   <p class="lead">州拥有规制<b>健康、安全、福利</b>的广泛造法权——「警察权」（police power），是第十修正案「剩余权力归州/人民」的体现。大部分日常法律（执法、K-12 教育、土地使用/分区、执照）来自州。</p>
-  <p class="en">States hold the "police power" (health, safety, welfare) via the Tenth Amendment. Most everyday law comes from states.</p>
+  <p class="en">States hold the "police power" — broad authority to regulate health, safety, and welfare — reflecting the Tenth Amendment's reservation of powers to the states. Most everyday law (law enforcement, K-12 education, land use/zoning, licensing) comes from the states.</p>
 </div>
 </details>
 
 <details class="branch" id="b5-2">
-<summary><span class="arrow">▶</span><span>州政府结构 <span class="en">State structure</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.5.2</span><span>州政府结构 <span class="en">State structure</span></span></summary>
 <div class="body">
-  <ul>
-    <li><b>立法</b>：两院制（除内布拉斯加）、两院都须「一人一票」。</li>
-    <li><b>行政</b>：多元行政（plural executive）——官员分别直选，州长权力受限。</li>
-    <li><b>司法</b>：州法官常由人民直选（甚至党派选举）。</li>
-  </ul>
-  <p class="en">Legislature (bicameral except NE); plural executive; judges often directly elected.</p>
+  <div class="sub3" id="b5-2-1">
+    <h4><span class="snum">1.5.2.1</span> 立法 <span class="en">Legislature</span></h4>
+    <p>两院制（除内布拉斯加一院制）、两院都须「一人一票」（与联邦参议院的例外不同）。</p>
+    <p class="en">Bicameral (except Nebraska's unicameral legislature); unlike the U.S. Senate, both state houses must meet the "one person, one vote" equality requirement.</p>
+  </div>
+  <div class="sub3" id="b5-2-2">
+    <h4><span class="snum">1.5.2.2</span> 行政（多元行政） <span class="en">Plural executive</span></h4>
+    <p>州检察长、副州长等由人民分别直选，可与州长不同党，州长政策权力因此受限。</p>
+    <p class="en">Officials like the attorney general and lieutenant governor are elected separately by the people — possibly of a different party — so the governor's policy power is more limited than the president's.</p>
+  </div>
+  <div class="sub3" id="b5-2-3">
+    <h4><span class="snum">1.5.2.3</span> 司法 <span class="en">Judiciary</span></h4>
+    <p>州最高法院管理州司法，州法官常由人民直选（甚至党派选举）。</p>
+    <p class="en">A state supreme court manages judicial business; unlike federal judges, state judges are often directly elected — sometimes in partisan elections.</p>
+  </div>
 </div>
 </details>
 
 <details class="branch" id="b5-3">
-<summary><span class="arrow">▶</span><span>地方政府 <span class="en">Local government</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.5.3</span><span>地方政府 <span class="en">Local government</span></span></summary>
 <div class="body">
-  <ul>
-    <li>是「州政府的产物」（creatures of state government）。</li>
-    <li>治理：<b>强市长制</b> vs <b>城市经理制</b>。</li>
-    <li><b>地方自治</b>（home rule）决定市权大小。</li>
-    <li>专门机构：学区委员会、分区委员会、跨界区域性机构。</li>
-    <li>财政：高度依赖财产税（property tax）、销售税、债券。</li>
-  </ul>
-  <p class="en">"Creatures of state government"; strong-mayor vs city-manager; home rule; property taxes.</p>
+  <div class="sub3" id="b5-3-1">
+    <h4><span class="snum">1.5.3.1</span> 法律地位 <span class="en">Legal status</span></h4>
+    <p>是「州政府的产物」（creatures of state government），可由州创设/解散。</p>
+    <p class="en">Local governments are "creatures of state government" — created and dissolved by state legislative decisions.</p>
+  </div>
+  <div class="sub3" id="b5-3-2">
+    <h4><span class="snum">1.5.3.2</span> 治理模式 <span class="en">Governance models</span></h4>
+    <p>强市长制（strong-mayor）vs 城市经理制（city-manager）；地方自治（home rule）决定市权大小。</p>
+    <p class="en">Two models: the strong-mayor system and the city-manager system; "home rule" determines how much authority a municipality has.</p>
+  </div>
+  <div class="sub3" id="b5-3-3">
+    <h4><span class="snum">1.5.3.3</span> 专门机构与财政 <span class="en">Specialized bodies & finance</span></h4>
+    <p>学区委员会、分区委员会、跨界区域性机构；财政高度依赖财产税（property tax）、销售税、债券。</p>
+    <p class="en">School boards, zoning boards, and regional authorities handle specialized functions; local finance relies heavily on property taxes, sales taxes, and bonds.</p>
+  </div>
 </div>
 </details>
 </section>
@@ -610,62 +648,68 @@
 <h2><span class="num">1.6</span>联邦制 · Federalism</h2>
 
 <details class="branch" id="b6-1">
-<summary><span class="arrow">▶</span><span>定义与理由 <span class="en">Definition &amp; rationale</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.6.1</span><span>定义与理由 <span class="en">Definition &amp; rationale</span></span></summary>
 <div class="body">
-  <p class="lead">联邦制指州与联邦的<b>纵向</b>法律关系（vs 三权分立的横向）。两大理由：① <b>限制政府权力</b>（防「无代表征税」式强大中央干预）；② <b>决策贴近人民</b>（地方知识）。</p>
-  <p class="en">Vertical state–federal relationship. Two rationales: limit power; keep decisions near the people.</p>
+  <div class="sub3" id="b6-1-1">
+    <h4><span class="snum">1.6.1.1</span> 定义 <span class="en">Definition</span></h4>
+    <p>联邦制指州与联邦的<b>纵向</b>法律关系（vs 三权分立的横向）。</p>
+    <p class="en">Federalism is the vertical legal relationship between state and national governments (contrasted with the horizontal separation of powers).</p>
+  </div>
+  <div class="sub3" id="b6-1-2">
+    <h4><span class="snum">1.6.1.2</span> 两大理由 <span class="en">Two rationales</span></h4>
+    <p>① <b>限制政府权力</b>（防「无代表征税」式强大中央干预）；② <b>决策贴近人民</b>（地方知识）。</p>
+    <p class="en">① It limits government power — guarding against broad central intervention of the sort that provoked "taxation without representation." ② It keeps decision-making close to the people, where local knowledge resides.</p>
+  </div>
 </div>
 </details>
 
 <details class="branch" id="b6-2">
-<summary><span class="arrow">▶</span><span>结构保障 <span class="en">Structural protection</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.6.2</span><span>结构保障 <span class="en">Structural protection</span></span></summary>
 <div class="body">
   <ul>
-    <li><b>参议院</b>：每州 2 名，任何立法须两院一致同意。</li>
-    <li><b>选举人团</b>：给各州在总统选举中的重要角色。</li>
+    <li><b>参议院</b>：每州 2 名，任何立法须两院一致同意。 <span class="en">The Senate — two per state — gives states a structural safeguard, since legislation requires both houses.</span></li>
+    <li><b>选举人团</b>：给各州在总统选举中的重要角色。 <span class="en">The Electoral College gives states an important role in choosing the president.</span></li>
   </ul>
-  <p class="en">The Senate (two per state) and the Electoral College give states structural protection.</p>
 </div>
 </details>
 
 <details class="branch" id="b6-3">
-<summary><span class="arrow">▶</span><span>商业条款冲突 <span class="en">Commerce Clause conflicts</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.6.3</span><span>商业条款冲突 <span class="en">Commerce Clause conflicts</span></span></summary>
 <div class="body">
   <p class="lead">商业条款是联邦—州冲突的主战场：新政（1930s–40s）后联邦连连获胜；1990 年代 <b>Lopez</b>（校园持枪）叫停。冲突由法院解决——联邦制「充满活力却也并不稳定」。</p>
-  <p class="en">Post-New Deal federal victories, halted by Lopez (1990s). Conflicts resolved by courts — federalism is "alive but unstable."</p>
+  <p class="en">The Commerce Clause is the main battleground: after the New Deal (1930s–40s) the federal government won consistently, until Lopez (guns near schools) halted the streak in the 1990s. Courts resolve these conflicts — federalism is "alive but unstable."</p>
 </div>
 </details>
 
 <details class="branch" id="b6-4">
-<summary><span class="arrow">▶</span><span>Gonzales v. Raich（2005）案例 <span class="en">Gonzales v. Raich</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.6.4</span><span>Gonzales v. Raich（2005）案例 <span class="en">Gonzales v. Raich</span></span></summary>
 <div class="body">
   <div class="case"><div class="c-title">案情 Facts</div>
     <p>加州《慈悲使用法》(1996) 允许医用大麻。Raich 与 Monson 自种自用；DEA 查抄销毁 Monson 的 6 株大麻。二人诉联邦《管制物质法》(CSA) 违反商业条款。第九巡回法院判其胜诉；最高法院撤销。</p>
-    <p class="en">California's Compassionate Use Act authorized medical marijuana; DEA seized Monson's plants. The patients sued; the Ninth Circuit sided with them; SCOTUS reversed.</p>
+    <p class="en">California's Compassionate Use Act (1996) authorized medical marijuana. Raich and Monson grew and used it themselves; the DEA seized and destroyed Monson's six plants. They sued, arguing the Controlled Substances Act (CSA) exceeded the Commerce Clause. The Ninth Circuit sided with them; the Supreme Court reversed.</p>
   </div>
-  <div class="sub3"><h4>判决（6–3，Stevens） <span class="en">Holding</span></h4>
+  <div class="sub3"><h4><span class="snum">1.6.4.1</span> 判决（6–3，Stevens） <span class="en">Holding</span></h4>
     <p>CSA 合宪。三步：① 大麻存在巨大（非法）州际市场；② 自种自用聚合上影响市场供需（Wickard）；③ 只需「理性基础」（rational basis）。并区分 Lopez/Morrison（整体违宪 vs 具体适用）。</p>
-    <p class="en">Constitutional: Wickard aggregate-effects + rational-basis; distinguished Lopez/Morrison (facial vs as-applied).</p>
+    <p class="en">The CSA is constitutional. Three steps: (1) there is a huge (illegal) interstate marijuana market; (2) homegrown use, in the aggregate, affects supply and demand (Wickard); (3) only a "rational basis" is required. It also distinguished Lopez/Morrison as facial challenges, whereas this was an as-applied challenge.</p>
   </div>
-  <div class="sub3"><h4>各意见 <span class="en">Opinions</span></h4>
+  <div class="sub3"><h4><span class="snum">1.6.4.2</span> 各意见 <span class="en">Opinions</span></h4>
     <ul>
-      <li><b>协同（Scalia）</b>：依据「必要与适当条款」而非商业条款本身。</li>
-      <li><b>异议（Thomas）</b>：「既非州际也非商业」。</li>
-      <li><b>异议（O'Connor）</b>：无证据即等于「一般警察权」，侵蚀州主权与「实验室」价值。</li>
+      <li><b>协同（Scalia）</b>：依据「必要与适当条款」而非商业条款本身。 <span class="en">Scalia concurred, resting the power on the Necessary and Proper Clause rather than the Commerce Clause alone.</span></li>
+      <li><b>异议（Thomas）</b>：「既非州际也非商业」。 <span class="en">Thomas dissented: the conduct is "neither interstate nor commerce."</span></li>
+      <li><b>异议（O'Connor）</b>：无证据即等于「一般警察权」，侵蚀州主权与「实验室」价值。 <span class="en">O'Connor dissented: without evidence, this grants a general "police power" that erodes state sovereignty and the states' role as "laboratories."</span></li>
     </ul>
-    <p class="en">Scalia: Necessary &amp; Proper. Thomas: neither interstate nor commerce. O'Connor: a general police power.</p>
   </div>
 </div>
 </details>
 
 <details class="branch" id="b6-5">
-<summary><span class="arrow">▶</span><span>思考题解答 <span class="en">Answers to guiding questions</span></span></summary>
+<summary><span class="arrow">▶</span><span class="bnum">1.6.5</span><span>思考题解答 <span class="en">Answers to guiding questions</span></span></summary>
 <div class="body">
   <p class="lead"><b>Q1 核心分歧？</b> 商业条款的外部边界——「聚合效应＋理性基础」能否触及纯州内、非商业、自用、州法授权的活动？</p>
   <p class="lead"><b>Q2 哪方更有说服力？</b> 开放题：多数更贴合判例且务实；异议更忠于联邦制结构。</p>
   <p class="lead"><b>Q3 联邦权威是否减弱？</b> 事实层执法收缩、法律层权力未变（至上条款）。</p>
   <p class="lead"><b>Q4 是否应随时代变？</b> 活的宪法 vs 原旨主义之争。</p>
-  <p class="en">Q1: the Commerce Clause's outer boundary. Q2: open. Q3: enforcement contracted, power unchanged. Q4: living constitution vs originalism.</p>
+  <p class="en">Q1: the outer boundary of the Commerce Clause — can "aggregate effects + rational basis" reach purely intrastate, noncommercial, state-authorized activity? Q2: open — the majority is more faithful to precedent and more pragmatic, while the dissent is more faithful to structural federalism. Q3: enforcement has contracted in fact, but the constitutional power is unchanged (Supremacy Clause). Q4: the living-constitution vs originalism debate.</p>
 </div>
 </details>
 </section>
@@ -698,7 +742,7 @@
 </div>
 </section>
 
-<p class="note">使用说明：点「▶」展开/收起；点目录（三级）跳转到具体子要点；搜索框过滤并自动展开匹配项；「🌓」切换深浅色。自包含 HTML，可离线在电脑、iPad、iPhone 打开。</p>
+<p class="note">使用说明：点「▶」展开/收起；点目录（三级编号）跳转到具体子要点；搜索框过滤并自动展开匹配项；「🌓」切换深浅色。自包含 HTML，可离线在电脑、iPad、iPhone 打开。</p>
 </div>
 
 <script>
@@ -728,7 +772,6 @@ function doSearch(){
 }
 function clearSearch(){ document.getElementById('search').value=''; doSearch(); }
 
-// 目录点击 → 展开目标分支（跳到子要点时展开其所在 branch）
 document.querySelectorAll('.toc-sub a, .toc-l3 a, .toc-sec a').forEach(function(a){
   a.addEventListener('click', function(e){
     var href = a.getAttribute('href');
