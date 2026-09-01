@@ -6,12 +6,12 @@
 <title>Week 1–2 综述 · Legal &amp; Regulatory Process</title>
 <style>
   :root{
-    --bg:#eef1f5; --card:#ffffff; --ink:#1f2430; --muted:#5a6472; --soft:#8a93a3;
+    --bg:#eef1f5; --card:#ffffff; --ink:#1f2430; --muted:#5a6472; --soft:#606c7e;
     --blue:#1f3b63; --blue2:#2e548a; --line:#e3e7ec; --accent:#dbe5f5;
     --case-bg:#f3f7ff; --case-border:#b8cbe8; --chip:#e7edf7; --mark:#ffe08a;
   }
   html.dark{
-    --bg:#12151b; --card:#1b1f27; --ink:#e8eaee; --muted:#a6adb8; --soft:#7a8290;
+    --bg:#12151b; --card:#1b1f27; --ink:#e8eaee; --muted:#a6adb8; --soft:#8a95a5;
     --blue:#7ea6e8; --blue2:#9db9ea; --line:#2a303a; --accent:#26374f;
     --case-bg:#1d2735; --case-border:#3a5578; --chip:#26303e; --mark:#8a6d1f;
   }
@@ -26,10 +26,10 @@
   .search-box{position:relative; flex:1;}
   .search-box input{width:100%; padding:9px 34px 9px 12px; border:1px solid var(--line); border-radius:9px; background:var(--bg); color:var(--ink); font-size:15px; outline:none;}
   .search-box input:focus{border-color:var(--blue2);}
-  .search-clear{position:absolute; right:8px; top:50%; transform:translateY(-50%); border:none; background:none; color:var(--soft); font-size:16px; cursor:pointer;}
-  .search-count{font-size:12px; color:var(--soft); white-space:nowrap;}
+  .search-clear{position:absolute; right:4px; top:50%; transform:translateY(-50%); border:none; background:none; color:var(--soft); font-size:18px; cursor:pointer; min-width:44px; min-height:44px;}
+  .search-count{font-size:13px; color:var(--soft); white-space:nowrap;}
   .toolbar{display:flex; gap:8px; margin-top:8px;}
-  .toolbar button{flex:1; border:1px solid var(--line); background:var(--card); color:var(--blue2); padding:8px 0; border-radius:8px; font-size:13.5px; cursor:pointer;}
+  .toolbar button{flex:1; border:1px solid var(--line); background:var(--card); color:var(--blue2); padding:8px 0; min-height:44px; border-radius:8px; font-size:14px; cursor:pointer;}
   .toolbar button:active{background:var(--accent);}
 
   details.toc{background:var(--card); border:1px solid var(--line); border-radius:12px; margin:14px 0; overflow:hidden;}
@@ -42,9 +42,18 @@
   .toc-sec a{color:inherit; text-decoration:none;}
   .toc-sub{margin:3px 0 1px 14px; font-size:13.5px;}
   .toc-sub a{color:var(--ink); text-decoration:none; display:block; padding:2px 0; font-weight:600;}
-  .toc-l3{margin:1px 0 1px 30px; font-size:12.5px; color:var(--soft);}
+  .toc-l3{margin:1px 0 1px 30px; font-size:13px; color:var(--soft);}
   .toc-l3 a{color:var(--soft); text-decoration:none; display:block; padding:1px 0;}
   .toc-sec .num, .toc-sub .num, .toc-l3 .num{color:var(--blue2); font-weight:700; margin-right:5px; font-variant-numeric:tabular-nums;}
+  .toc-chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
+  .toc-chip{display:inline-flex; align-items:center; gap:5px; padding:7px 13px; border:1px solid var(--line); border-radius:999px; background:var(--bg); color:var(--ink); font-size:13.5px; cursor:pointer; white-space:nowrap; line-height:1.2;}
+  .toc-chip .num{color:var(--blue2); font-weight:700; font-variant-numeric:tabular-nums;}
+  .toc-chip.active{background:var(--blue); color:#fff; border-color:var(--blue);}
+  .toc-chip.active .num{color:#fff;}
+  .toc-pane{display:none;}
+  .toc-pane.active{display:block;}
+  .toc-goto{display:inline-block; margin:4px 0 6px; color:var(--blue2); font-weight:700; font-size:13.5px; text-decoration:none;}
+  .toc-goto:hover{text-decoration:underline;}
 
   section.card{background:var(--card); border:1px solid var(--line); border-radius:12px; margin-bottom:14px; overflow:hidden; scroll-margin-top:120px;}
   section.card > h2{margin:0; padding:13px 14px; font-size:17px; color:var(--blue); display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--line);}
@@ -62,7 +71,7 @@
 
   .body{padding:6px 14px 16px 32px;}
   .lead{color:var(--ink); margin:8px 0 4px;}
-  .lead.en{color:var(--muted); font-style:italic; font-size:14px; margin:0 0 10px;}
+  .lead.en,.body > p.en{color:var(--muted); font-style:italic; font-size:14px; margin:0 0 10px;}
 
   .sub3{margin:10px 0 4px; scroll-margin-top:130px;}
   .sub3 h4{margin:0; font-size:15px; color:var(--blue2); font-weight:700;}
@@ -85,8 +94,10 @@
   th{background:var(--accent); color:var(--blue); font-weight:600;}
   tr:nth-child(even) td{background:var(--bg);}
 
-  .note{font-size:12.5px; color:var(--soft); margin-top:20px; text-align:center; line-height:1.6;}
+  .note{font-size:13px; color:var(--soft); margin-top:20px; text-align:center; line-height:1.6;}
   @media (max-width:480px){ body{font-size:15px;} .body{padding-left:18px;} }
+  :focus-visible{outline:2px solid var(--blue2); outline-offset:2px; border-radius:4px;}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; animation:none !important;} }
 </style>
 </head>
 <body>
@@ -96,95 +107,124 @@
   <div class="title">Week 1–2 综述 · Legal &amp; Regulatory Process</div>
   <div class="search-row">
     <div class="search-box">
-      <input id="search" type="search" placeholder="搜索知识点 / 判例 / 术语…" oninput="doSearch()">
-      <button class="search-clear" onclick="clearSearch()">✕</button>
+      <input id="search" type="search" placeholder="搜索知识点 / 判例 / 术语…" aria-label="搜索知识点" oninput="doSearch()">
+      <button class="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
     </div>
     <span class="search-count" id="count"></span>
   </div>
   <div class="toolbar">
     <button onclick="toggleAll(true)">全部展开</button>
     <button onclick="toggleAll(false)">全部收起</button>
-    <button onclick="toggleTheme()">🌓 深浅色</button>
+    <button onclick="toggleTheme()" aria-label="切换深浅色模式"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><span>深浅色</span></button>
   </div>
 </div>
 
 <!-- ============ 目录（三级编号） ============ -->
 <details class="toc" open>
-<summary><span class="arrow">▶</span> 完整目录（点击跳转）</summary>
+<summary><span class="arrow">▶</span> 完整目录（点横向标签切换章节）</summary>
 <div class="toc-body">
-  <div class="toc-sec"><span class="num">1.1</span><a href="#s1">课程导论</a></div>
-  <div class="toc-sub"><span class="num">1.1.1</span><a href="#b1-1">三大核心问题</a></div>
-  <div class="toc-l3"><span class="num">1.1.1.1</span><a href="#b1-1-1">法律如何制定</a></div>
-  <div class="toc-l3"><span class="num">1.1.1.2</span><a href="#b1-1-2">法律如何实施</a></div>
-  <div class="toc-l3"><span class="num">1.1.1.3</span><a href="#b1-1-3">法律如何解释</a></div>
-  <div class="toc-sub"><span class="num">1.1.2</span><a href="#b1-2">造法流程（三方互动）</a></div>
-  <div class="toc-l3"><span class="num">1.1.2.1</span><a href="#b1-2-1">立法阶段</a></div>
-  <div class="toc-l3"><span class="num">1.1.2.2</span><a href="#b1-2-2">行政阶段</a></div>
-  <div class="toc-l3"><span class="num">1.1.2.3</span><a href="#b1-2-3">司法阶段</a></div>
-  <div class="toc-l3"><span class="num">1.1.2.4</span><a href="#b1-2-4">例：自动驾驶汽车</a></div>
-  <div class="toc-sub"><span class="num">1.1.3</span><a href="#b1-3">核心概念：书本 vs 行动</a></div>
-  <div class="toc-sub"><span class="num">1.1.4</span><a href="#b1-4">典型案例：大麻</a></div>
-  <div class="toc-sub"><span class="num">1.1.5</span><a href="#b1-5">八周课程大纲</a></div>
+  <div class="toc-chips">
+    <button class="toc-chip active" data-pane="s1"><span class="num">1.1</span>课程导论</button>
+    <button class="toc-chip" data-pane="s2"><span class="num">1.2</span>法律渊源</button>
+    <button class="toc-chip" data-pane="s3"><span class="num">1.3</span>宪政体系</button>
+    <button class="toc-chip" data-pane="s4"><span class="num">1.4</span>联邦政府</button>
+    <button class="toc-chip" data-pane="s5"><span class="num">1.5</span>州与地方</button>
+    <button class="toc-chip" data-pane="s6"><span class="num">1.6</span>联邦制</button>
+    <button class="toc-chip" data-pane="s7"><span class="num">2.1</span>三权分立</button>
+    <button class="toc-chip" data-pane="cases"><span class="num">⚖</span>判例</button>
+  </div>
 
-  <div class="toc-sec"><span class="num">1.2</span><a href="#s2">法律渊源与普通法</a></div>
-  <div class="toc-sub"><span class="num">1.2.1</span><a href="#b2-1">法律渊源等级</a></div>
-  <div class="toc-l3"><span class="num">1.2.1.1</span><a href="#b2-1-1">宪法（至上条款）</a></div>
-  <div class="toc-l3"><span class="num">1.2.1.2</span><a href="#b2-1-2">联邦法律/条约</a></div>
-  <div class="toc-l3"><span class="num">1.2.1.3</span><a href="#b2-1-3">州法与市政法律</a></div>
-  <div class="toc-sub"><span class="num">1.2.2</span><a href="#b2-2">普通法（规则+方法+历史）</a></div>
-  <div class="toc-sub"><span class="num">1.2.3</span><a href="#b2-3">普通法推理工具</a></div>
-  <div class="toc-l3"><span class="num">1.2.3.1</span><a href="#b2-3-1">先例/遵循先例</a></div>
-  <div class="toc-l3"><span class="num">1.2.3.2</span><a href="#b2-3-2">区分案件</a></div>
-  <div class="toc-l3"><span class="num">1.2.3.3</span><a href="#b2-3-3">判决理由</a></div>
-  <div class="toc-l3"><span class="num">1.2.3.4</span><a href="#b2-3-4">首例案件</a></div>
-  <div class="toc-sub"><span class="num">1.2.4</span><a href="#b2-4">Pierson v. Post（狐狸案）</a></div>
-  <div class="toc-sub"><span class="num">1.2.5</span><a href="#b2-5">Popov v. Hayashi（棒球案）</a></div>
+  <div class="toc-pane active" data-pane="s1">
+    <a class="toc-goto" href="#s1">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">1.1.1</span><a href="#b1-1">三大核心问题</a></div>
+    <div class="toc-l3"><span class="num">1.1.1.1</span><a href="#b1-1-1">法律如何制定</a></div>
+    <div class="toc-l3"><span class="num">1.1.1.2</span><a href="#b1-1-2">法律如何实施</a></div>
+    <div class="toc-l3"><span class="num">1.1.1.3</span><a href="#b1-1-3">法律如何解释</a></div>
+    <div class="toc-sub"><span class="num">1.1.2</span><a href="#b1-2">造法流程（三方互动）</a></div>
+    <div class="toc-l3"><span class="num">1.1.2.1</span><a href="#b1-2-1">立法阶段</a></div>
+    <div class="toc-l3"><span class="num">1.1.2.2</span><a href="#b1-2-2">行政阶段</a></div>
+    <div class="toc-l3"><span class="num">1.1.2.3</span><a href="#b1-2-3">司法阶段</a></div>
+    <div class="toc-l3"><span class="num">1.1.2.4</span><a href="#b1-2-4">例：自动驾驶汽车</a></div>
+    <div class="toc-sub"><span class="num">1.1.3</span><a href="#b1-3">核心概念：书本 vs 行动</a></div>
+    <div class="toc-sub"><span class="num">1.1.4</span><a href="#b1-4">典型案例：大麻</a></div>
+    <div class="toc-sub"><span class="num">1.1.5</span><a href="#b1-5">八周课程大纲</a></div>
+  </div>
 
-  <div class="toc-sec"><span class="num">1.3</span><a href="#s3">宪政体系与解释</a></div>
-  <div class="toc-sub"><span class="num">1.3.1</span><a href="#b3-1">三大结构原则</a></div>
-  <div class="toc-sub"><span class="num">1.3.2</span><a href="#b3-2">宪法条文三类</a></div>
-  <div class="toc-sub"><span class="num">1.3.3</span><a href="#b3-3">关键权力</a></div>
-  <div class="toc-l3"><span class="num">1.3.3.1</span><a href="#b3-3-1">商业条款</a></div>
-  <div class="toc-l3"><span class="num">1.3.3.2</span><a href="#b3-3-2">必要与适当条款</a></div>
-  <div class="toc-l3"><span class="num">1.3.3.3</span><a href="#b3-3-3">司法审查</a></div>
-  <div class="toc-sub"><span class="num">1.3.4</span><a href="#b3-4">权利法案</a></div>
-  <div class="toc-sub"><span class="num">1.3.5</span><a href="#b3-5">第十四修正案</a></div>
-  <div class="toc-sub"><span class="num">1.3.6</span><a href="#b3-6">隐私权</a></div>
-  <div class="toc-sub"><span class="num">1.3.7</span><a href="#b3-7">解释哲学之争</a></div>
+  <div class="toc-pane" data-pane="s2">
+    <a class="toc-goto" href="#s2">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">1.2.1</span><a href="#b2-1">法律渊源等级</a></div>
+    <div class="toc-l3"><span class="num">1.2.1.1</span><a href="#b2-1-1">宪法（至上条款）</a></div>
+    <div class="toc-l3"><span class="num">1.2.1.2</span><a href="#b2-1-2">联邦法律/条约</a></div>
+    <div class="toc-l3"><span class="num">1.2.1.3</span><a href="#b2-1-3">州法与市政法律</a></div>
+    <div class="toc-sub"><span class="num">1.2.2</span><a href="#b2-2">普通法（规则+方法+历史）</a></div>
+    <div class="toc-sub"><span class="num">1.2.3</span><a href="#b2-3">普通法推理工具</a></div>
+    <div class="toc-l3"><span class="num">1.2.3.1</span><a href="#b2-3-1">先例/遵循先例</a></div>
+    <div class="toc-l3"><span class="num">1.2.3.2</span><a href="#b2-3-2">区分案件</a></div>
+    <div class="toc-l3"><span class="num">1.2.3.3</span><a href="#b2-3-3">判决理由</a></div>
+    <div class="toc-l3"><span class="num">1.2.3.4</span><a href="#b2-3-4">首例案件</a></div>
+    <div class="toc-sub"><span class="num">1.2.4</span><a href="#b2-4">Pierson v. Post（狐狸案）</a></div>
+    <div class="toc-sub"><span class="num">1.2.5</span><a href="#b2-5">Popov v. Hayashi（棒球案）</a></div>
+  </div>
 
-  <div class="toc-sec"><span class="num">1.4</span><a href="#s4">联邦政府</a></div>
-  <div class="toc-sub"><span class="num">1.4.1</span><a href="#b4-1">三权分立</a></div>
-  <div class="toc-sub"><span class="num">1.4.2</span><a href="#b4-2">选举程序</a></div>
-  <div class="toc-l3"><span class="num">1.4.2.1</span><a href="#b4-2-1">国会两院</a></div>
-  <div class="toc-l3"><span class="num">1.4.2.2</span><a href="#b4-2-2">现任者优势</a></div>
-  <div class="toc-l3"><span class="num">1.4.2.3</span><a href="#b4-2-3">总统选举人团</a></div>
-  <div class="toc-sub"><span class="num">1.4.3</span><a href="#b4-3">党派</a></div>
+  <div class="toc-pane" data-pane="s3">
+    <a class="toc-goto" href="#s3">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">1.3.1</span><a href="#b3-1">三大结构原则</a></div>
+    <div class="toc-sub"><span class="num">1.3.2</span><a href="#b3-2">宪法条文三类</a></div>
+    <div class="toc-sub"><span class="num">1.3.3</span><a href="#b3-3">关键权力</a></div>
+    <div class="toc-l3"><span class="num">1.3.3.1</span><a href="#b3-3-1">商业条款</a></div>
+    <div class="toc-l3"><span class="num">1.3.3.2</span><a href="#b3-3-2">必要与适当条款</a></div>
+    <div class="toc-l3"><span class="num">1.3.3.3</span><a href="#b3-3-3">司法审查</a></div>
+    <div class="toc-sub"><span class="num">1.3.4</span><a href="#b3-4">权利法案</a></div>
+    <div class="toc-sub"><span class="num">1.3.5</span><a href="#b3-5">第十四修正案</a></div>
+    <div class="toc-sub"><span class="num">1.3.6</span><a href="#b3-6">隐私权</a></div>
+    <div class="toc-sub"><span class="num">1.3.7</span><a href="#b3-7">解释哲学之争</a></div>
+  </div>
 
-  <div class="toc-sec"><span class="num">1.5</span><a href="#s5">州与地方政府</a></div>
-  <div class="toc-sub"><span class="num">1.5.1</span><a href="#b5-1">警察权</a></div>
-  <div class="toc-sub"><span class="num">1.5.2</span><a href="#b5-2">州政府结构</a></div>
-  <div class="toc-sub"><span class="num">1.5.3</span><a href="#b5-3">地方政府</a></div>
+  <div class="toc-pane" data-pane="s4">
+    <a class="toc-goto" href="#s4">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">1.4.1</span><a href="#b4-1">三权分立</a></div>
+    <div class="toc-sub"><span class="num">1.4.2</span><a href="#b4-2">选举程序</a></div>
+    <div class="toc-l3"><span class="num">1.4.2.1</span><a href="#b4-2-1">众议院</a></div>
+    <div class="toc-l3"><span class="num">1.4.2.2</span><a href="#b4-2-2">参议院</a></div>
+    <div class="toc-l3"><span class="num">1.4.2.3</span><a href="#b4-2-3">一人一票原则</a></div>
+    <div class="toc-l3"><span class="num">1.4.2.4</span><a href="#b4-2-4">现任者优势</a></div>
+    <div class="toc-l3"><span class="num">1.4.2.5</span><a href="#b4-2-5">总统选举人团</a></div>
+    <div class="toc-sub"><span class="num">1.4.3</span><a href="#b4-3">党派</a></div>
+  </div>
 
-  <div class="toc-sec"><span class="num">1.6</span><a href="#s6">联邦制</a></div>
-  <div class="toc-sub"><span class="num">1.6.1</span><a href="#b6-1">定义与理由</a></div>
-  <div class="toc-sub"><span class="num">1.6.2</span><a href="#b6-2">结构保障</a></div>
-  <div class="toc-sub"><span class="num">1.6.3</span><a href="#b6-3">商业条款冲突</a></div>
-  <div class="toc-sub"><span class="num">1.6.4</span><a href="#b6-4">Gonzales v. Raich 案例</a></div>
-  <div class="toc-sub"><span class="num">1.6.5</span><a href="#b6-5">思考题解答</a></div>
+  <div class="toc-pane" data-pane="s5">
+    <a class="toc-goto" href="#s5">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">1.5.1</span><a href="#b5-1">警察权</a></div>
+    <div class="toc-sub"><span class="num">1.5.2</span><a href="#b5-2">州政府结构</a></div>
+    <div class="toc-sub"><span class="num">1.5.3</span><a href="#b5-3">地方政府</a></div>
+  </div>
 
-  <div class="toc-sec"><span class="num">2.1</span><a href="#s7">三权分立</a></div>
-  <div class="toc-sub"><span class="num">2.1.1</span><a href="#b7-1">概念：双重制衡</a></div>
-  <div class="toc-sub"><span class="num">2.1.2</span><a href="#b7-2">制宪者的担忧</a></div>
-  <div class="toc-sub"><span class="num">2.1.3</span><a href="#b7-3">麦迪逊 Federalist No.51</a></div>
-  <div class="toc-sub"><span class="num">2.1.4</span><a href="#b7-4">宪法文本结构</a></div>
-  <div class="toc-sub"><span class="num">2.1.5</span><a href="#b7-5">核心难题：边界模糊</a></div>
-  <div class="toc-sub"><span class="num">2.1.6</span><a href="#b7-6">行政机构例子</a></div>
-  <div class="toc-sub"><span class="num">2.1.7</span><a href="#b7-7">司法解决冲突</a></div>
-  <div class="toc-sub"><span class="num">2.1.8</span><a href="#b7-8">历史案例</a></div>
-  <div class="toc-sub"><span class="num">2.1.9</span><a href="#b7-9">结论</a></div>
-  <div class="toc-sub"><span class="num">2.1.10</span><a href="#b7-10">讨论题解答</a></div>
+  <div class="toc-pane" data-pane="s6">
+    <a class="toc-goto" href="#s6">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">1.6.1</span><a href="#b6-1">定义与理由</a></div>
+    <div class="toc-sub"><span class="num">1.6.2</span><a href="#b6-2">结构保障</a></div>
+    <div class="toc-sub"><span class="num">1.6.3</span><a href="#b6-3">商业条款冲突</a></div>
+    <div class="toc-sub"><span class="num">1.6.4</span><a href="#b6-4">Gonzales v. Raich 案例</a></div>
+    <div class="toc-sub"><span class="num">1.6.5</span><a href="#b6-5">思考题解答</a></div>
+  </div>
 
-  <div class="toc-sec"><span class="num">⚖</span><a href="#cases">核心判例速览</a></div>
+  <div class="toc-pane" data-pane="s7">
+    <a class="toc-goto" href="#s7">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">2.1.1</span><a href="#b7-1">概念：双重制衡</a></div>
+    <div class="toc-sub"><span class="num">2.1.2</span><a href="#b7-2">制宪者的担忧</a></div>
+    <div class="toc-sub"><span class="num">2.1.3</span><a href="#b7-3">麦迪逊 Federalist No.51</a></div>
+    <div class="toc-sub"><span class="num">2.1.4</span><a href="#b7-4">宪法文本结构</a></div>
+    <div class="toc-sub"><span class="num">2.1.5</span><a href="#b7-5">核心难题：边界模糊</a></div>
+    <div class="toc-sub"><span class="num">2.1.6</span><a href="#b7-6">行政机构例子</a></div>
+    <div class="toc-sub"><span class="num">2.1.7</span><a href="#b7-7">司法解决冲突</a></div>
+    <div class="toc-sub"><span class="num">2.1.8</span><a href="#b7-8">历史案例</a></div>
+    <div class="toc-sub"><span class="num">2.1.9</span><a href="#b7-9">结论</a></div>
+    <div class="toc-sub"><span class="num">2.1.10</span><a href="#b7-10">讨论题解答</a></div>
+  </div>
+
+  <div class="toc-pane" data-pane="cases">
+    <a class="toc-goto" href="#cases">▶ 进入核心判例速览表</a>
+  </div>
 </div>
 </details>
 
@@ -484,8 +524,14 @@
   </div>
   <div class="sub3" id="b3-3-3">
     <h4><span class="snum">1.3.3.3</span> 司法审查 <span class="en">Judicial review</span></h4>
-    <p>Marbury v. Madison (1803)：「阐明法律是什么，是司法部门的职责」——「与宪法抵触的法律无效」。也带来 Bickel 的「反多数难题」（countermajoritarian difficulty）。</p>
-    <p class="en">Marbury v. Madison (1803): "It is emphatically the province and duty of the judicial department to say what the law is" — and "a law repugnant to the Constitution is void." This also raises Bickel's "countermajoritarian difficulty": unelected judges have the final word.</p>
+    <p>「阐明法律是什么，是司法部门的职责」——「与宪法抵触的法律无效」。也带来 Bickel 的「反多数难题」（countermajoritarian difficulty）。</p>
+    <p class="en">"It is emphatically the province and duty of the judicial department to say what the law is" — and "a law repugnant to the Constitution is void." This also raises Bickel's "countermajoritarian difficulty": unelected judges have the final word.</p>
+    <div class="case"><div class="c-title">Marbury v. Madison（1803，司法审查之母）</div>
+      <p>1800 年大选失利前夕，亚当斯政府任命一批「午夜法官」（midnight judges），但马伯里的委任状未及送达。新任国务卿麦迪逊拒绝送达，马伯里依《1789 司法法》直接诉至最高法院，要求发「执行令」（writ of mandamus）。</p>
+      <p class="en">On the eve of losing the 1800 election, the Adams administration appointed "midnight judges," but Marbury's commission was never delivered. New Secretary of State Madison refused to deliver it; Marbury sued in the Supreme Court under the Judiciary Act of 1789, seeking a writ of mandamus.</p>
+      <p>马歇尔首席大法官判决：① 马伯里有权得到委任；② 法律应给救济；③ 但《司法法》授予最高法院的「初审权」<b>违宪</b>——宪法是最高法，与之抵触的法律无效。由此确立<b>司法审查</b>：法院有权宣布违宪法律无效。</p>
+      <p class="en">Chief Justice Marshall held: (1) Marbury had a right to the commission; (2) the law must afford a remedy; (3) but the Judiciary Act's grant of original jurisdiction was unconstitutional — the Constitution is supreme, and a law repugnant to it is void. This established judicial review.</p>
+    </div>
   </div>
 </div>
 </details>
@@ -536,9 +582,14 @@
 <details class="branch" id="b3-7">
 <summary><span class="arrow">▶</span><span class="bnum">1.3.7</span><span>解释哲学之争 <span class="en">Interpretive debate</span></span></summary>
 <div class="body">
-  <p class="lead"><b>原旨主义</b>（originalism）：只保护制宪者原本明确阐述的权利，变化应诉诸修宪（旗手 Scalia）。</p>
-  <p class="lead"><b>活的宪法</b>（living constitution）：权利法案是「有机的」，可适用于现代情境。</p>
-  <p class="en">Originalism protects only rights the Framers expressly elaborated, resorting to amendment for change (championed by Justice Scalia). The "living constitution" view treats the Bill of Rights as organic, applying to modern contexts.</p>
+  <p class="lead">宪法解释两派：<b>原旨主义</b>（originalism）只保护制宪者原本明确阐述的权利，变化应诉诸修宪（旗手 Scalia）；<b>活的宪法</b>（living constitution）视权利法案为「有机的」，可适用于现代情境。</p>
+  <p class="en">Two constitutional camps: originalism protects only rights the Framers expressly elaborated (championed by Justice Scalia); the "living constitution" view treats the Bill of Rights as organic, adaptable to modern contexts.</p>
+  <p class="lead">制定法解释（statutory interpretation）的流派还包括：</p>
+  <p class="en">Statutory-interpretation schools also include:</p>
+  <ul>
+    <li><b>文本主义</b>（textualism）：只看法律条文的普通含义，不探究立法意图（Scalia 亦倡导）。 <span class="en">Textualism — look only to the ordinary meaning of the statutory text, not legislative intent.</span></li>
+    <li><b>目的解释</b>（purposivism）：探究立法背后所欲实现的「目的/宗旨」来解释条文。 <span class="en">Purposivism — interpret the text by reference to the law's broader purpose or spirit.</span></li>
+  </ul>
 </div>
 </details>
 </section>
@@ -574,19 +625,31 @@
 <summary><span class="arrow">▶</span><span class="bnum">1.4.2</span><span>选举程序 <span class="en">Electoral process</span></span></summary>
 <div class="body">
   <div class="sub3" id="b4-2-1">
-    <h4><span class="snum">1.4.2.1</span> 国会两院 <span class="en">Congress</span></h4>
-    <p>众议院：按人口、一人一票、任期 2 年；参议院：每州 2 名（共 100）、任期 6 年、第 17 修正案（1913）改由人民直选。</p>
-    <p class="en">The House: allocated by population under "one person, one vote," with 2-year terms. The Senate: two per state (100 total), 6-year terms, directly elected since the 17th Amendment (1913).</p>
+    <h4><span class="snum">1.4.2.1</span> 众议院 <span class="en">The House</span></h4>
+    <p>435 名众议员，名额多年固定，如今每位众议员代表约 <b>77 万公民</b>。每区选一人（<b>单一选区制</b> single-member district），任期 <b>2 年</b>、可无限连任（John Dingell 服务 60 年）。</p>
+    <p class="en">435 representatives — a number fixed for years — so each now represents ~770,000 citizens. Each district elects one member (single-member district); terms are 2 years with no term limit (John Dingell served 60 years).</p>
+    <p class="lead">麦迪逊曾称，众议院的价值在于议员拥有「对本地选民的恰当了解」（proper knowledge of the local circumstances of their constituents）——但如今选区人口巨大，这一点已难成立。</p>
+    <p class="en">Madison praised the House for members' "proper knowledge of the local circumstances of their local constituents" — implausible today given how large districts have become.</p>
   </div>
   <div class="sub3" id="b4-2-2">
-    <h4><span class="snum">1.4.2.2</span> 现任者优势 <span class="en">Incumbency</span></h4>
-    <p>参 87% / 众 95%。四原因：知名度、资金（参 $1000 万/众 $150 万）、照顾选民、选区划分（gerrymandering）。</p>
-    <p class="en">Re-election rates are 87% (Senate) and over 95% (House). Four reasons: name recognition, money (Senate ~$10M, House ~$1.5M), the ability to serve constituents' interests, and gerrymandered districts.</p>
+    <h4><span class="snum">1.4.2.2</span> 参议院 <span class="en">The Senate</span></h4>
+    <p>每州 2 名、共 <b>100</b> 人，无论人口（怀俄明与加州同为 2 席，尽管加州人口近 60 倍）。任期 <b>6 年</b>、无任期限制（Robert Byrd 服务 51 年）。<b>第 17 修正案（1913）</b>之前，参议员由州议会选出，之后改由人民直选。</p>
+    <p class="en">Two per state, 100 total, regardless of population (Wyoming equals California, though California is nearly 60× larger). 6-year terms, no term limit (Robert Byrd served 51 years). Before the 17th Amendment (1913), state legislatures — not the people — elected senators.</p>
   </div>
   <div class="sub3" id="b4-2-3">
-    <h4><span class="snum">1.4.2.3</span> 总统选举人团 <span class="en">Electoral College</span></h4>
-    <p>538 人、270 票当选、赢者通吃；第 22 修正案限两届；失信选举人极少。2016/2000：普选票多却输选举人团。</p>
-    <p class="en">538 electors, 270 votes to win, and a "winner-take-all" rule in all but two states; the 22nd Amendment caps presidents at two terms. In 2016 and 2000 the popular-vote winner lost the Electoral College.</p>
+    <h4><span class="snum">1.4.2.3</span> 一人一票原则 <span class="en">One person, one vote</span></h4>
+    <p>1960 年代最高法院（<b>Baker v. Carr / Reynolds v. Sims</b>）依「平等保护条款」确立：立法者代表的是<b>人</b>，不是「树木或土地」（people, not trees or acres），选区人口须实质均等——因此每 10 年须人口普查。参议院每州 2 席是这一原则的<b>刻意例外</b>（制宪者要保各州平等影响力）。</p>
+    <p class="en">In the 1960s the Supreme Court (Baker v. Carr / Reynolds v. Sims) held, under the Equal Protection Clause, that "legislators represent people, not trees or acres" — districts must be roughly equal in population, hence the decennial census. The Senate's two-per-state rule is a deliberate exception, preserving equal state influence.</p>
+  </div>
+  <div class="sub3" id="b4-2-4">
+    <h4><span class="snum">1.4.2.4</span> 现任者优势 <span class="en">Incumbency</span></h4>
+    <p>连任率：参议院 <b>87%</b>、众议院 <b>95%+</b>。四大原因：① <b>知名度</b>（name recognition）；② <b>资金</b>（胜选参议员平均花 $1000 万、众议员 $150 万，2016 宾州一席达 $2800 万）；③ <b>服务选民</b>（「美国人恨国会，却爱自己的议员」）；④ <b>选区划分</b>（gerrymandering 锁定优势）。</p>
+    <p class="en">Re-election rates: 87% (Senate), 95%+ (House). Four reasons: (1) name recognition; (2) money — winning Senate candidates spend ~$10M and House ~$1.5M (one 2016 PA seat cost $28M); (3) constituent service — "Americans hate Congress but love their member"; (4) gerrymandering locks in advantage.</p>
+  </div>
+  <div class="sub3" id="b4-2-5">
+    <h4><span class="snum">1.4.2.5</span> 总统选举人团 <span class="en">Electoral College</span></h4>
+    <p><b>第 22 修正案（1951）</b>限总统两届（因 FDR 曾连任四次）。选举人团 <b>538 人</b>（众 435 + 参 100 + 特区 3），获 <b>270 票</b>当选。除两州外采「<b>赢者通吃</b>」；选举人理论上可反水（失信选举人，极少发生）。<b>2016</b>（特朗普）与 <b>2000</b>（小布什）都出现普选票多却输选举人团。若无候选人过半数，由<b>众议院</b>选总统。改革为直接普选的呼声至今未果。</p>
+    <p class="en">The 22nd Amendment (1951) caps presidents at two terms (after FDR's four wins). The Electoral College has 538 electors (House 435 + Senate 100 + DC 3); 270 votes win. All but two states use "winner-take-all"; electors may in theory go "faithless" (rare). In 2016 (Trump) and 2000 (Bush) the popular-vote winner lost. If no one reaches a majority, the House picks the president. Calls to switch to a direct popular vote remain unheeded.</p>
   </div>
 </div>
 </details>
@@ -594,8 +657,13 @@
 <details class="branch" id="b4-3">
 <summary><span class="arrow">▶</span><span class="bnum">1.4.3</span><span>党派 <span class="en">Partisanship</span></span></summary>
 <div class="body">
-  <p class="lead">两党制高度极化 → 跨党妥协困难 → 「僵局」（gridlock）。例：2016 奥巴马提名 Garland 填补 Scalia 空缺，因僵局失败。多数党控制国会领导权、委员会任命与议程。</p>
-  <p class="en">Deep two-party polarization makes compromise hard, producing "gridlock" — e.g., Obama's 2016 nomination of Garland (after Scalia's death) failed. The majority party controls congressional leadership, committee assignments, and the agenda.</p>
+  <p class="lead">两党制（民主党/共和党）高度极化，两党渐被推向意识形态两端，跨党妥协愈发困难——政治学者称此困境为「<b>僵局</b>」（gridlock）。</p>
+  <p class="en">A robust two-party system has polarized to ideological extremes, making cross-aisle compromise hard — what political scientists call "gridlock."</p>
+  <ul>
+    <li><b>典型案例</b>：2016 奥巴马提名 Merrick Garland 填补 Scalia 空缺，因党派僵局失败，该席位最终由特朗普提名的 Neil Gorsuch 以微弱票数填补。 <span class="en">Obama's 2016 Garland nomination (after Scalia's death) failed in gridlock; Trump later filled it with Gorsuch by a close vote.</span></li>
+    <li><b>多数党权力</b>：多数党控制国会领导权、委员会任命与议程；总统党籍决定立法议程方向。 <span class="en">The majority party controls leadership, committee assignments, and the agenda; the president's party shapes lawmaking objectives.</span></li>
+    <li><b>轮替</b>：2016 共和党掌控两院+总统+多数州；2008–2010 则是民主党掌控两院+白宫——单党主导通常不会持久。 <span class="en">2016: Republicans held both houses, the presidency, and most states; 2008–2010: Democrats held both houses and the White House — one-party dominance rarely lasts.</span></li>
+  </ul>
 </div>
 </details>
 </section>
@@ -607,8 +675,17 @@
 <details class="branch" id="b5-1">
 <summary><span class="arrow">▶</span><span class="bnum">1.5.1</span><span>警察权 <span class="en">Police power</span></span></summary>
 <div class="body">
-  <p class="lead">州拥有规制<b>健康、安全、福利</b>的广泛造法权——「警察权」（police power），是第十修正案「剩余权力归州/人民」的体现。大部分日常法律（执法、K-12 教育、土地使用/分区、执照）来自州。</p>
-  <p class="en">States hold the "police power" — broad authority to regulate health, safety, and welfare — reflecting the Tenth Amendment's reservation of powers to the states. Most everyday law (law enforcement, K-12 education, land use/zoning, licensing) comes from the states.</p>
+  <p class="lead">州拥有规制<b>健康、安全、福利</b>（health, safety, welfare）的广泛造法权——「警察权」（police power），是第十修正案「剩余权力归州/人民」的体现。大部分日常法律来自州与地方，主要包括：</p>
+  <p class="en">States hold the "police power" — broad authority to regulate health, safety, and welfare — reflecting the Tenth Amendment's reservation of powers to the states. Most everyday law comes from state and local governments, including:</p>
+  <ul>
+    <li><b>执法</b>（law enforcement） <span class="en">police and criminal law</span></li>
+    <li><b>K-12 教育</b>（public schooling）</li>
+    <li><b>土地使用与分区</b>（land use / zoning）</li>
+    <li><b>安全规章</b>（safety rules）</li>
+    <li><b>执照</b>——驾照、营业执照等（licensing）</li>
+  </ul>
+  <p class="lead">你几乎每天都与州/地方权威打交道：办驾照、向地方机构申请加盖房屋、办小企业执照、上社区学院——这些都是「行动中的法」（law in action）。</p>
+  <p class="en">You deal with state and local authority almost daily: getting a driver's license, seeking permission to build an addition, licensing a small business, attending a community college — all "law in action."</p>
 </div>
 </details>
 
@@ -932,6 +1009,8 @@
     <tr><td>Gonzales v. Raich</td><td>2005</td><td>自种医用大麻受联邦规制</td></tr>
     <tr><td>Plessy v. Ferguson</td><td>1896</td><td>「隔离但平等」</td></tr>
     <tr><td>Brown v. Board of Education</td><td>1954</td><td>隔离教育本质上不平等</td></tr>
+    <tr><td>Baker v. Carr</td><td>1962</td><td>选区划分可司法审查，「一人一票」开端</td></tr>
+    <tr><td>Reynolds v. Sims</td><td>1964</td><td>州议会选区须人口均等（一人一票）</td></tr>
     <tr><td>Griswold v. Connecticut</td><td>1965</td><td>确立隐私权（宪法「半影」）</td></tr>
     <tr><td>Roe v. Wade</td><td>1973</td><td>堕胎权受宪法保护</td></tr>
     <tr><td>Obergefell v. Hodges</td><td>2015</td><td>同性婚姻全国合法</td></tr>
@@ -974,6 +1053,16 @@ function doSearch(){
   document.getElementById('count').textContent = q ? ('匹配 ' + count + ' 项') : '';
 }
 function clearSearch(){ document.getElementById('search').value=''; doSearch(); }
+
+document.querySelectorAll('.toc-chip').forEach(function(chip){
+  chip.addEventListener('click', function(){
+    document.querySelectorAll('.toc-chip').forEach(function(c){ c.classList.remove('active'); });
+    document.querySelectorAll('.toc-pane').forEach(function(p){ p.classList.remove('active'); });
+    chip.classList.add('active');
+    var pane = document.querySelector('.toc-pane[data-pane="'+chip.getAttribute('data-pane')+'"]');
+    if(pane) pane.classList.add('active');
+  });
+});
 
 document.querySelectorAll('.toc-sub a, .toc-l3 a, .toc-sec a').forEach(function(a){
   a.addEventListener('click', function(e){
