@@ -9,11 +9,13 @@
     --bg:#eef1f5; --card:#ffffff; --ink:#1f2430; --muted:#5a6472; --soft:#606c7e;
     --blue:#1f3b63; --blue2:#2e548a; --line:#e3e7ec; --accent:#dbe5f5;
     --case-bg:#f3f7ff; --case-border:#b8cbe8; --chip:#e7edf7; --mark:#ffe08a;
+    --chip-w1:#e3edfb; --chip-w2:#e3f3ea; --chip-w3:#eee7f9; --chip-sync:#fcebd8; --chip-cases:#edf0f4;
   }
   html.dark{
     --bg:#12151b; --card:#1b1f27; --ink:#e8eaee; --muted:#a6adb8; --soft:#8a95a5;
     --blue:#7ea6e8; --blue2:#9db9ea; --line:#2a303a; --accent:#26374f;
     --case-bg:#1d2735; --case-border:#3a5578; --chip:#26303e; --mark:#8a6d1f;
+    --chip-w1:#243450; --chip-w2:#20362a; --chip-w3:#302741; --chip-sync:#3a2f20; --chip-cases:#23262d;
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html{-webkit-text-size-adjust:100%;}
@@ -48,6 +50,11 @@
   .toc-chips{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px;}
   .toc-chip{display:inline-flex; align-items:center; gap:5px; padding:7px 13px; border:1px solid var(--line); border-radius:999px; background:var(--bg); color:var(--ink); font-size:13.5px; cursor:pointer; white-space:nowrap; line-height:1.2;}
   .toc-chip .num{color:var(--blue2); font-weight:700; font-variant-numeric:tabular-nums;}
+  .toc-chip.w1{background:var(--chip-w1);}
+  .toc-chip.w2{background:var(--chip-w2);}
+  .toc-chip.w3{background:var(--chip-w3);}
+  .toc-chip.sync{background:var(--chip-sync);}
+  .toc-chip.cases{background:var(--chip-cases);}
   .toc-chip.active{background:var(--blue); color:#fff; border-color:var(--blue);}
   .toc-chip.active .num{color:#fff;}
   .toc-pane{display:none;}
@@ -70,6 +77,8 @@
   details.branch.marked > summary{background:var(--mark);}
 
   .body{padding:6px 14px 16px 32px;}
+  .body a{color:var(--blue2); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:2px; font-weight:inherit;}
+  .body a:hover{color:var(--blue);}
   .lead{color:var(--ink); margin:8px 0 4px;}
   .lead.en,.body > p.en{color:var(--muted); font-style:italic; font-size:14px; margin:0 0 10px;}
 
@@ -124,19 +133,24 @@
 <summary><span class="arrow">▶</span> 完整目录（点横向标签切换章节）</summary>
 <div class="toc-body">
   <div class="toc-chips">
-    <button class="toc-chip active" data-pane="s1"><span class="num">1.1</span>课程导论</button>
-    <button class="toc-chip" data-pane="s2"><span class="num">1.2</span>法律渊源</button>
-    <button class="toc-chip" data-pane="s3"><span class="num">1.3</span>宪政体系</button>
-    <button class="toc-chip" data-pane="s4"><span class="num">1.4</span>联邦政府</button>
-    <button class="toc-chip" data-pane="s5"><span class="num">1.5</span>州与地方</button>
-    <button class="toc-chip" data-pane="s6"><span class="num">1.6</span>联邦制</button>
-    <button class="toc-chip" data-pane="s7"><span class="num">2.1</span>三权分立</button>
-    <button class="toc-chip" data-pane="s9"><span class="num">2.2</span>立法分支</button>
-    <button class="toc-chip" data-pane="s10"><span class="num">2.3</span>行政分支</button>
-    <button class="toc-chip" data-pane="s11"><span class="num">2.4</span>司法分支</button>
-    <button class="toc-chip" data-pane="s12"><span class="num">2.5</span>司法审查</button>
-    <button class="toc-chip" data-pane="s8"><span class="num">2.6</span>同步课 9/1</button>
-    <button class="toc-chip" data-pane="cases"><span class="num">⚖</span>判例</button>
+    <button class="toc-chip w1 active" data-pane="s1"><span class="num">1.1</span>课程导论</button>
+    <button class="toc-chip w1" data-pane="s2"><span class="num">1.2</span>法律渊源</button>
+    <button class="toc-chip w1" data-pane="s3"><span class="num">1.3</span>宪政体系</button>
+    <button class="toc-chip w1" data-pane="s4"><span class="num">1.4</span>联邦政府</button>
+    <button class="toc-chip w1" data-pane="s5"><span class="num">1.5</span>州与地方</button>
+    <button class="toc-chip w1" data-pane="s6"><span class="num">1.6</span>联邦制</button>
+    <button class="toc-chip w2" data-pane="s7"><span class="num">2.1</span>三权分立</button>
+    <button class="toc-chip w2" data-pane="s9"><span class="num">2.2</span>立法分支</button>
+    <button class="toc-chip w2" data-pane="s10"><span class="num">2.3</span>行政分支</button>
+    <button class="toc-chip w2" data-pane="s11"><span class="num">2.4</span>司法分支</button>
+    <button class="toc-chip w2" data-pane="s12"><span class="num">2.5</span>司法审查</button>
+    <button class="toc-chip sync" data-pane="s8"><span class="num">2.6</span>同步课 9/1</button>
+    <button class="toc-chip w3" data-pane="s13"><span class="num">3.1</span>民事诉讼概览</button>
+    <button class="toc-chip w3" data-pane="s14"><span class="num">3.2</span>诉讼阶段</button>
+    <button class="toc-chip w3" data-pane="s15"><span class="num">3.3</span>刑事诉讼</button>
+    <button class="toc-chip w3" data-pane="s16"><span class="num">3.4</span>科学与证据</button>
+    <button class="toc-chip sync" data-pane="s17"><span class="num">3.5</span>同步课 9/8</button>
+    <button class="toc-chip cases" data-pane="cases"><span class="num">⚖</span>判例</button>
   </div>
 
   <div class="toc-pane active" data-pane="s1">
@@ -277,6 +291,104 @@
     <div class="toc-sub"><span class="num">2.6.7</span><a href="#b8-7">异议与协同意见</a></div>
     <div class="toc-sub"><span class="num">2.6.8</span><a href="#b8-8">开放条款与解释难题</a></div>
     <div class="toc-sub"><span class="num">2.6.9</span><a href="#b8-9">时代变迁与先例</a></div>
+  </div>
+
+  <div class="toc-pane" data-pane="s13">
+    <a class="toc-goto" href="#s13">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">3.1.1</span><a href="#b13-1">民刑之分</a></div>
+    <div class="toc-sub"><span class="num">3.1.2</span><a href="#b13-2">诉讼作为纠纷解决机制</a></div>
+    <div class="toc-sub"><span class="num">3.1.3</span><a href="#b13-3">对抗制</a></div>
+    <div class="toc-sub"><span class="num">3.1.4</span><a href="#b13-4">两大程序规则</a></div>
+    <div class="toc-sub"><span class="num">3.1.5</span><a href="#b13-5">民事诉讼四阶段</a></div>
+    <div class="toc-l3"><span class="num">3.1.5.1</span><a href="#b13-5-1">立案</a></div>
+    <div class="toc-l3"><span class="num">3.1.5.2</span><a href="#b13-5-2">证据开示</a></div>
+    <div class="toc-l3"><span class="num">3.1.5.3</span><a href="#b13-5-3">动议</a></div>
+    <div class="toc-l3"><span class="num">3.1.5.4</span><a href="#b13-5-4">审判</a></div>
+    <div class="toc-sub"><span class="num">3.1.6</span><a href="#b13-6">律师与联盟法律专业人士</a></div>
+    <div class="toc-sub"><span class="num">3.1.7</span><a href="#b13-7">美国是「诉讼社会」吗</a></div>
+    <div class="toc-sub"><span class="num">3.1.8</span><a href="#b13-8">集团诉讼与多区诉讼</a></div>
+    <div class="toc-l3"><span class="num">3.1.8.1</span><a href="#b13-8-1">集团诉讼</a></div>
+    <div class="toc-l3"><span class="num">3.1.8.2</span><a href="#b13-8-2">多区诉讼</a></div>
+  </div>
+
+  <div class="toc-pane" data-pane="s14">
+    <a class="toc-goto" href="#s14">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">3.2.1</span><a href="#b14-1">立案</a></div>
+    <div class="toc-l3"><span class="num">3.2.1.1</span><a href="#b14-1-1">「可信性」标准</a></div>
+    <div class="toc-l3"><span class="num">3.2.1.2</span><a href="#b14-1-2">送达与答辩</a></div>
+    <div class="toc-l3"><span class="num">3.2.1.3</span><a href="#b14-1-3">反诉</a></div>
+    <div class="toc-sub"><span class="num">3.2.2</span><a href="#b14-2">证据开示</a></div>
+    <div class="toc-l3"><span class="num">3.2.2.1</span><a href="#b14-2-1">初步披露与取证</a></div>
+    <div class="toc-l3"><span class="num">3.2.2.2</span><a href="#b14-2-2">强制与保护</a></div>
+    <div class="toc-l3"><span class="num">3.2.2.3</span><a href="#b14-2-3">制裁</a></div>
+    <div class="toc-sub"><span class="num">3.2.3</span><a href="#b14-3">审前动议</a></div>
+    <div class="toc-sub"><span class="num">3.2.4</span><a href="#b14-4">审判</a></div>
+    <div class="toc-l3"><span class="num">3.2.4.1</span><a href="#b14-4-1">陪审团与事实认定者</a></div>
+    <div class="toc-l3"><span class="num">3.2.4.2</span><a href="#b14-4-2">选任陪审员</a></div>
+    <div class="toc-l3"><span class="num">3.2.4.3</span><a href="#b14-4-3">庭审流程</a></div>
+    <div class="toc-l3"><span class="num">3.2.4.4</span><a href="#b14-4-4">制约失控陪审团</a></div>
+    <div class="toc-sub"><span class="num">3.2.5</span><a href="#b14-5">庭外结案（诉讼的「出口」）</a></div>
+    <div class="toc-sub"><span class="num">3.2.6</span><a href="#b14-6">上诉</a></div>
+    <div class="toc-l3"><span class="num">3.2.6.1</span><a href="#b14-6-1">审判 vs 上诉</a></div>
+    <div class="toc-l3"><span class="num">3.2.6.2</span><a href="#b14-6-2">上诉程序与案卷</a></div>
+    <div class="toc-l3"><span class="num">3.2.6.3</span><a href="#b14-6-3">上诉层级</a></div>
+    <div class="toc-sub"><span class="num">3.2.7</span><a href="#b14-7">律师费（美国规则 vs 英国规则）</a></div>
+  </div>
+
+  <div class="toc-pane" data-pane="s15">
+    <a class="toc-goto" href="#s15">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">3.3.1</span><a href="#b15-1">刑诉程序概览</a></div>
+    <div class="toc-l3"><span class="num">3.3.1.1</span><a href="#b15-1-1">逮捕与合理根据</a></div>
+    <div class="toc-l3"><span class="num">3.3.1.2</span><a href="#b15-1-2">48 小时与初次到庭</a></div>
+    <div class="toc-sub"><span class="num">3.3.2</span><a href="#b15-2">宪法根基（第四/五/六修正案）</a></div>
+    <div class="toc-sub"><span class="num">3.3.3</span><a href="#b15-3">审前阶段</a></div>
+    <div class="toc-l3"><span class="num">3.3.3.1</span><a href="#b15-3-1">大陪审团与预审</a></div>
+    <div class="toc-l3"><span class="num">3.3.3.2</span><a href="#b15-3-2">提审与辩诉交易</a></div>
+    <div class="toc-sub"><span class="num">3.3.4</span><a href="#b15-4">刑事审判</a></div>
+    <div class="toc-sub"><span class="num">3.3.5</span><a href="#b15-5">排除规则与搜查扣押</a></div>
+    <div class="toc-l3"><span class="num">3.3.5.1</span><a href="#b15-5-1">什么是「搜查」</a></div>
+    <div class="toc-l3"><span class="num">3.3.5.2</span><a href="#b15-5-2">无令状搜查的例外</a></div>
+    <div class="toc-sub"><span class="num">3.3.6</span><a href="#b15-6">供述与米兰达规则</a></div>
+    <div class="toc-l3"><span class="num">3.3.6.1</span><a href="#b15-6-1">米兰达警告</a></div>
+    <div class="toc-l3"><span class="num">3.3.6.2</span><a href="#b15-6-2">毒树之果</a></div>
+    <div class="toc-sub"><span class="num">3.3.7</span><a href="#b15-7">定罪后程序</a></div>
+  </div>
+
+  <div class="toc-pane" data-pane="s16">
+    <a class="toc-goto" href="#s16">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">3.4.1</span><a href="#b16-1">证据规则基础</a></div>
+    <div class="toc-sub"><span class="num">3.4.2</span><a href="#b16-2">证据种类</a></div>
+    <div class="toc-sub"><span class="num">3.4.3</span><a href="#b16-3">证人证言（普通 vs 专家）</a></div>
+    <div class="toc-l3"><span class="num">3.4.3.1</span><a href="#b16-3-1">普通证人</a></div>
+    <div class="toc-l3"><span class="num">3.4.3.2</span><a href="#b16-3-2">专家证人</a></div>
+    <div class="toc-sub"><span class="num">3.4.4</span><a href="#b16-4">品格证据与习惯证据</a></div>
+    <div class="toc-sub"><span class="num">3.4.5</span><a href="#b16-5">最佳证据规则</a></div>
+    <div class="toc-sub"><span class="num">3.4.6</span><a href="#b16-6">传闻证据</a></div>
+    <div class="toc-sub"><span class="num">3.4.7</span><a href="#b16-7">特权与工作成果</a></div>
+    <div class="toc-sub"><span class="num">3.4.8</span><a href="#b16-8">专家证言标准：Daubert</a></div>
+    <div class="toc-l3"><span class="num">3.4.8.1</span><a href="#b16-8-1">判决</a></div>
+    <div class="toc-l3"><span class="num">3.4.8.2</span><a href="#b16-8-2">可靠性判断因素</a></div>
+    <div class="toc-l3"><span class="num">3.4.8.3</span><a href="#b16-8-3">第 702 条</a></div>
+  </div>
+
+  <div class="toc-pane" data-pane="s17">
+    <a class="toc-goto" href="#s17">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">3.5.1</span><a href="#b17-1">同步课概览与安排</a></div>
+    <div class="toc-sub"><span class="num">3.5.2</span><a href="#b17-2">复习：国会与选举</a></div>
+    <div class="toc-sub"><span class="num">3.5.3</span><a href="#b17-3">复习：总统、选举人团与豁免</a></div>
+    <div class="toc-l3"><span class="num">3.5.3.1</span><a href="#b17-3-1">总统与选举人团</a></div>
+    <div class="toc-l3"><span class="num">3.5.3.2</span><a href="#b17-3-2">副总统与 1 月 6 日</a></div>
+    <div class="toc-l3"><span class="num">3.5.3.3</span><a href="#b17-3-3">总统豁免 vs 弹劾</a></div>
+    <div class="toc-sub"><span class="num">3.5.4</span><a href="#b17-4">联邦法院结构</a></div>
+    <div class="toc-sub"><span class="num">3.5.5</span><a href="#b17-5">「案件或争议」与诉讼资格</a></div>
+    <div class="toc-l3"><span class="num">3.5.5.1</span><a href="#b17-5-1">案件或争议</a></div>
+    <div class="toc-l3"><span class="num">3.5.5.2</span><a href="#b17-5-2">诉讼资格 standing</a></div>
+    <div class="toc-sub"><span class="num">3.5.6</span><a href="#b17-6">管辖权 jurisdiction</a></div>
+    <div class="toc-sub"><span class="num">3.5.7</span><a href="#b17-7">上诉与最高法院</a></div>
+    <div class="toc-sub"><span class="num">3.5.8</span><a href="#b17-8">法官如何判案与法官的困境</a></div>
+    <div class="toc-l3"><span class="num">3.5.8.1</span><a href="#b17-8-1">司法哲学</a></div>
+    <div class="toc-l3"><span class="num">3.5.8.2</span><a href="#b17-8-2">通才困境</a></div>
+    <div class="toc-l3"><span class="num">3.5.8.3</span><a href="#b17-8-3">代表性与向后看</a></div>
   </div>
 
   <div class="toc-pane" data-pane="cases">
@@ -1408,7 +1520,7 @@
 <details class="branch" id="b8-1">
 <summary><span class="arrow">▶</span><span class="bnum">2.6.1</span><span>法律渊源全景 <span class="en">The full landscape of sources of law</span></span></summary>
 <div class="body">
-  <p class="lead">教授系统梳理了美国法律渊源的完整层级，特别强调「宪法」是复数——美国有 <b>51 部宪法</b>（联邦 + 各州）。</p>
+  <p class="lead">教授系统梳理了美国法律渊源的完整层级（对照 <a href="#b2-1">1.2.1 法律渊源等级</a>），特别强调「宪法」是复数——美国有 <b>51 部宪法</b>（联邦 + 各州）。</p>
   <p class="lead en">The professor mapped the full hierarchy of American sources of law, stressing that "constitutions" is plural — the U.S. has 51 constitutions (federal plus the states).</p>
   <div class="sub3" id="b8-1-1">
     <h4><span class="snum">2.6.1.1</span> 宪法（51 部） <span class="en">Constitutions</span></h4>
@@ -1457,7 +1569,7 @@
 <details class="branch" id="b8-3">
 <summary><span class="arrow">▶</span><span class="bnum">2.6.3</span><span>行政命令与制衡 <span class="en">Executive orders & checks</span></span></summary>
 <div class="body">
-  <p class="lead">行政命令是总统施政的重要工具，但<b>受法律与法院制衡</b>。</p>
+  <p class="lead">行政命令（详解见 <a href="#b10-2">2.3.2</a>）是总统施政的重要工具，但<b>受法律与法院制衡</b>。</p>
   <p class="lead en">Executive orders are a major tool of presidential governance, but they are checked by law and the courts.</p>
   <div class="sub3" id="b8-3-1">
     <h4><span class="snum">2.6.3.1</span> 历史与激增 <span class="en">History & the spike</span></h4>
@@ -1523,7 +1635,7 @@
   </div>
   <div class="sub3" id="b8-5-3">
     <h4><span class="snum">2.6.5.3</span> 反多数难题 <span class="en">Counter-majoritarian difficulty</span></h4>
-    <p>同学 Keshav 提出「反多数难题」（源自阅读 Bickel）：非民选法院制衡民选政府，是否偏离民主？教授答「<b>guilty as charged</b>」——这正是「民主宪政/共和政府」的用意：我们不是纯粹民主。</p>
+    <p>同学 Keshav 提出「<a href="#b12-4">反多数难题</a>」（源自阅读 Bickel）：非民选法院制衡民选政府，是否偏离民主？教授答「<b>guilty as charged</b>」——这正是「民主宪政/共和政府」的用意：我们不是纯粹民主。</p>
     <p class="en">Keshav raised the counter-majoritarian difficulty (from Bickel): is an unelected court checking elected branches a step away from democracy? The professor answered "guilty as charged" — that is the point of democratic constitutionalism.</p>
   </div>
 </div>
@@ -1532,7 +1644,7 @@
 <details class="branch" id="b8-6">
 <summary><span class="arrow">▶</span><span class="bnum">2.6.6</span><span>普通法精讲 <span class="en">Common law deep dive</span></span></summary>
 <div class="body">
-  <p class="lead">教授用侵权法例子详解「<b>法官造法</b>」与先例机制。</p>
+  <p class="lead">教授用侵权法例子详解「<b>法官造法</b>」与先例机制（对照 <a href="#b2-2">1.2.2 普通法</a>）。</p>
   <p class="lead en">The professor used a torts example to explain judge-made law and the machinery of precedent.</p>
   <div class="sub3" id="b8-6-1">
     <h4><span class="snum">2.6.6.1</span> 法官造法 <span class="en">Judge-made law</span></h4>
@@ -1595,7 +1707,7 @@
   </div>
   <div class="sub3" id="b8-8-3">
     <h4><span class="snum">2.6.8.3</span> 不合理搜查 <span class="en">Unreasonable searches</span></h4>
-    <p>「<b>令状要求</b>」本身是法官造出来的（宪法未明文）；<b>Carpenter</b> 案：基站定位数据算不算「搜查」；核心标准是「<b>合理隐私期待</b>」（reasonable expectation of privacy）。</p>
+    <p>「<b>令状要求</b>」本身是法官造出来的（宪法未明文）（详见 <a href="#b15-5">3.3.5 搜查扣押</a>）；<b>Carpenter</b> 案：基站定位数据算不算「搜查」；核心标准是「<b>合理隐私期待</b>」（reasonable expectation of privacy）。</p>
     <p class="en">The warrant requirement is itself judge-made; Carpenter asked whether cell-tower location data is a "search"; the touchstone is a "reasonable expectation of privacy."</p>
   </div>
   <div class="sub3" id="b8-8-4">
@@ -1609,7 +1721,7 @@
 <details class="branch" id="b8-9">
 <summary><span class="arrow">▶</span><span class="bnum">2.6.9</span><span>时代变迁与先例 <span class="en">Changing times & precedent (Raich)</span></span></summary>
 <div class="body">
-  <p class="lead">先例有拘束力，但「<b>时代变了</b>」，判决也可能随之改变。</p>
+  <p class="lead">先例（<a href="#b2-3-1">1.2.3.1</a>）有拘束力，但「<b>时代变了</b>」，判决也可能随之改变。</p>
   <p class="lead en">Precedent binds, but "times change," and so may decisions.</p>
   <div class="sub3" id="b8-9-1">
     <h4><span class="snum">2.6.9.1</span> Raich 案回顾 <span class="en">Revisiting Raich</span></h4>
@@ -1620,6 +1732,609 @@
     <h4><span class="snum">2.6.9.2</span> 史蒂文斯访谈 <span class="en">Stevens's oral history</span></h4>
     <p>教授分享：采访已故大法官史蒂文斯（西北校友）时，他几乎承认「<b>我未必还会那样判</b>」——今天大麻去管制化的背景（或从 Schedule I 降到 Schedule III）让当年判决显得「是时代的产物」。</p>
     <p class="en">The professor recalled that in an oral history with Justice Stevens (a Northwestern graduate), Stevens all but said "I'm not sure I'd make the same decision" — as federal marijuana policy moves to de-schedule, Raich looks like a product of its times.</p>
+  </div>
+</div>
+</details>
+</section>
+
+<!-- ===================== 3.1 ===================== -->
+<section class="card" id="s13">
+<h2><span class="num">3.1</span>民事诉讼概览 · Overview of Civil Process</h2>
+
+<details class="branch" id="b13-1">
+<summary><span class="arrow">▶</span><span class="bnum">3.1.1</span><span>民刑之分 <span class="en">Civil vs. criminal proceedings</span></span></summary>
+<div class="body">
+  <p class="lead">本周主题是「诉讼的解剖」（anatomy of a lawsuit），同时考察<b>民事</b>与<b>刑事</b>两种法律程序，二者的根本区别在于<b>谁提起诉讼、争的是什么</b>。</p>
+  <p class="lead en">This week examines the anatomy of a lawsuit, looking at both civil and criminal proceedings. The fundamental distinction is who brings the action and what is at stake.</p>
+  <table>
+    <thead><tr><th>维度</th><th>民事诉讼 Civil</th><th>刑事诉讼 Criminal</th></tr></thead>
+    <tbody>
+      <tr><td>谁起诉</td><td>个人（或组织）起诉另一人或机构</td><td>政府起诉被告</td></tr>
+      <tr><td>性质</td><td>原告主张其<b>法律权利</b>被他人侵犯</td><td>被告被指控违反<b>刑事禁令</b></td></tr>
+      <tr><td>典型例子</td><td>合同执行、人身伤害、财产纠纷</td><td>盗窃、暴力犯罪、毒品犯罪</td></tr>
+    </tbody>
+  </table>
+  <p class="en">In civil proceedings, a complaint is brought by individuals claiming their legal rights were violated (e.g., contract enforcement, personal injury, property disputes). In criminal proceedings, the government brings the complaint, claiming the defendant violated a criminal prohibition.</p>
+</div>
+</details>
+
+<details class="branch" id="b13-2">
+<summary><span class="arrow">▶</span><span class="bnum">3.1.2</span><span>诉讼作为纠纷解决机制 <span class="en">Litigation as a dispute-resolution mechanism</span></span></summary>
+<div class="body">
+  <p class="lead">人与人之间、以及个人与政府官员之间的<b>冲突</b>自古就有；有史以来，人类用各种手段解决纠纷——从<b>暴力</b>到<b>默认（acquiescence）</b>，从<b>谈判</b>到<b>操纵</b>。当冲突涉及<b>法律问题</b>时，我们通常诉诸<b>诉讼程序</b>。</p>
+  <p class="lead en">Conflicts — between individuals, and between individuals and officials — are as old as humanity. Historically people resolved them by violence, acquiescence, negotiation, or manipulation. Where disputes involve legal issues, we generally rely on the litigation process.</p>
+  <p class="lead">我们这样做，是出于对<b>司法部门与司法程序</b>的信任（无论是否得当）：相信它能<b>认定事实</b>、<b>适用相关法律</b>、并作出<b>终局判决</b>，从而确定各方当事人的<b>权利（rights）、责任（liability）与救济（remedies）</b>。</p>
+  <p class="en">We rely on litigation out of faith — well-placed or not — in the judiciary to determine facts, apply relevant law, and reach final judgments deciding the rights, liability, and remedies of the parties.</p>
+  <p class="lead">诉讼也是一种「<b>维护和平</b>」的方式，它提供了一个<b>社会正当且可接受</b>的纠纷解决渠道，避免那些更不可取的替代方式。</p>
+  <p class="en">Litigation is a way of keeping the peace and establishing a socially legitimate and acceptable way of settling disputes — avoiding less desirable alternatives.</p>
+</div>
+</details>
+
+<details class="branch" id="b13-3">
+<summary><span class="arrow">▶</span><span class="bnum">3.1.3</span><span>对抗制（adversary system） <span class="en">The adversary system</span></span></summary>
+<div class="body">
+  <p class="lead">美国采用<b>对抗制（adversary system）</b>：当事人（通常由律师代理）<b>为自己主张</b>，在<b>证据与证人证言的交锋</b>中，期待<b>真相</b>能从这一<b>公平程序</b>中浮现。</p>
+  <p class="lead en">The U.S. uses the adversary system: parties (usually represented by lawyers) advocate for themselves, and through the clash of evidence and witness testimony, truth is expected to emerge from a fair process.</p>
+  <p class="lead">也正因如此，诉讼常被（不无道理地）视为一种「<b>风格化的战斗</b>」（stylized form of combat）——这是它饱受争议的重要原因之一。留给你的思考题：<b>美国诉讼程序是处理法律纠纷的好方式吗？为什么？</b></p>
+  <p class="en">Litigation is famously controversial, in no small part because it is seen — not inaccurately — as a stylized form of combat. Food for thought: is the American litigation process a good way to handle legal disputes? Why or why not?</p>
+</div>
+</details>
+
+<details class="branch" id="b13-4">
+<summary><span class="arrow">▶</span><span class="bnum">3.1.4</span><span>两大程序规则 <span class="en">Two governing rule sets</span></span></summary>
+<div class="body">
+  <p class="lead">美国民事诉讼由两套规则共同规制：</p>
+  <ul>
+    <li><b><a href="#b14-1">《民事诉讼规则》</a> Rules of Civil Procedure</b>：规定诉讼如何进行的<b>程序</b>——包括提交法院的书面文件（名称、类型、格式、内容）；当事人可向对方寻求/须向对方提供的<b>证据</b>；法院的<b>口头聆讯</b>；以及<b>审判</b>的进行方式。 <span class="en">Govern the procedures of civil litigation: filings, discoverable evidence, hearings, and conduct of trials.</span></li>
+    <li><b><a href="#b16-1">《证据规则》</a> Rules of Evidence</b>：规定在聆讯与审判中<b>证据的可采性、类型与格式</b>。证据可以是口头的、实物的、书面的或演示性的（demonstrative）。 <span class="en">Govern the admissibility, type, and format of evidence; evidence may be oral, physical, written, or demonstrative.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b13-5">
+<summary><span class="arrow">▶</span><span class="bnum">3.1.5</span><span>民事诉讼的四大阶段 <span class="en">Four phases of civil litigation</span></span></summary>
+<div class="body">
+  <p class="lead">民事诉讼一般分为四个阶段：<b>① <a href="#b14-1">立案</a> → ② <a href="#b14-2">证据开示</a> → ③ <a href="#b14-3">动议</a> → ④ <a href="#b14-4">审判</a></b>。（详见 3.2 各节展开。）</p>
+  <p class="lead en">Civil litigation is divided into four phases: (1) commencement, (2) discovery, (3) motions, (4) trial.</p>
+  <div class="sub3" id="b13-5-1">
+    <h4><span class="snum">3.1.5.1</span> 立案 <span class="en">Commencement</span></h4>
+    <p>原告提交书面<b>起诉状（Complaint）</b>并向对方送达；被告在规定时间内提交<b>答辩状（Answer）</b>；被告还可对原告提起<b>反诉（Counterclaim）</b>。 <span class="en">Plaintiff files and serves a Complaint; defendant files an Answer; defendant may also file a Counterclaim.</span></p>
+  </div>
+  <div class="sub3" id="b13-5-2">
+    <h4><span class="snum">3.1.5.2</span> 证据开示 <span class="en">Discovery</span></h4>
+    <p>当事人被赋予<b>极宽的权限</b>从对方或第三方获取文件与信息，甚至任何「<b>可能导致发现可采证据</b>」的材料。常见手段：<b>自动披露、书面质询（Interrogatories）、要求自认（Requests for Admission）、要求出示文件、宣誓证言（Depositions）</b>。这一阶段往往<b>最昂贵</b>。 <span class="en">Parties have broad latitude to discover documents and information, even material that "could lead to the discovery of admissible evidence" — often the most expensive phase.</span></p>
+  </div>
+  <div class="sub3" id="b13-5-3">
+    <h4><span class="snum">3.1.5.3</span> 动议 <span class="en">Motions</span></h4>
+    <p>与法院的沟通一般以<b>书面</b>进行（有时辅以口头辩论）；当事人向法院提出<b>动议</b>请求法院采取某种行动，最常见的是关于开示的争议、以及主张对方某项请求/抗辩不成立。极少数情况下，可借<b>简易判决（Summary Judgment）</b>在审前了结全部或部分案件。 <span class="en">Communications with the court are written; parties file motions requesting action, and may in rare cases dispose of the case via summary judgment.</span></p>
+  </div>
+  <div class="sub3" id="b13-5-4">
+    <h4><span class="snum">3.1.5.4</span> 审判 <span class="en">Trial</span></h4>
+    <p>通常由<b>一名法官</b>主持<b>陪审团审判</b>：<b>陪审团听取相关证据、认定争议事实、裁决胜负并确定赔偿数额</b>；<b>法官</b>则决定纯<b>法律</b>问题。注意：<b>超过 90% 的民事案件在开庭前和解</b>，真正的陪审团审判十分罕见。 <span class="en">Juries hear evidence and decide disputed facts and damages; judges decide pure legal issues. Over 90% of civil cases settle before trial.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b13-6">
+<summary><span class="arrow">▶</span><span class="bnum">3.1.6</span><span>律师与联盟法律专业人士 <span class="en">Lawyers &amp; allied legal professionals</span></span></summary>
+<div class="body">
+  <p class="lead">律师是诉讼中<b>关键</b>但不是<b>必不可少</b>的角色。两个要点：</p>
+  <ul>
+    <li><b>获得律师的权利不对等</b>：最高法院确立<b><a href="#b15-2">刑事</a></b>被告人享有<b>获得律师的权利</b>（无力负担者由政府/法院提供）；但<b>民事</b>诉讼<b>没有</b>这样的权利——无论是原告还是被告。尽管如此，绝大多数进入法院的案件都有律师代理。 <span class="en">Criminal defendants have a right to counsel (provided if indigent), but there is no such right in civil litigation; most cases nonetheless involve lawyers.</span></li>
+    <li><b>自我代理（pro se）</b>：你<b>有权</b>不请律师、自己出庭、写诉状、辩论、盘问证人——但「<b>替自己辩护的人，等于请了个傻瓜当客户</b>」（he who represents himself has a fool for a client），风险自担。 <span class="en">You may represent yourself — but "he who represents himself has a fool for a client."</span></li>
+    <li><b>联盟法律专业人士（allied legal professionals）</b>：受「<b>接近司法危机</b>」（access-to-justice crisis）驱动，越来越多未持律师执照但有法律训练者（如 MSL 学生）开始提供咨询甚至代理，尤其在需要「翻译」复杂科技信息的诉讼中。这一趋势预计会加速。 <span class="en">Driven by the access-to-justice crisis, allied legal professionals (legally trained but unlicensed) increasingly provide advice and representation.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b13-7">
+<summary><span class="arrow">▶</span><span class="bnum">3.1.7</span><span>美国是「诉讼社会」吗 <span class="en">Is the U.S. too litigious?</span></span></summary>
+<div class="body">
+  <p class="lead">媒体常让人觉得诉讼「失控」了（例如麦当劳热咖啡案），但事实更复杂：美国<b>人均律师数</b>确为全球之最（约每 300 人 1 名律师），却<b>并非</b>人均诉讼率最高的国家——落后于<b>德国、瑞典、以色列、奥地利</b>。因此「诉讼是否过多」终究是「<b>仁者见仁</b>」的问题。</p>
+  <p class="lead en">Media suggest lawsuits are out of control (e.g., the McDonald's hot coffee case). The U.S. has the most lawyers per capita (about 1 per 300 citizens) but is not the most litigious country — behind Germany, Sweden, Israel, and Austria. The answer is "in the eye of the beholder."</p>
+</div>
+</details>
+
+<details class="branch" id="b13-8">
+<summary><span class="arrow">▶</span><span class="bnum">3.1.8</span><span>集团诉讼与多区诉讼 <span class="en">Class actions &amp; multidistrict litigation</span></span></summary>
+<div class="body">
+  <div class="sub3" id="b13-8-1">
+    <h4><span class="snum">3.1.8.1</span> 集团诉讼（Class Action） <span class="en">Class actions</span></h4>
+    <p>依《联邦民事诉讼规则》<b>第 23 条</b>认证。第 23(a) 条要求：单独起诉<b>不切实际</b>、原告间有<b>共同的法律/事实争点</b>、被告对全体原告有<b>类似抗辩</b>。联邦标准采用「<b>严格分析</b>」（rigorous analysis）检验（<b>Walmart v. Dukes, 2011</b>）。除满足 23(a)，还须符合 23(b) 的至少一项（如共同问题「<b>占主导</b>」且集团诉讼「<b>更优</b>」）。 <span class="en">Certified under Rule 23; Rule 23(a) requires impracticability, common questions, and typical defenses, plus the "rigorous analysis" test (Walmart v. Dukes).</span></p>
+    <p>《<b>2005 年集团诉讼公平法</b>》（CAFA）赋予联邦法院对「<b>争议金额超 500 万美元</b> + 任一原告与任一被告异州」的集团诉讼管辖权。 <span class="en">CAFA (2005) gives federal jurisdiction where the amount in controversy exceeds $5 million and minimal diversity exists.</span></p>
+  </div>
+  <div class="sub3" id="b13-8-2">
+    <h4><span class="snum">3.1.8.2</span> 多区诉讼（MDL） <span class="en">Multidistrict litigation</span></h4>
+    <p>依《美国法典》<b>第 28 编 §1407</b>，由「<b>多区诉讼司法小组</b>」（Judicial Panel on MDL）决定是否把在不同联邦法院提起的同类案件「<b>集中</b>」起来，交由一名「<b>受让法官</b>」统一处理证据开示等审前事项。MDL<b>不是</b>一种集团诉讼，但集团诉讼常通过 MDL 进行。 <span class="en">Under 28 U.S.C. §1407, the Judicial Panel centralizes similar federal cases for pretrial proceedings before one transferee judge; MDL is not a class action but class actions are often litigated in MDL.</span></p>
+  </div>
+</div>
+</details>
+</section>
+
+<!-- ===================== 3.2 ===================== -->
+<section class="card" id="s14">
+<h2><span class="num">3.2</span>诉讼阶段 · Phases of a Lawsuit</h2>
+
+<details class="branch" id="b14-1">
+<summary><span class="arrow">▶</span><span class="bnum">3.2.1</span><span>立案 <span class="en">Commencement (pleading)</span></span></summary>
+<div class="body">
+  <p class="lead">原告向有管辖权的法院书记官处提交<b>起诉状</b>，只需「<b>简短而明确地陈述</b>」构成请求权的事实及所寻求的救济（金钱赔偿或衡平救济如<b>禁令</b>）。现代联邦规则废除了复杂的普通法「令状」（writ）制度，力求简化程序。</p>
+  <p class="lead en">Plaintiff files a complaint — a "short and plain statement" of the facts and the relief sought. The modern Federal Rules abolished the arcane common-law writ system to simplify procedure.</p>
+  <div class="sub3" id="b14-1-1">
+    <h4><span class="snum">3.2.1.1</span> 「可信性」标准（Twombly / Iqbal） <span class="en">The plausibility standard</span></h4>
+    <p>最高法院确立两条标准：① 事实须使请求<b>可信（plausible）</b>而非仅「可以想象」（conceivable）——<b>Bell Atlantic v. Twombly (2007)</b>；② 仅属「<b>法律结论的裸陈述</b>」（threadbare recitals of law）不足以成立请求——<b>Ashcroft v. Iqbal (2009)</b>。例如「雇主基于性别歧视我」若只是结论套话，缺乏事实细节，则不成立。 <span class="en">Twombly requires plausible (not merely conceivable) facts; Iqbal holds that "threadbare recitals of law" are insufficient.</span></p>
+  </div>
+  <div class="sub3" id="b14-1-2">
+    <h4><span class="snum">3.2.1.2</span> 送达与答辩 <span class="en">Service &amp; the answer</span></h4>
+    <p>原告须向被告<b>送达</b>起诉状及传票（summons），被告通常<b>21 天</b>内答辩（放弃送达则为 60 天）；逾期不答辩将作出<b>缺席判决（default judgment）</b>。被告的选择：提交<b>答辩状</b>（承认/否认/表示不知），或依第 12(b) 条提出<b>驳回动议</b>（如无管辖权、未陈述可获救济的请求等）。答辩状须一并提出<b>积极抗辩（affirmative defenses）</b>，否则失权。 <span class="en">Defendant answers or moves to dismiss under Rule 12(b); affirmative defenses must be raised or waived.</span></p>
+  </div>
+  <div class="sub3" id="b14-1-3">
+    <h4><span class="snum">3.2.1.3</span> 反诉（Counterclaim） <span class="en">Counterclaims</span></h4>
+    <p>基于<b>同一交易</b>的反诉是「<b>强制反诉</b>」（compulsory），必须此时提出，否则视为放弃；基于无关交易的反诉为「任意反诉」，可选择提出。反诉与积极抗辩不同——它不用于否认对方请求，而是提出<b>独立的</b>救济依据。 <span class="en">Counterclaims arising from the same transaction are compulsory; unrelated ones are permissive.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b14-2">
+<summary><span class="arrow">▶</span><span class="bnum">3.2.2</span><span>证据开示（Discovery） <span class="en">Pre-trial discovery</span></span></summary>
+<div class="body">
+  <p class="lead">美国特有的<b>审前信息交换</b>机制，目的是让双方都能获得可能支持己方请求或抗辩的证据，<b>拉平信息差距</b>（尤其对制造商掌握全部产品信息的产品责任案）。开示可分三个阶段：</p>
+  <p class="lead en">Discovery is a distinctive American pre-trial information swap that levels the playing field between parties.</p>
+  <div class="sub3" id="b14-2-1">
+    <h4><span class="snum">3.2.2.1</span> 第一阶段：初步披露与取证 <span class="en">Phase one: disclosures &amp; discovery tools</span></h4>
+    <ul>
+      <li><b>初步披露（initial disclosures）</b>：无需对方请求即主动交换相关证人、文件、损失证据。 <span class="en">Automatic exchange of witnesses, documents, and damages evidence.</span></li>
+      <li><b>宣誓证言（depositions）</b>：证人宣誓后接受口头询问并记录在案，可追问；一般限 10 次。 <span class="en">Oral, recorded questioning under oath; typically limited to ten.</span></li>
+      <li><b>书面质询（interrogatories）</b>：不超过 25 个非复合问题，须宣誓书面作答。 <span class="en">Up to 25 written questions answered under oath.</span></li>
+      <li><b>出示文件、自认、身体/精神检查</b>等。 <span class="en">Requests for production, admissions, and examinations.</span></li>
+    </ul>
+  </div>
+  <div class="sub3" id="b14-2-2">
+    <h4><span class="snum">3.2.2.2</span> 第二阶段：强制与保护 <span class="en">Phase two: compel &amp; protect</span></h4>
+    <p>一方拒不提供证据时，可申请<b>保护令（protective order）</b>或主张<b>特权（privilege）</b>（如律师-客户、医患保密）；对方无诚意配合时，法院可<b>强制（compel）</b>其出示。 <span class="en">Protective orders shield against undue burden; courts may compel production for bad-faith refusal.</span></p>
+  </div>
+  <div class="sub3" id="b14-2-3">
+    <h4><span class="snum">3.2.2.3</span> 第三阶段：制裁 <span class="en">Phase three: sanctions</span></h4>
+    <p>违反<b>证据保全义务</b>或法院命令，可遭制裁，极端情况下甚至作出缺席判决。律师在「<b>可合理预期诉讼</b>」时即负有<b>持续</b>的保全义务（可下达「<b>诉讼保全令</b>」litigation hold）。 <span class="en">Failure to preserve evidence may draw sanctions, up to default judgment; the preservation duty attaches when litigation is reasonably anticipated.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b14-3">
+<summary><span class="arrow">▶</span><span class="bnum">3.2.3</span><span>审前动议 <span class="en">Pre-trial motions</span></span></summary>
+<div class="body">
+  <p class="lead">开示后，一方（实践中通常是被告）可申请<b>简易判决（Summary Judgment）</b>：以证据证明对<b>重大事实</b>不存在「<b>真实争议</b>」（no genuine dispute as to any material fact），依法可直接判其胜诉，无需开庭。联邦允许<b>部分</b>简易判决，以缩小待审争点。随后在<b>审前会议（pre-trial conference）</b>上，法官梳理争点、审理证据可采性动议、并作最后的和解努力。 <span class="en">Summary judgment disposes of the case when there is no genuine dispute of material fact; the pre-trial conference narrows issues and attempts settlement.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b14-4">
+<summary><span class="arrow">▶</span><span class="bnum">3.2.4</span><span>审判 <span class="en">The trial</span></span></summary>
+<div class="body">
+  <div class="sub3" id="b14-4-1">
+    <h4><span class="snum">3.2.4.1</span> 陪审团与「事实认定者」 <span class="en">Jury &amp; the finder of fact</span></h4>
+    <p>联邦法院依<b>第七修正案</b>在「普通法诉讼」中保障<b>陪审团审判权</b>。陪审团是「<b>事实认定者</b>」（finder of fact），负责判断证人可信度、认定事实、并确定<b>赔偿数额</b>（含惩罚性赔偿 punitive damages）；法官是「<b>法律认定者</b>」（finder of law），主持程序并裁决法律问题。 <span class="en">Under the Seventh Amendment, juries find facts and damages; judges decide law.</span></p>
+  </div>
+  <div class="sub3" id="b14-4-2">
+    <h4><span class="snum">3.2.4.2</span> 选任陪审员（voir dire） <span class="en">Jury selection</span></h4>
+    <p>从选民名单随机抽取候选陪审员，律师可通过<b>有因回避（challenge for cause）</b>排除有偏见的陪审员，并可各行使至多 3 次<b>无因回避（peremptory challenge）</b>；但不得基于<b>种族或性别</b>排除。 <span class="en">Parties may strike jurors for cause or with (limited) peremptory challenges, but not on the basis of race or gender.</span></p>
+  </div>
+  <div class="sub3" id="b14-4-3">
+    <h4><span class="snum">3.2.4.3</span> 庭审流程 <span class="en">Order of trial</span></h4>
+    <ul>
+      <li><b>开场陈述</b>（opening statements）→ 原告举证（直接询问 direct → 交叉询问 cross）→ 被告举证 → 反驳（rebuttal）→ <b>结案陈词</b>（closing/summation）→ 法官<b>指示陪审团</b>法律 → 陪审团<b>评议并裁决</b>（联邦须<b>一致</b>）。 <span class="en">Openings, evidence (direct/cross), rebuttal, closings, jury instructions, deliberation, and unanimous verdict.</span></li>
+    </ul>
+  </div>
+  <div class="sub3" id="b14-4-4">
+    <h4><span class="snum">3.2.4.4</span> 法官对「失控陪审团」的制约 <span class="en">Checking a runaway jury</span></h4>
+    <p>法官可作出<b>指示裁决/驳回</b>（原告证据不足以令合理陪审团胜诉时），或<b>推翻陪审团裁决</b>（judgment notwithstanding the verdict），或<b>命令重审</b>（尤其当赔偿额过高时）。 <span class="en">The judge may direct a verdict, overrule the jury, or order a new trial (especially on excessive damages).</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b14-5">
+<summary><span class="arrow">▶</span><span class="bnum">3.2.5</span><span>庭外结案：诉讼的「出口」 <span class="en">Avoiding trial: the "exit ramps"</span></span></summary>
+<div class="body">
+  <p class="lead">与流行印象相反，<b>大多数美国诉讼在开庭前就已终结</b>，根本走不到律师在法官陪审团面前交锋那一步。理解这些「<b>出口（off-ramps）</b>」是理解诉讼全貌的关键：</p>
+  <ul>
+    <li><b>和解（settlement）</b>：最有意义的出口。当事人可在<b>任何时点</b>（包括庭审中、判决后）达成协议——可能撤诉，也可能对原告诉求作某种让步以换取撤诉。法官<b>非常乐于</b>鼓励和解以节省成本。 <span class="en">The most meaningful off-ramp; parties may settle at any point.</span></li>
+    <li><b>简易判决（summary judgment）</b>：仅依<b>法律论点</b>作出，不再审查事实支撑。例如原告无法指出被违反的成文法、判例或规章时，法官可认定「<b>未提出可获法律救济的请求</b>」。 <span class="en">A decision on legal arguments without examining the factual underpinnings of the claim.</span></li>
+    <li><b>驳回（dismissal）</b>：可分「<b>有损驳回（with prejudice）</b>」（不得再诉）与「<b>无损驳回（without prejudice）</b>」（可修正后重新起诉）。 <span class="en">Dismissal may be with prejudice (barred) or without prejudice (may refile).</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b14-6">
+<summary><span class="arrow">▶</span><span class="bnum">3.2.6</span><span>上诉（Appeal） <span class="en">Appeals</span></span></summary>
+<div class="body">
+  <p class="lead">上诉<b>不是</b>对原案的重审（new trial），而是请上级法院审查下级法院的<b>法律错误（errors of law）</b>。败诉方不能仅因「不满意结果」上诉，必须主张存在<b>法律错误</b>——如<b>误用先例、采纳应被排除的证据、管辖权错误</b>等。</p>
+  <p class="lead en">An appeal is not a new trial; it reviews the lower court for errors of law. Losing parties must show a legal error, not mere dissatisfaction.</p>
+  <div class="sub3" id="b14-6-1">
+    <h4><span class="snum">3.2.6.1</span> 审判 vs 上诉 <span class="en">Trial vs. appeal</span></h4>
+    <table>
+      <thead><tr><th></th><th>审判 Trial</th><th>上诉 Appeal</th></tr></thead>
+      <tbody>
+        <tr><td>审理者</td><td>陪审团（+ 1 名法官）</td><td>3 名法官组成的合议庭（panel）</td></tr>
+        <tr><td>证据</td><td>证人出庭、出示证据</td><td>无证人、无新证据，仅审查「<b>案卷记录</b>」（record）</td></tr>
+        <tr><td>核心问题</td><td>认定事实</td><td>审查<b>法律适用</b>是否正确</td></tr>
+      </tbody>
+    </table>
+    <p class="en">Trials find facts with witnesses and a jury; appeals use a three-judge panel, no witnesses, and review only the record for legal error.</p>
+  </div>
+  <div class="sub3" id="b14-6-2">
+    <h4><span class="snum">3.2.6.2</span> 上诉程序与案卷 <span class="en">Procedure &amp; the record</span></h4>
+    <p>上诉人（appellant）提交<b>上诉通知</b>，双方提交<b>书面辩论意见书（briefs）</b>（上诉的说服力主要靠书面 brief），可辅以短暂<b>口头辩论</b>（法官主要用来提问）。上诉结果取决于<b>案卷记录</b>——包括诉状、审前动议、庭审笔录、证据、审后动议等；<b>未记入案卷</b>的，上诉时即丧失机会。罕见情况下可<b>全院联席（en banc）</b>重审。 <span class="en">Appeals turn on the record; briefs are the main form of persuasion, with brief oral argument.</span></p>
+  </div>
+  <div class="sub3" id="b14-6-3">
+    <h4><span class="snum">3.2.6.3</span> 上诉层级与最高法院 <span class="en">Levels &amp; the Supreme Court</span></h4>
+    <ul>
+      <li>刑案中，<b>被告</b>可对定罪上诉，但<b>控方不能</b>对无罪判决上诉；对<b>量刑</b>双方均可上诉。 <span class="en">A defendant may appeal a guilty verdict; the prosecution may not appeal an acquittal.</span></li>
+      <li>州/联邦最高法院的复审是<b>裁量性的（discretionary）</b>，只受理「<b>尚未解决的法律问题</b>」（unsettled questions of law）；美最高法院只审涉<b>联邦或宪法问题</b>的案件。 <span class="en">Review by the highest courts is discretionary, limited to unsettled questions; the U.S. Supreme Court reviews only federal/constitutional issues.</span></li>
+    </ul>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b14-7">
+<summary><span class="arrow">▶</span><span class="bnum">3.2.7</span><span>律师费：美国规则 vs 英国规则 <span class="en">Attorneys' fees: American vs. English rule</span></span></summary>
+<div class="body">
+  <p class="lead"><b>美国规则（American rule）</b>（呼应 <a href="#b13-6">3.1.6</a> 民事无律师权）：各方<b>各自承担</b>自己的律师费，<b>无论胜负</b>。即便你胜诉「洗刷清白」，你仍需自付律师费，除非有<b>特别约定</b>或<b>成文法</b>规定（如<b>民权</b>诉讼中胜诉方可向败诉方追索律师费）。</p>
+  <p class="lead en">Under the American rule, each party bears its own attorneys' fees regardless of outcome, unless a statute (e.g., civil rights) or contract provides otherwise.</p>
+  <p class="lead"><b>英国规则（English rule）</b>：<b>败诉方</b>承担<b>胜诉方</b>的律师费（「败者付费」loser pays）。两种规则之争，本质是关于<b>激励结构</b>之争——是鼓励个人提起「胜算不大」的请求，还是抑制诉讼？</p>
+  <p class="en">Under the English rule, the losing party pays the winner's fees. The debate is really about what incentive structure the legal system should have.</p>
+</div>
+</details>
+</section>
+
+<!-- ===================== 3.3 ===================== -->
+<section class="card" id="s15">
+<h2><span class="num">3.3</span>刑事诉讼概览 · Overview of Criminal Process</h2>
+
+<details class="branch" id="b15-1">
+<summary><span class="arrow">▶</span><span class="bnum">3.3.1</span><span>刑诉程序概览 <span class="en">From arrest to appearance</span></span></summary>
+<div class="body">
+  <p class="lead">刑事诉讼（对比 <a href="#b13-1">3.1.1 民刑之分</a>）描绘了从<b>警方调查</b>到<b>定罪后救济</b>的「漫长而曲折的道路」。美国实行「<b>我们的联邦主义</b>」——<b>联邦</b>（FBI、DEA、特勤局、94 个联邦检察区）与<b>州/地方</b>（县检察官、州警察）两套并行体系。让程序变得复杂（且独特）的是<b>美国宪法</b>。</p>
+  <p class="lead en">Criminal procedure runs from police investigation through post-conviction relief, in parallel federal and state systems, complicated by the U.S. Constitution.</p>
+  <div class="sub3" id="b15-1-1">
+    <h4><span class="snum">3.3.1.1</span> 逮捕与「合理根据」 <span class="en">Arrest &amp; probable cause</span></h4>
+    <p>警察可在目击犯罪，或依证人报告/物证形成「<b>合理根据（probable cause）</b>」时实施逮捕。合理根据<b>高于</b>「怀疑（hunch）」或「合理怀疑」，但并非确凿证据。公共场合逮捕多<b>无需令状</b>，进入<b>住宅</b>则一般需要令状（「家是城堡」）。 <span class="en">Probable cause requires more than a hunch but not certainty; public arrests usually need no warrant, home arrests generally do.</span></p>
+  </div>
+  <div class="sub3" id="b15-1-2">
+    <h4><span class="snum">3.3.1.2</span> 48 小时与初次到庭 <span class="en">The 48-hour mandate</span></h4>
+    <p>无令状逮捕后，警察须「<b>迅速</b>」（通常 48 小时内）将嫌犯带见法官作合理根据审查；若超时，须证明有「非常情形」。若嫌犯成功质疑无令状逮捕，由此获得的证据将被<b>排除</b>。检察官随后<b>绝对裁量</b>是否起诉（该决定一般不受法院审查）。 <span class="en">A warrantless arrestee must be brought before a judge "promptly" (typically within 48 hours); prosecutorial discretion to charge is absolute and unreviewable.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b15-2">
+<summary><span class="arrow">▶</span><span class="bnum">3.3.2</span><span>宪法根基：第四、五、六修正案 <span class="en">The constitutional foundations</span></span></summary>
+<div class="body">
+  <ul>
+    <li><b>第四修正案</b>：人民享有人身、住宅、文件、财产<b>不受不合理搜查扣押</b>之权；令状须基于<b>合理根据</b>并具体描述搜查地点与扣押对象。这段「长难句」催生了最复杂的判例法。 <span class="en">Protection against unreasonable searches and seizures; warrants require probable cause and particularity.</span></li>
+    <li><b>第五修正案</b>：任何人<b>不得被迫自证其罪</b>（right against self-incrimination）——有权在己方审判中不作证，也延伸至警方讯问。 <span class="en">No person may be compelled to be a witness against himself.</span></li>
+    <li><b>第六修正案</b>：享有<b>迅速、公开</b>并由<b>公正陪审团</b>审判之权，有权对质证人、传唤己方证人、并获得<b>律师</b>辩护。 <span class="en">Right to a speedy and public trial by an impartial jury, to confront witnesses, and to counsel.</span></li>
+  </ul>
+  <p class="lead">这三条修正案最初只约束<b>联邦</b>，后经<b>第十四修正案</b>被「并入」适用于<b>州</b>——因此约束的是<b>政府行为（state action）</b>，私人（如私家侦探）的搜查不构成违宪。 <span class="en">Originally bound only the federal government, these protections were incorporated against the states via the Fourteenth Amendment; they bind government action, not private conduct.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b15-3">
+<summary><span class="arrow">▶</span><span class="bnum">3.3.3</span><span>审前阶段 <span class="en">Pre-trial phase</span></span></summary>
+<div class="body">
+  <div class="sub3" id="b15-3-1">
+    <h4><span class="snum">3.3.3.1</span> 大陪审团与预审 <span class="en">Grand jury &amp; preliminary hearing</span></h4>
+    <p>重罪（felony）指控需经<b>大陪审团起诉书（indictment）</b>或<b>预审（preliminary hearing）</b>，二者目的相同：判断是否有足够证据交付审判。大陪审团由<b>12–23 名</b>公民组成，程序<b>不公开</b>，被告不在场；预审中被告可在场、有律师、可交叉询问。 <span class="en">A felony charge requires either a grand jury indictment (closed, defendant absent) or a preliminary hearing (defendant present).</span></p>
+  </div>
+  <div class="sub3" id="b15-3-2">
+    <h4><span class="snum">3.3.3.2</span> 提审与辩诉交易 <span class="en">Arraignment &amp; plea bargaining</span></h4>
+    <p><b>提审（arraignment）</b>时被告作<b>有罪/无罪</b>答辩。宪法要求控方披露<b>无罪证据（exculpatory evidence）</b>。此后控方常提出<b>辩诉交易（plea bargain）</b>：以更轻罪名起诉或建议更轻刑罚，换取被告认罪/合作。只要答辩<b>自愿</b>且理解后果（尤其放弃陪审团审判权），交易即有效——绝大多数案件以此了结。 <span class="en">At arraignment the defendant pleads; plea bargains (lighter charge/sentence for a guilty plea) resolve most cases, if voluntary and knowing.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b15-4">
+<summary><span class="arrow">▶</span><span class="bnum">3.3.4</span><span>刑事审判 <span class="en">The criminal trial</span></span></summary>
+<div class="body">
+  <ul>
+    <li><b>无罪推定（presumption of innocence）</b>：被告被推定无罪，<b>控方</b>先举证，且须对犯罪的<b>每一构成要件</b>证明到「<b>排除合理怀疑</b>」（beyond a reasonable doubt）的程度。 <span class="en">The prosecution must prove every element beyond a reasonable doubt.</span></li>
+    <li><b>一致裁决</b>：刑事陪审团裁决须<b>一致</b>（<b>Ramos v. Louisiana, 2020</b> 将一致要求适用于州）。若无法一致则「<b>僵局陪审团（hung jury）</b>」，可能重审。 <span class="en">Criminal verdicts must be unanimous (Ramos v. Louisiana); a hung jury may lead to retrial.</span></li>
+    <li><b>一罪不二审（double jeopardy）</b>：第五修正案禁止对同一罪行<b>二次追诉</b>，故控方不能对无罪判决上诉。 <span class="en">The Fifth Amendment bars double jeopardy; acquittals cannot be appealed.</span></li>
+    <li><b>陪审团 vs 法官（bench trial）</b>：被告可放弃陪审团审判改由法官审理。法官更冷静、更重事实；陪审团更易受<b>情感</b>影响，可能出于同情而「网开一面」。 <span class="en">The defendant may waive a jury and opt for a bench trial; judges are more dispassionate, juries more emotional.</span></li>
+    <li><b>作证的两难</b>：被告可选择不作证（陪审团不得据此推断有罪）；一旦作证即<b>放弃</b>不自证其罪特权，须接受控方广泛而犀利的交叉询问。 <span class="en">If the defendant testifies, the privilege against self-incrimination is waived.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b15-5">
+<summary><span class="arrow">▶</span><span class="bnum">3.3.5</span><span>排除规则与搜查扣押 <span class="en">The exclusionary rule &amp; searches</span></span></summary>
+<div class="body">
+  <p class="lead">Cardozo 法官的名句点出宪法困境：「<b>因为警察犯了错，罪犯就获释</b>」（The criminal goes free because the constable has blundered）。这就是<b>排除规则（exclusionary rule）</b>：以违宪方式（如不合理搜查扣押、未宣读权利）取得的证据，<b>不得在审判中采用</b>。它仍具争议，却是美国刑诉的<b>核心</b>特征。</p>
+  <p class="lead en">The exclusionary rule bars evidence obtained through unconstitutional means — "the criminal goes free because the constable has blundered" (Cardozo).</p>
+  <div class="sub3" id="b15-5-1">
+    <h4><span class="snum">3.3.5.1</span> 什么是「搜查」 <span class="en">What is a "search"</span></h4>
+    <ul>
+      <li>第四修正案保护的是「<b>人</b>」而非「地方」，只保护有「<b>合理隐私期待</b>」的区域——故住宅外的<b>垃圾桶</b>可被搜查。 <span class="en">Protects people, not places; only areas with a "reasonable expectation of privacy."</span></li>
+      <li>技术介入会改变判断：<b>窃听</b>、<b>热成像</b>、<b>GPS 定位</b>（<b>United States v. Jones, 2012</b>）均属搜查；但<b>空中俯瞰</b>、<b>缉毒犬</b>嗅探一般不是。 <span class="en">Wiretaps, thermal imaging, and GPS tracking (Jones) are searches; aerial surveillance and drug-dog sniffs generally are not.</span></li>
+    </ul>
+  </div>
+  <div class="sub3" id="b15-5-2">
+    <h4><span class="snum">3.3.5.2</span> 无令状搜查的例外 <span class="en">Warrant exceptions</span></h4>
+    <ul>
+      <li><b>紧急情形（exigent circumstances）</b> + <b>一目了然（plain view）</b>：合法在场时看到罪证即可扣押。 <span class="en">Exigent circumstances and plain view.</span></li>
+      <li><b>机动车例外</b>：车辆可移动，有合理根据即可搜查车内。 <span class="en">The automobile exception, based on mobility.</span></li>
+      <li><b>逮捕附带搜查（search incident to arrest）</b>：为保护警员、防止毁证。 <span class="en">Search incident to arrest.</span></li>
+      <li><b>拦截与拍身（stop and frisk）</b>：在低于合理根据的「<b>合理怀疑</b>」下即可短暂拦停并拍身查武器（Terry 标准）。 <span class="en">Stop-and-frisk on "reasonable suspicion" (Terry).</span></li>
+    </ul>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b15-6">
+<summary><span class="arrow">▶</span><span class="bnum">3.3.6</span><span>供述与米兰达规则 <span class="en">Confessions &amp; Miranda</span></span></summary>
+<div class="body">
+  <p class="lead">第五修正案不禁止认罪，只禁止「<b>强迫</b>」自证其罪。非自愿供述（如酷刑、长时间隔离审讯）不可采；但警方<b>欺骗</b>（如谎称「我们已有你的 DNA」、承诺从轻）<b>是允许的</b>。</p>
+  <p class="lead en">Involuntary confessions are inadmissible; police deception (false claims of evidence, promises of leniency) is permitted.</p>
+  <div class="sub3" id="b15-6-1">
+    <h4><span class="snum">3.3.6.1</span> 米兰达警告（Miranda） <span class="en">The Miranda warning</span></h4>
+    <p>「<b>羁押讯问</b>」（custodial interrogation）中取得的陈述不可采，除非已告知权利并自愿放弃：「<b>你有权保持沉默……你所说的任何话都可能成为呈堂证供……你有权聘请律师……若无力负担将为你指定一名律师</b>。」一旦要求律师或沉默，讯问必须停止。 <span class="en">Custodial interrogation requires Miranda warnings; questioning must stop if the suspect invokes counsel or silence.</span></p>
+  </div>
+  <div class="sub3" id="b15-6-2">
+    <h4><span class="snum">3.3.6.2</span> 毒树之果 <span class="en">Fruit of the poisonous tree</span></h4>
+    <p>不仅违宪取得的证据不可采，<b>由此衍生的证据</b>（「毒树之果」）也不可采——例如非法搜查住宅发现的保险箱钥匙，进而找到的赃物。例外包括「<b>必然发现</b>」（inevitable discovery）与「<b>善意信赖</b>」（good faith）。 <span class="en">Derivative evidence is also excluded, with exceptions for inevitable discovery and good faith.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b15-7">
+<summary><span class="arrow">▶</span><span class="bnum">3.3.7</span><span>定罪后程序 <span class="en">Post-conviction</span></span></summary>
+<div class="body">
+  <ul>
+    <li><b>量刑（sentencing）</b>：依联邦/州量刑指南；多数轻微犯罪判处<b>缓刑（probation）</b>而非监禁。联邦监狱中<b>毒品犯占 46.2%</b>（对比白领犯仅 5.6%），多与「<b>强制最低刑</b>」（mandatory minimums）有关。 <span class="en">Most minor offenses draw probation; drug offenses fill 46.2% of federal prisons, tied to mandatory minimums.</span></li>
+    <li><b>上诉</b>：被定罪者有权上诉，须主张「<b>重大错误导致对被告不利</b>」或裁决与证据不符。 <span class="en">Convicted defendants may appeal on significant prejudicial error.</span></li>
+    <li><b>人身保护令（habeas corpus）</b>：向联邦法院挑战监禁的<b>合宪性</b>（非上诉定罪、非主张无罪），属「<b>附带攻击</b>」（collateral attack）；最高法院已收窄其适用。 <span class="en">Habeas corpus collaterally attacks the constitutionality of imprisonment.</span></li>
+    <li><b>假释（parole）</b>与<b>减刑/赦免</b>：多数囚犯在服满刑期前获释；州长与总统有<b>减刑（commute）</b>与<b>赦免（pardon）</b>之权。 <span class="en">Most prisoners are released early; governors and the president may commute or pardon.</span></li>
+  </ul>
+</div>
+</details>
+</section>
+
+<!-- ===================== 3.4 ===================== -->
+<section class="card" id="s16">
+<h2><span class="num">3.4</span>诉讼中的科学与证据 · Science &amp; Evidence</h2>
+
+<details class="branch" id="b16-1">
+<summary><span class="arrow">▶</span><span class="bnum">3.4.1</span><span>证据规则基础 <span class="en">Rules of evidence basics</span></span></summary>
+<div class="body">
+  <p class="lead">案件结果往往取决于<b>什么证据可被采纳（admissible）</b>。证据规则的复杂性在于：每个州都有自己的证据规则（可与联邦及他州不同），判例又进一步细化。本节以<b>《联邦证据规则》（FRE）</b>为准。</p>
+  <p class="lead en">Outcomes often turn on what evidence is admissible. Each state has its own rules; this summary follows the Federal Rules of Evidence (FRE).</p>
+  <p class="lead">可采证据的两大前提：<b>相关性（relevance）</b>与<b>认证（authentication）</b>。相关性标准很低——只要「<b>有任何倾向</b>使某一事实更可能或更不可能」（FRE 401），故<b>即便很弱的证据也可能相关</b>；是否真能证明什么，交由<b>事实认定者</b>权衡。 <span class="en">Admissibility requires relevance (any tendency, FRE 401) and authentication.</span></p>
+  <p class="lead">两种证据均可采：<b>直接证据（direct）</b>——单独即证明事实（如亲眼见 Johnny 偷糖）；<b>间接/情况证据（circumstantial）</b>——需推断（如见 Johnny 在店旁且脸上有巧克力）。 <span class="en">Both direct and circumstantial evidence are admissible if relevant, authenticated, and not excluded.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b16-2">
+<summary><span class="arrow">▶</span><span class="bnum">3.4.2</span><span>证据的四种类型 <span class="en">Types of evidence</span></span></summary>
+<div class="body">
+  <table>
+    <thead><tr><th>类型</th><th>英文</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>实物证据</td><td>Real (tangible) evidence</td><td>与案件直接相关，如谋杀案中的枪</td></tr>
+      <tr><td>演示证据</td><td>Demonstrative evidence</td><td>帮助说明证人证言，如事故现场地图</td></tr>
+      <tr><td>书证</td><td>Documentary evidence</td><td>如合同，含电子/数字证据</td></tr>
+      <tr><td>证言</td><td>Testimonial evidence</td><td>合格证人在庭上的陈述</td></tr>
+    </tbody>
+  </table>
+  <p class="lead">每种证据都有各自关于「相关性」与「认证」的规则。认证方式包括证人证言、与对方约定（stipulation）、开示中的<b>要求自认</b>；部分证据<b>自动认证</b>（self-authenticating，如经认证的公共记录副本）；法官还可对某些事实作<b>司法认知</b>（judicial notice）。 <span class="en">Authentication may be by witness testimony, stipulation, request for admission, or self-authentication; judges may take judicial notice of certain facts.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b16-3">
+<summary><span class="arrow">▶</span><span class="bnum">3.4.3</span><span>证人证言：普通 vs 专家 <span class="en">Lay vs. expert testimony</span></span></summary>
+<div class="body">
+  <div class="sub3" id="b16-3-1">
+    <h4><span class="snum">3.4.3.1</span> 普通证人（lay witness） <span class="en">Lay witnesses</span></h4>
+    <p>可就其<b>亲身感知</b>的事实或意见作证（FRE 701），须基于感知、非技术知识、具备作证能力、能记忆并传达。常见异议：<b>传闻</b>、缺乏亲身知识/猜测、缺乏基础（foundation）、含糊误导、答非所问、违反口头证据规则、重复。直接询问不得问<b>诱导性问题</b>（leading），交叉询问则可以。 <span class="en">Lay witnesses testify from personal knowledge; leading questions are barred on direct but allowed on cross.</span></p>
+  </div>
+  <div class="sub3" id="b16-3-2">
+    <h4><span class="snum">3.4.3.2</span> 专家证人（expert witness） <span class="en">Expert witnesses</span></h4>
+    <p>与普通证人不同，专家可就<b>非亲身认知</b>的事实发表意见（如神经外科医生未亲自手术仍可就脑损伤影响作证）。可采前提：法院<b>认定其为专家</b>、其知识<b>有助于</b>事实认定者理解证据、基于<b>充分的事实/数据</b>并采用<b>可靠方法</b>（详见 3.4.8 Daubert）。 <span class="en">Experts may opine on matters beyond firsthand knowledge if qualified, helpful, and reliable.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b16-4">
+<summary><span class="arrow">▶</span><span class="bnum">3.4.4</span><span>品格证据与习惯证据 <span class="en">Character &amp; habit evidence</span></span></summary>
+<div class="body">
+  <p class="lead"><b>品格证据（character evidence）</b>一般<b>不可采</b>，用以证明某人「依其品格行事」——「Johnny 以前偷过 M&M，不代表这次偷了 Snickers」。例外：可用于支持/攻击<b>证人可信度</b>；当品格本身成为争点时（如诽谤案中原告名声）；以及 FRE 404 下用于证明<b>动机、知情、意图、身份</b>。</p>
+  <p class="lead en">Character evidence is generally inadmissible to prove conduct, with exceptions for witness credibility, when character is directly at issue, and for motive/knowledge/intent/identity.</p>
+  <p class="lead"><b>习惯证据（habit evidence）</b>与之不同：用于证明某人「<b>例行</b>」行为导致其在特定场合如此作为（如证明某人每天下班喝两杯啤酒，故某日也如此）。二者区别在于行为的<b>次数</b>与<b>一致性</b>。 <span class="en">Habit evidence shows a routine response on a specific occasion; courts look to frequency and uniformity.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b16-5">
+<summary><span class="arrow">▶</span><span class="bnum">3.4.5</span><span>最佳证据规则 <span class="en">Best evidence rule</span></span></summary>
+<div class="body">
+  <p class="lead">FRE 1002 要求：要证明文书或记录的内容，应使用<b>原件（original）</b>，除非有正当理由——如原件归属有争议、使用原件会不公、或原件<b>不可得</b>。 <span class="en">The best evidence rule requires an original writing or record, absent good reason.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b16-6">
+<summary><span class="arrow">▶</span><span class="bnum">3.4.6</span><span>传闻证据（Hearsay） <span class="en">Hearsay &amp; exceptions</span></span></summary>
+<div class="body">
+  <p class="lead"><b>传闻</b>＝「<b>庭外陈述</b>，用于证明所述事项的真实性」。例如「Bob 六月告诉我 Johnny 偷了糖」——因发生于庭外、又用于证明 Johnny 偷糖，属传闻。传闻<b>一般不可采</b>（因无法交叉询问），但有众多例外：</p>
+  <p class="lead en">Hearsay is an out-of-court statement offered to prove the truth of the matter asserted; generally inadmissible, with numerous exceptions.</p>
+  <ul>
+    <li><b>即时感觉印象（present sense impression）</b>：感知后立即作出。</li>
+    <li><b>激奋言词（excited utterance）</b>：在惊骇事件的压力下作出。</li>
+    <li><b>当时的身心状态</b>：「他看起来很沮丧」。</li>
+    <li><b>医疗诊断/治疗</b>陈述。</li>
+    <li><b>记录性回忆（recorded recollection）</b>。</li>
+  </ul>
+  <p class="en">Common exceptions: present sense impression, excited utterance, then-existing condition, medical diagnosis/treatment, and recorded recollection — plus about 22 more exceptions.</p>
+</div>
+</details>
+
+<details class="branch" id="b16-7">
+<summary><span class="arrow">▶</span><span class="bnum">3.4.7</span><span>特权与工作成果 <span class="en">Privilege &amp; work product</span></span></summary>
+<div class="body">
+  <p class="lead"><b>律师-客户特权（attorney-client privilege）</b>：为获取法律建议而在保密状态下进行的律师与客户间沟通受保护（含法律建议、请求、为获建议而提供的事实）。<b>工作成果原则（work product doctrine）</b>：为诉讼准备而产生的有形/书面材料受保护。二者都是证据开示中可主张「不提供」的盾牌。 <span class="en">Confidential attorney-client communications and litigation work product are protected from discovery.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b16-8">
+<summary><span class="arrow">▶</span><span class="bnum">3.4.8</span><span>专家证言标准：Daubert <span class="en">The Daubert standard</span></span></summary>
+<div class="body">
+  <div class="case"><div class="c-title">Daubert v. Merrell Dow Pharmaceuticals（1993）案情 Facts</div>
+    <p>原告主张母亲孕期服用止吐药 Bendectin 导致新生儿缺陷。被告专家审查 30+ 项、超 13 万人的已发表研究后，认为无证据显示 Bendectin 致畸；原告的 8 位专家则依赖动物实验、化学结构分析及对已发表统计的「重新分析」。地方法院依 <b>Frye「普遍接受」标准</b>排除原告专家，第九巡回法院维持。</p>
+    <p class="en">Plaintiffs claimed Bendectin caused birth defects. The district court excluded plaintiffs' experts under Frye's "general acceptance" test; the Ninth Circuit affirmed.</p>
+  </div>
+  <div class="sub3" id="b16-8-1">
+    <h4><span class="snum">3.4.8.1</span> 判决 <span class="en">Holding</span></h4>
+    <p>最高法院<b>一致</b>（部分）裁定：<b>Frye 已被《联邦证据规则》取代</b>——「普遍接受」不是科学证据可采的<b>必要前提</b>；但规则（尤其 <b>第 702 条</b>）赋予<b>初审法官「守门人」（gatekeeper）</b>职责，确保专家证言既<b>可靠</b>又<b>相关</b>。 <span class="en">Frye was superseded by the Federal Rules; Rule 702 assigns the trial judge a "gatekeeping" role to ensure reliability and relevance.</span></p>
+  </div>
+  <div class="sub3" id="b16-8-2">
+    <h4><span class="snum">3.4.8.2</span> 可靠性的判断因素（非穷尽） <span class="en">Daubert factors (non-exhaustive)</span></h4>
+    <ul>
+      <li>该理论/技术<b>可否（且已被）检验</b>（可证伪性）。</li>
+      <li>是否经过<b>同行评议与发表</b>（发表非必需，但是「好科学」的一部分）。</li>
+      <li><b>已知或潜在的误差率</b>。</li>
+      <li>是否存在并维持<b>操作标准</b>。</li>
+      <li>在相关科学共同体中是否<b>被广泛接受</b>（Frye 因素仅作参考）。</li>
+    </ul>
+    <p class="lead">审查焦点<b>只在于原则与方法，而非其结论</b>；方法是<b>灵活的</b>。对付「可疑但可采」证据的正道是<b>有力的交叉询问、提出相反证据、谨慎的举证责任指示</b>，而非一概排除。 <span class="en">The focus is on principles and methodology, not conclusions; cross-examination and contrary evidence, not wholesale exclusion, are the proper safeguards.</span></p>
+  </div>
+  <div class="sub3" id="b16-8-3">
+    <h4><span class="snum">3.4.8.3</span> 后续与第 702 条 <span class="en">Rule 702 today</span></h4>
+    <p>《联邦证据规则》<b>第 702 条</b>经 2000 年修订，将 Daubert 与 <b>Kumho Tire</b>（守门职能适用于<b>所有</b>专家，不限于科学）写入条文：专家证言须「<b>更可能为真地</b>」满足——(a) 有助于理解证据；(b) 基于充分事实/数据；(c) 可靠原则与方法的产物；(d) 可靠地适用于案件事实。守门是补充而非替代对抗制。 <span class="en">Amended Rule 702 codifies Daubert and Kumho (gatekeeping for all experts): helpfulness, sufficient facts/data, reliable principles and methods, and reliable application.</span></p>
+  </div>
+</div>
+</details>
+</section>
+
+<!-- ===================== 3.5 ===================== -->
+<section class="card" id="s17">
+<h2><span class="num">3.5</span>诉讼的解剖 · 同步课精讲（2026年9月8日）</h2>
+
+<details class="branch" id="b17-1">
+<summary><span class="arrow">▶</span><span class="bnum">3.5.1</span><span>同步课概览与安排 <span class="en">Session overview &amp; logistics</span></span></summary>
+<div class="body">
+  <p class="lead">这是本学期<b>第 2 次</b>同步课（共 4 次），主题是「<b>诉讼的解剖</b>」（Anatomy of a Lawsuit）。教授（Daniel Rodriguez）的目标有二：<b>① 复习上周 Week2 的<a href="#b7-1">三权分立</a>；② 引入 Week3 的关键门槛概念</b>——不是逐条讲材料，而是「抓重点 + 答疑」。</p>
+  <p class="lead en">This is Sync Session 2 of 4, on the "Anatomy of a Lawsuit." The professor aims to (1) review Week 2 (separation of powers) and (2) introduce Week 3's key gatekeeping concepts — hitting highlights, not every reading.</p>
+  <ul>
+    <li><b>Quiz 2</b> 下周发布，覆盖 <b>Week 1–3</b> 全部内容（沿袭「滞后一周」的规则）。 <span class="en">Quiz 2 launches next week, covering Weeks 1–3.</span></li>
+    <li>教授特别提示：Week3 是「<b>细节极多、学生最容易困惑</b>」的一周，不必逐条掌握，<b>抓住主线主题</b>即可——尤其「<b><a href="#b16-8">专家证言与证据</a></b>」这一主题很重要。 <span class="en">Week 3 is the most detail-heavy and confusing week; focus on main themes, especially expert testimony and evidence.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b17-2">
+<summary><span class="arrow">▶</span><span class="bnum">3.5.2</span><span>复习：国会与选举 <span class="en">Review: Congress &amp; elections</span></span></summary>
+<div class="body">
+  <ul>
+    <li><b><a href="#b9-1">两院制</a></b>：国会含众议院 + 参议院。全球多数立法机构是两院制，美国 <b>49/50</b> 个州也是；唯一例外是<b>内布拉斯加</b>（一院制）。 <span class="en">Bicameral Congress; Nebraska is the only unicameral state.</span></li>
+    <li><b>众议院 435 席</b>：此数字<b>并非宪法固定</b>，随人口增长曾扩大，后固定于 435；国会<b>可以</b>扩大但至今拒绝。 <span class="en">The 435-seat House is not constitutionally fixed; Congress could expand it but has declined.</span></li>
+    <li><b><a href="#b4-2-3">一人一票</a>（one person, one vote）</b>：1960 年代最高法院依第十四修正案<b>平等保护</b>确立——每个选民选票权重须相等（Reynolds v. Sims）。故每 10 年人口普查后须<b>重划选区</b>（reapportionment）。 <span class="en">The Supreme Court's "one person, one vote" doctrine (Reynolds v. Sims) requires equal electoral weight; districts are reapportioned each census.</span></li>
+    <li><b>参议院的「避风港」</b>：参议院<b>每州 2 席</b>、与人口无关，表面违反一人一票，但因<b>宪法明文规定</b>而豁免（「避风港」safe harbor）；但州议会<b>不能</b>效仿这种「按地区而非人口」的分配。 <span class="en">The Senate's two-per-state scheme violates one-person-one-vote but is constitutionally hardwired; states cannot replicate it.</span></li>
+    <li><b>选区划分（gerrymandering）</b>：重划权在<b>州议会</b>手中，可被用来保护现任者与政党利益。近年出现「<b>普查中期重划</b>」的政治军备竞赛（始于德州、蔓延至红州，加州「以牙还牙」）。 <span class="en">State legislatures redraw districts and can gerrymander; mid-census redistricting has become a partisan arms race.</span></li>
+    <li><b>无投票权代表</b>：华盛顿特区、波多黎各及诸领地（美属萨摩亚、关岛、维尔京群岛等）的居民并非严格意义上的美国公民，其代表<b>无投票权</b>。 <span class="en">D.C., Puerto Rico, and the territories have non-voting representatives.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b17-3">
+<summary><span class="arrow">▶</span><span class="bnum">3.5.3</span><span>复习：总统、选举人团与豁免 <span class="en">Review: President, Electoral College &amp; immunity</span></span></summary>
+<div class="body">
+  <div class="sub3" id="b17-3-1">
+    <h4><span class="snum">3.5.3.1</span> 总统与选举人团 <span class="en">President &amp; the Electoral College</span></h4>
+    <ul>
+      <li>宪法<b>第二条</b>：全部行政权归于<b>总统</b>一人，任期 4 年。 <span class="en">Article II vests executive power in the President.</span></li>
+      <li><b><a href="#b4-2-5">选举人团</a></b>：总统并非直接民选，而由各州<b>选举人</b>正式投票，需 <b>270 票</b>。选举人基本「照章办事」投票；偶尔有「<b>失信选举人</b>」（faithless elector）投抗议票，但从不影响结果。 <span class="en">The President is elected by electors (270 needed); "faithless electors" rarely matter.</span></li>
+      <li><b>民选票 vs 选举人票</b>：赢得全国普选票不等于赢得选举（如 2016 希拉里·克林顿、2000 戈尔），因关键在于<b>各州</b>选票如何分布——这是联邦制下「人民意志」与「州际机制」可能脱节的体现。 <span class="en">Winning the popular vote does not guarantee victory (Clinton 2016, Gore 2000) because state-by-state distribution matters.</span></li>
+    </ul>
+  </div>
+  <div class="sub3" id="b17-3-2">
+    <h4><span class="snum">3.5.3.2</span> 副总统与 1 月 6 日 <span class="en">The Vice President &amp; January 6</span></h4>
+    <ul>
+      <li>副总统宪法权力极小：① 总统死亡/辞职时继任；② 参议院平局时投<b>关键一票</b>。 <span class="en">The VP's only real powers: succession and tie-breaking votes in the Senate.</span></li>
+      <li><b>1 月 6 日之争</b>：特朗普曾主张副总统彭斯有权<b>拒绝认证</b>选举结果，教授认为彭斯立场明显更优——副总统<b>无</b>此裁量权；为其提供相反建议的律师多已失格/被吊销执照。 <span class="en">On Jan. 6, Pence (correctly) held he lacked discretion to decline to certify; those advising otherwise were largely disgraced or disbarred.</span></li>
+    </ul>
+  </div>
+  <div class="sub3" id="b17-3-3">
+    <h4><span class="snum">3.5.3.3</span> 总统豁免 vs 弹劾 <span class="en">Presidential immunity vs. impeachment</span></h4>
+    <ul>
+      <li>最高法院对「<b><a href="#b10-3">官方行为豁免</a></b>」（Trump v. US）的判决<b>只涉及刑事追诉与定罪</b>，<b>与弹劾无关</b>——国会仍可依「重罪与轻罪」（high crimes and misdemeanors）弹劾总统。 <span class="en">Immunity from prosecution for official acts says nothing about impeachment; Congress may still impeach.</span></li>
+      <li><b><a href="#b10-4">弹劾</a>的政治化</b>：需<b>众议院</b>提出 + <b>参议院 2/3 多数</b>定罪。教授认为弹劾条款已被两党「<b>武器化</b>」，且由于 2/3 门槛，几乎不可能成功。 <span class="en">Impeachment needs a House majority and a two-thirds Senate vote; it has been "weaponized" by both parties.</span></li>
+      <li><b>统一行政（unitary executive）与下级官员</b>：下级行政官员<b>不享有</b>总统的豁免，可能承担民事或刑事责任；若他们主张「只是奉命行事、无裁量」，法院尚未明确其是否被总统豁免「覆盖」。 <span class="en">Subordinate officials lack presidential immunity; the "just following orders" question remains unsettled.</span></li>
+    </ul>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b17-4">
+<summary><span class="arrow">▶</span><span class="bnum">3.5.4</span><span>联邦法院结构 <span class="en">Structure of the federal courts</span></span></summary>
+<div class="body">
+  <ul>
+    <li><b><a href="#b11-1">第三条</a></b>：最高法院是宪法<b>唯一明文提及</b>的法院；国会「可随时设立」下级法院，故可<b>重新界定</b>最高法院之下的法院配置。 <span class="en">Article III names only the Supreme Court; Congress may establish and reconfigure inferior courts.</span></li>
+    <li><b>巡回上诉法院（Circuit Courts of Appeals）</b>：按<b>地理</b>划分，唯一例外是<b>联邦巡回法院（Federal Circuit）</b>——设在华盛顿，主要管<b>知识产权</b>案件（勿与 D.C. 巡回法院混淆）。历史上第五巡回曾拆出第十一巡回；第九巡回被指「太大」而屡有拆分之议。 <span class="en">Circuits are geographic except the Federal Circuit (intellectual property); the 11th split from the 5th, and the 9th is often proposed for splitting.</span></li>
+    <li><b>地区法院（District Courts）</b>：也在<b>州内按地理</b>划分（如伊利诺伊北区、南区），隶属于所在巡回区。 <span class="en">District courts are divided geographically within states, within a circuit.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b17-5">
+<summary><span class="arrow">▶</span><span class="bnum">3.5.5</span><span>「案件或争议」与诉讼资格 <span class="en">Case or controversy &amp; standing</span></span></summary>
+<div class="body">
+  <p class="lead">这是进入联邦法院的<b>第一道门槛</b>（承接 <a href="#b14-1">3.2.1 立案</a>），也是「诉讼解剖」最关键的概念之一。</p>
+  <div class="sub3" id="b17-5-1">
+    <h4><span class="snum">3.5.5.1</span> 案件或争议（case or controversy） <span class="en">Case or controversy</span></h4>
+    <p>第三条要求联邦法院只审「<b>案件或争议</b>」——即<b>真实的法律纠纷</b>。美国<b>没有</b>某些国家的制度，允许法官在立法通过后对「是否合宪」发表<b>咨询意见</b>；必须先有<b>活生生的争议</b>，法院才有宪法上的管辖权。 <span class="en">Federal courts hear only "cases or controversies" — actual legal disputes, not advisory opinions on legislation.</span></p>
+  </div>
+  <div class="sub3" id="b17-5-2">
+    <h4><span class="snum">3.5.5.2</span> 诉讼资格（standing） <span class="en">Standing</span></h4>
+    <p>不仅要有争议，还必须是「<b>对的人</b>」起诉——原告须证明自己遭受了<b>具体伤害（concrete injury）</b>。例如「想看到濒危物种」而环境受破坏（<b>Lujan v. Defenders of Wildlife</b>），或「走过一栋碍眼建筑而审美受损」（近期最高法院以 <b>5-4</b> 驳回的舞厅案），都<b>不足以</b>构成诉讼资格。 <span class="en">The right person must sue, showing a "concrete injury." Aesthetic displeasure (Lujan; the recent "ballroom" case, 5-4) is insufficient.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b17-6">
+<summary><span class="arrow">▶</span><span class="bnum">3.5.6</span><span>管辖权（jurisdiction） <span class="en">Jurisdiction</span></span></summary>
+<div class="body">
+  <p class="lead">管辖规则决定法院「<b>是否</b>受理并初审」一个案件——是<b>程序问题</b>（对应 <a href="#b14-1">3.2.1 立案</a>中的管辖抗辩），而非实体判决：</p>
+  <ul>
+    <li><b>州法 vs 联邦法</b>：合同、财产、侵权、家事等<b>大部分普通法</b>案件由<b>州法院</b>依州法解决，通常根本不到联邦法院；而<b>知识产权</b>（专利、版权、商标）因有大量联邦成文法，多属联邦法院<b>专属管辖</b>。 <span class="en">Most common-law matters (contracts, property, torts) are state law in state courts; intellectual property is largely federal (often exclusive) jurisdiction.</span></li>
+    <li><b>实体 vs 程序</b>：管辖权判断是「法院要不要受理」的程序裁量，与「受理后如何适用法律」的实体判决不同。 <span class="en">Jurisdiction is procedural (whether to hear), distinct from substantive decisions.</span></li>
+    <li><b>法律选择（choice of law）</b>：两家加州公司仍可约定<b>纽约州法</b>为准据法——这是法院须决定的「<b>适用什么法律</b>」问题（教授点到为止，不做深入）。 <span class="en">Two California companies may choose New York law as governing law — a "choice of law" question.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b17-7">
+<summary><span class="arrow">▶</span><span class="bnum">3.5.7</span><span>上诉与最高法院 <span class="en">Appeals &amp; the Supreme Court</span></span></summary>
+<div class="body">
+  <ul>
+    <li><b><a href="#b14-6">上诉权</a></b>：在联邦地区法院败诉的一方，<b>有权</b>向巡回上诉法院上诉。但此后的复审是<b>裁量性的</b>——上诉权「到此为止」。 <span class="en">Losing parties have a right to appeal to the circuit court; further review is discretionary.</span></li>
+    <li><b>最高法院的负荷</b>：每年数以万计的案件涌入联邦地区法院与州法院，但最高法院每年只受理约 <b>40–50</b> 件——「极小极小的一小部分」。 <span class="en">The Supreme Court hears only ~40-50 cases a year, a tiny fraction.</span></li>
+    <li><b>受理门槛</b>：只需 <b>4 名</b>大法官（<b>不到多数</b>）同意即可受理（即「certiorari 的四人规则」）。 <span class="en">Only four justices (fewer than a majority) are needed to grant review.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b17-8">
+<summary><span class="arrow">▶</span><span class="bnum">3.5.8</span><span>法官如何判案与法官的困境 <span class="en">How judges decide &amp; the judge's dilemma</span></span></summary>
+<div class="body">
+  <div class="sub3" id="b17-8-1">
+    <h4><span class="snum">3.5.8.1</span> 司法哲学：政治 vs 法律 <span class="en">Judicial philosophy</span></h4>
+    <p>法官如何判案，本质是<b><a href="#b11-3">司法哲学</a></b>问题：一种观点认为法官裁判可被其<b>政治立场</b>（及任命总统）预测——有人视之为「糟糕」，有人却乐见「<b>穿黑袍的政客</b>」；更多人持中间立场。 <span class="en">How judges decide is a matter of judicial philosophy; some see predictable political voting, others want "politicians in robes."</span></p>
+    <p><b>第一印象案件（case of first impression）</b>：当无先例可循时，法官如何裁判？引 Hamilton《联邦党人文集》第 78 篇——司法「<b>既无强力也无意志，只有判断力</b>」。 <span class="en">In a "case of first impression," judges rely on judgment — Hamilton No. 78: the judiciary has "neither force nor will, but merely judgment."</span></p>
+    <p><b>宪法依据的要求</b>：教授以 Dobbs（推翻 Roe）为例强调：法官的结论<b>必须</b>扎根于宪法，绝不能说「<b>宪法里应该有</b>某权利，所以就有」——「应该有什么」在裁判中<b>没有正当位置</b>。 <span class="en">Judges must ground decisions in the Constitution; "there should be a right, therefore there is" has no legitimate role (Dobbs example).</span></p>
+  </div>
+  <div class="sub3" id="b17-8-2">
+    <h4><span class="snum">3.5.8.2</span> 法官的通才困境 <span class="en">The generalist's dilemma</span></h4>
+    <p>法官是「<b>通才</b>」（generalist）——受训于法律，而非科学或技术。面对飞速演进的科技（AI 等），通才法官如何裁判高度技术性案件？课上讨论的出路包括：依 <b><a href="#b16-8">FRE 702</a></b> 求助于<b>中立专家</b>（但上诉法官不能这样）、继续教育、任期限制等，但教授坦言「<b>大法官不会去学科学、当科学家</b>」。 <span class="en">Judges are generalists untrained in science; how to handle technical cases (neutral experts under FRE 702, continuing education, term limits) is unresolved — "justices will not become scientists."</span></p>
+  </div>
+  <div class="sub3" id="b17-8-3">
+    <h4><span class="snum">3.5.8.3</span> 法官的代表性与「向后看」 <span class="en">Representation &amp; the backward-looking profession</span></h4>
+    <p>另一个困境（呼应 <a href="#b12-4">2.5.4 反多数难题</a>）：法官历史上多来自特定阶层（<b>男性、白人、美国出生</b>），缺乏对其他群体的<b>同理心与理解</b>——而他们又<b>不必</b>向选民负责（「<b>黑箱</b>」，甚至不解释为何不受理案件，如舞厅案的 <b>per curiam</b> 判决不署名）。 <span class="en">Judges have historically been unrepresentative (male, white, American-born) and lack accountability — "black boxes" who need not explain their choices.</span></p>
+    <p>最后，法律是「<b>向后看</b>」的职业：<b>先例</b>看过去判了什么，<b>成文法</b>看已通过的法——要求法官「预测未来」与律师「小 c 保守」的思维惯性天然冲突。 <span class="en">Law is intrinsically backward-looking (precedent, already-passed statutes); asking judges to predict the future clashes with lawyers' training.</span></p>
   </div>
 </div>
 </details>
@@ -1660,6 +2375,18 @@
     <tr><td>Biden v. Nebraska</td><td>2023</td><td>学生贷款减免超出总统权限</td></tr>
     <tr><td>City of Grants Pass v. Johnson</td><td>2024</td><td>反露营法不构成残酷异常刑罚</td></tr>
     <tr><td>Trump v. United States</td><td>2024</td><td>总统官方行为豁免（三层框架）</td></tr>
+    <tr><td>Bell Atlantic v. Twombly</td><td>2007</td><td>起诉状事实须「可信」（plausible）</td></tr>
+    <tr><td>Ashcroft v. Iqbal</td><td>2009</td><td>结论性法律套话不足以立案</td></tr>
+    <tr><td>Walmart v. Dukes</td><td>2011</td><td>集团诉讼认证需「严格分析」</td></tr>
+    <tr><td>Frye v. United States</td><td>1923</td><td>「普遍接受」标准（后为 Daubert 取代）</td></tr>
+    <tr><td>Daubert v. Merrell Dow</td><td>1993</td><td>专家证言可靠性，法官「守门人」</td></tr>
+    <tr><td>Gideon v. Wainwright</td><td>1963</td><td>刑事被告人有权获得律师</td></tr>
+    <tr><td>Miranda v. Arizona</td><td>1966</td><td>羁押讯问前须宣读权利</td></tr>
+    <tr><td>United States v. Jones</td><td>2012</td><td>GPS 定位监控属搜查</td></tr>
+    <tr><td>Ramos v. Louisiana</td><td>2020</td><td>州刑事陪审团裁决须一致</td></tr>
+    <tr><td>Batson v. Kentucky</td><td>1986</td><td>无因回避不得基于种族</td></tr>
+    <tr><td>Lujan v. Defenders of Wildlife</td><td>1992</td><td>诉讼资格须有「具体伤害」</td></tr>
+    <tr><td>Dobbs v. Jackson Women's Health</td><td>2022</td><td>推翻 Roe，堕胎权非宪法权利</td></tr>
   </tbody>
 </table>
 </div>
