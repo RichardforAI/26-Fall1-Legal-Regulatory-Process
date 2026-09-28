@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Week 1–5 综述 · Legal &amp; Regulatory Process</title>
+<title>Week 1–6 综述 · Legal &amp; Regulatory Process</title>
 <style>
   :root{
     --bg:#eef1f5; --card:#ffffff; --ink:#1f2430; --muted:#5a6472; --soft:#606c7e;
     --blue:#1f3b63; --blue2:#2e548a; --line:#e3e7ec; --accent:#dbe5f5;
     --case-bg:#f3f7ff; --case-border:#b8cbe8; --chip:#e7edf7; --mark:#ffe08a;
-    --chip-w1:#e3edfb; --chip-w2:#e3f3ea; --chip-w3:#eee7f9; --chip-w4:#e0f2f1; --chip-w5:#f7e4ed; --chip-sync:#fcebd8; --chip-cases:#edf0f4;
+    --chip-w1:#e3edfb; --chip-w2:#e3f3ea; --chip-w3:#eee7f9; --chip-w4:#e0f2f1; --chip-w5:#f7e4ed; --chip-w6:#fdf1d6; --chip-sync:#fcebd8; --chip-cases:#edf0f4;
   }
   html.dark{
     --bg:#12151b; --card:#1b1f27; --ink:#e8eaee; --muted:#a6adb8; --soft:#8a95a5;
     --blue:#7ea6e8; --blue2:#9db9ea; --line:#2a303a; --accent:#26374f;
     --case-bg:#1d2735; --case-border:#3a5578; --chip:#26303e; --mark:#8a6d1f;
-    --chip-w1:#243450; --chip-w2:#20362a; --chip-w3:#302741; --chip-w4:#1f3534; --chip-w5:#392533; --chip-sync:#3a2f20; --chip-cases:#23262d;
+    --chip-w1:#243450; --chip-w2:#20362a; --chip-w3:#302741; --chip-w4:#1f3534; --chip-w5:#392533; --chip-w6:#3a3220; --chip-sync:#3a2f20; --chip-cases:#23262d;
   }
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   html{-webkit-text-size-adjust:100%;}
@@ -55,6 +55,7 @@
   .toc-chip.w3{background:var(--chip-w3);}
   .toc-chip.w4{background:var(--chip-w4);}
   .toc-chip.w5{background:var(--chip-w5);}
+  .toc-chip.w6{background:var(--chip-w6);}
   .toc-chip.sync{background:var(--chip-sync);}
   .toc-chip.cases{background:var(--chip-cases);}
   .toc-chip.active{background:var(--blue); color:#fff; border-color:var(--blue);}
@@ -115,7 +116,7 @@
 <div class="wrap">
 
 <div class="topbar">
-  <div class="title">Week 1–5 综述 · Legal &amp; Regulatory Process</div>
+  <div class="title">Week 1–6 综述 · Legal &amp; Regulatory Process</div>
   <div class="search-row">
     <div class="search-box">
       <input id="search" type="search" placeholder="搜索知识点 / 判例 / 术语…" aria-label="搜索知识点" oninput="doSearch()">
@@ -157,9 +158,13 @@
     <button class="toc-chip w4" data-pane="s20"><span class="num">4.3</span>解释实践</button>
     <button class="toc-chip w4" data-pane="s21"><span class="num">4.4</span>立法史</button>
     <button class="toc-chip w4" data-pane="s22"><span class="num">4.5</span>解释规则</button>
+    <button class="toc-chip sync" data-pane="s29"><span class="num">4.6</span>同步课 9/23</button>
     <button class="toc-chip w5" data-pane="s23"><span class="num">5.1</span>为什么需要机关</button>
     <button class="toc-chip w5" data-pane="s24"><span class="num">5.2</span>行政系统结构</button>
     <button class="toc-chip w5" data-pane="s25"><span class="num">5.3</span>行政程序</button>
+    <button class="toc-chip w6" data-pane="s26"><span class="num">6.1</span>结构与功能</button>
+    <button class="toc-chip w6" data-pane="s27"><span class="num">6.2</span>审查标准</button>
+    <button class="toc-chip w6" data-pane="s28"><span class="num">6.3</span>现代判例</button>
     <button class="toc-chip cases" data-pane="cases"><span class="num">⚖</span>判例</button>
   </div>
 
@@ -367,6 +372,7 @@
   <div class="toc-pane" data-pane="s16">
     <a class="toc-goto" href="#s16">▶ 进入本章</a>
     <div class="toc-sub"><span class="num">3.4.1</span><a href="#b16-1">证据规则基础</a></div>
+    <div class="toc-l3"><span class="num">3.4.1.1</span><a href="#b16-1-1">证据可采性的四道关卡</a></div>
     <div class="toc-sub"><span class="num">3.4.2</span><a href="#b16-2">证据种类</a></div>
     <div class="toc-sub"><span class="num">3.4.3</span><a href="#b16-3">证人证言（普通 vs 专家）</a></div>
     <div class="toc-l3"><span class="num">3.4.3.1</span><a href="#b16-3-1">普通证人</a></div>
@@ -451,6 +457,23 @@
     <div class="toc-sub"><span class="num">4.5.5</span><a href="#b22-5">总结：背景规则</a></div>
   </div>
 
+  <div class="toc-pane" data-pane="s29">
+    <a class="toc-goto" href="#s29">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">4.6.1</span><a href="#b29-1">审判的基本结构与对抗制</a></div>
+    <div class="toc-sub"><span class="num">4.6.2</span><a href="#b29-2">自行诉讼与律师的角色</a></div>
+    <div class="toc-sub"><span class="num">4.6.3</span><a href="#b29-3">司法准入危机</a></div>
+    <div class="toc-sub"><span class="num">4.6.4</span><a href="#b29-4">证据规则的功能</a></div>
+    <div class="toc-sub"><span class="num">4.6.5</span><a href="#b29-5">刑事 vs 民事</a></div>
+    <div class="toc-sub"><span class="num">4.6.6</span><a href="#b29-6">分组讨论一：「使用」枪支</a></div>
+    <div class="toc-l3"><span class="num">4.6.6.1</span><a href="#b29-6-1">两种读法</a></div>
+    <div class="toc-l3"><span class="num">4.6.6.2</span><a href="#b29-6-2">教授的追问</a></div>
+    <div class="toc-l3"><span class="num">4.6.6.3</span><a href="#b29-6-3">真实案例</a></div>
+    <div class="toc-sub"><span class="num">4.6.7</span><a href="#b29-7">分组讨论二：阻碍邮件投递</a></div>
+    <div class="toc-l3"><span class="num">4.6.7.1</span><a href="#b29-7-1">文本主义 vs 目的主义</a></div>
+    <div class="toc-l3"><span class="num">4.6.7.2</span><a href="#b29-7-2">荒谬结果与常识</a></div>
+    <div class="toc-sub"><span class="num">4.6.8</span><a href="#b29-8">教授总结</a></div>
+  </div>
+
   <div class="toc-pane" data-pane="s23">
     <a class="toc-goto" href="#s23">▶ 进入本章</a>
     <div class="toc-sub"><span class="num">5.1.1</span><a href="#b23-1">汽车安全：一个规制故事</a></div>
@@ -478,6 +501,42 @@
     <div class="toc-l3"><span class="num">5.3.3.1</span><a href="#b25-3-1">正式与非正式</a></div>
     <div class="toc-l3"><span class="num">5.3.3.2</span><a href="#b25-3-2">最低程序与行政法法官</a></div>
     <div class="toc-sub"><span class="num">5.3.4</span><a href="#b25-4">司法审查</a></div>
+  </div>
+
+  <div class="toc-pane" data-pane="s26">
+    <a class="toc-goto" href="#s26">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">6.1.1</span><a href="#b26-1">司法审查是「辅助预防措施」</a></div>
+    <div class="toc-sub"><span class="num">6.1.2</span><a href="#b26-2">广泛裁量，但受司法监督</a></div>
+    <div class="toc-sub"><span class="num">6.1.3</span><a href="#b26-3">APA §706 与审查对象</a></div>
+    <div class="toc-l3"><span class="num">6.1.3.1</span><a href="#b26-3-1">机关知道会被审查</a></div>
+    <div class="toc-l3"><span class="num">6.1.3.2</span><a href="#b26-3-2">法院要求机关解释推理</a></div>
+    <div class="toc-sub"><span class="num">6.1.4</span><a href="#b26-4">审查光谱的两端</a></div>
+    <div class="toc-sub"><span class="num">6.1.5</span><a href="#b26-5">机关与法院的来回循环</a></div>
+  </div>
+
+  <div class="toc-pane" data-pane="s27">
+    <a class="toc-goto" href="#s27">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">6.2.1</span><a href="#b27-1">§706 的审查标准</a></div>
+    <div class="toc-l3"><span class="num">6.2.1.1</span><a href="#b27-1-1">hard look 审查的渊源</a></div>
+    <div class="toc-sub"><span class="num">6.2.2</span><a href="#b27-2">State Farm 案：机构撤销规则</a></div>
+    <div class="toc-l3"><span class="num">6.2.2.1</span><a href="#b27-2-1">事实背景</a></div>
+    <div class="toc-l3"><span class="num">6.2.2.2</span><a href="#b27-2-2">撤销的理由与法院的驳回</a></div>
+    <div class="toc-l3"><span class="num">6.2.2.3</span><a href="#b27-2-3">State Farm 确立的规则</a></div>
+    <div class="toc-l3"><span class="num">6.2.2.4</span><a href="#b27-2-4">三种「任意或专断」情形</a></div>
+    <div class="toc-l3"><span class="num">6.2.2.5</span><a href="#b27-2-5">Rehnquist 异议</a></div>
+  </div>
+
+  <div class="toc-pane" data-pane="s28">
+    <a class="toc-goto" href="#s28">▶ 进入本章</a>
+    <div class="toc-sub"><span class="num">6.3.1</span><a href="#b28-1">West Virginia v. EPA：重大问题原则</a></div>
+    <div class="toc-l3"><span class="num">6.3.1.1</span><a href="#b28-1-1">事实：清洁电力计划</a></div>
+    <div class="toc-l3"><span class="num">6.3.1.2</span><a href="#b28-1-2">重大问题原则</a></div>
+    <div class="toc-l3"><span class="num">6.3.1.3</span><a href="#b28-1-3">判决与名言</a></div>
+    <div class="toc-sub"><span class="num">6.3.2</span><a href="#b28-2">Loper Bright：推翻 Chevron</a></div>
+    <div class="toc-l3"><span class="num">6.3.2.1</span><a href="#b28-2-1">回顾 Chevron 两步法</a></div>
+    <div class="toc-l3"><span class="num">6.3.2.2</span><a href="#b28-2-2">Loper Bright 的裁定</a></div>
+    <div class="toc-l3"><span class="num">6.3.2.3</span><a href="#b28-2-3">Chevron 之后用什么</a></div>
+    <div class="toc-sub"><span class="num">6.3.3</span><a href="#b28-3">三案例对比</a></div>
   </div>
 
   <div class="toc-pane" data-pane="cases">
@@ -2197,6 +2256,26 @@
   <p class="lead en">Outcomes often turn on what evidence is admissible. Each state has its own rules; this summary follows the Federal Rules of Evidence (FRE).</p>
   <p class="lead">可采证据的两大前提：<b>相关性（relevance）</b>与<b>认证（authentication）</b>。相关性标准很低——只要「<b>有任何倾向</b>使某一事实更可能或更不可能」（FRE 401），故<b>即便很弱的证据也可能相关</b>；是否真能证明什么，交由<b>事实认定者</b>权衡。 <span class="en">Admissibility requires relevance (any tendency, FRE 401) and authentication.</span></p>
   <p class="lead">两种证据均可采：<b>直接证据（direct）</b>——单独即证明事实（如亲眼见 Johnny 偷糖）；<b>间接/情况证据（circumstantial）</b>——需推断（如见 Johnny 在店旁且脸上有巧克力）。 <span class="en">Both direct and circumstantial evidence are admissible if relevant, authenticated, and not excluded.</span></p>
+  <div class="sub3" id="b16-1-1">
+    <h4><span class="snum">3.4.1.1</span> 证据可采性的四道关卡 <span class="en">Four filters for admissibility</span></h4>
+    <p>证据要进陪审团的视野，得先过<b>四道关卡</b>（出自 Bonfield Ch. 5 民事审判的证据规则部分）：</p>
+    <table>
+      <thead><tr><th>关卡</th><th>英文</th><th>问什么（人话）</th><th>通不过就…</th></tr></thead>
+      <tbody>
+        <tr><td><b>相关性</b></td><td>Relevant</td><td>这证据能让我要证明的事更可能/更不可能吗？</td><td>直接排除（不相关一律别听）</td></tr>
+        <tr><td><b>偏见</b></td><td>Prejudicial</td><td>它虽相关，但会不会让陪审团情绪化、跑偏？</td><td>若「偏见 &gt; 证明力」，排除（Rule 403）</td></tr>
+        <tr><td><b>特权</b></td><td>Privileged</td><td>是不是受保密保护的通信（律师/医生/配偶）？</td><td>排除（哪怕相关、有用也要保护）</td></tr>
+        <tr><td><b>传闻</b></td><td>Hearsay</td><td>是不是庭外说的话、且拿来证明所说内容为真？</td><td>原则上排除（但有 29 个例外）</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>相关性（relevance）</b>：最低门槛——只要「让某事实<b>更可能或更不可能</b>」就算相关（FRE 401），标准极低，哪怕很弱也相关。 <span class="en">Relevance is a low bar: any tendency to make a fact more or less probable.</span></li>
+      <li><b>偏见（prejudice）</b>：即使相关，若其<b>不公平偏见实质性地超过</b>证明价值，法官排除（Rule 403）。例：某证据相关但会让陪审团因厌恶而跑偏。 <span class="en">Even relevant evidence is excluded if its unfair prejudice substantially outweighs its probative value (Rule 403).</span></li>
+      <li><b>特权（privilege）</b>：保密关系（<b>律师-当事人、医生-患者、配偶</b>）的通信即使相关、有证明力也不能用，因为保护信任比个案真相更重要。 <span class="en">Privileged communications (attorney-client, doctor-patient, spouse) are protected even when relevant.</span></li>
+      <li><b>传闻（hearsay）</b>：「<b>庭外陈述</b>、拿来证明所述内容为真」原则上不可采（对方无法交叉询问），但 FRE 有 <b>29 个例外</b>。 <span class="en">Hearsay (out-of-court statements offered for their truth) is generally excluded, subject to 29 exceptions.</span></li>
+    </ul>
+    <p class="lead">一句话串起来：<b>先看相关吗 → 再看偏见是否压过证明力 → 再查有无特权 → 最后看是否传闻</b>，过四关才能进陪审团的耳朵。 <span class="en">Relevant first, then not overly prejudicial, then not privileged, then not hearsay.</span></p>
+  </div>
 </div>
 </details>
 
@@ -2474,7 +2553,7 @@
 <details class="branch" id="b19-1">
 <summary><span class="arrow">▶</span><span class="bnum">4.2.1</span><span>文本主义 <span class="en">Textualism</span></span></summary>
 <div class="body">
-  <p class="lead">文本主义者的<b>唯一任务</b>是确定法条文字的「恰当含义」（proper meaning）。即使语言模糊，也只看法条<b>文本本身</b>（text and text only），排斥立法目的、立法者意图等一切<b>外部证据</b>。判案依据是<b>普通含义</b>（ordinary meaning）——一个<b>理性读者</b>（reasonable reader）能理解的含义。 <span class="en">Textualists resolve disputes by the text's ordinary meaning alone, eschewing external evidence of purpose or intent.</span></p>
+  <p class="lead">文本主义者的<b>唯一任务</b>是确定法条文字的「恰当含义」（proper meaning）。即使语言模糊，也只看法条<b>文本本身</b>（text and text only），排斥立法目的、立法者意图等一切<b>外部证据</b>。判案依据是<b>普通含义</b>（ordinary meaning）——一个<b>理性读者</b>（reasonable reader）能理解的含义。 <span class="en">Textualists resolve disputes by the text's ordinary meaning alone, ignoring any purpose or intent outside the text.</span></p>
   <div class="sub3" id="b19-1-1">
     <h4><span class="snum">4.2.1.1</span> Scalia 与「four corners」 <span class="en">Justice Scalia and the four corners</span></h4>
     <p>Scalia 大法官是文本主义最重要的倡导者。他的核心理由：立法机关制定的<b>唯一法律</b>就是法条的精确文字；任何文字之外的东西都不是国会制定的法律。文本主义还主张，依据宪法，依赖法条「<b>四角</b>（four corners）」之外的来源是<b>不正当的</b>。 <span class="en">The only law the legislature enacts is the precise words of the statute; anything extrinsic is not the law Congress enacted.</span></p>
@@ -2529,8 +2608,18 @@
 <details class="branch" id="b19-4">
 <summary><span class="arrow">▶</span><span class="bnum">4.2.4</span><span>共同根基：立法至上 <span class="en">Legislative supremacy</span></span></summary>
 <div class="body">
-  <p class="lead">三大进路虽有分歧，但都以<b>立法至上</b>（legislative supremacy）为根基：在宪法范围内，国会制定的法律享有<b>优先地位</b>，法官必须做国会的「<b>忠实代理人</b>」（faithful agent）。三者都在追寻「立法意图」（legislative intent），只是对它的理解不同。 <span class="en">All three approaches rest on legislative supremacy: judges act as Congress's faithful agents, enforcing the decision attributable to the legislature.</span></p>
+  <p class="lead">三大进路虽有分歧，但都以<b>立法至上</b>（legislative supremacy）为根基：在宪法范围内，国会制定的法律享有<b>优先地位</b>，法官必须做国会的「<b>忠实代理人</b>」（faithful agent）。三者都在追寻「立法意图」（legislative intent），只是对它的理解不同。 <span class="en">All three approaches rest on legislative supremacy: judges act as Congress's faithful agents, carrying out the decision the legislature made.</span></p>
   <p class="lead">一个检验三种进路差异的假设题：「<b>no vehicles in the park</b>」（公园禁止车辆）是否禁止自行车进入？意图主义者会看重法案提案人是否保证过「不适用于骑自行车」；目的主义者会看法案是为<b>噪音污染</b>（则自行车不算）还是为<b>行人与车辆的碰撞</b>（则自行车算）而制定；文本主义者则关注人们<b>日常如何使用</b>「vehicle」一词。 <span class="en">Intentionalists, purposivists, and textualists emphasize different factors in answering whether "no vehicles in the park" bars a bicycle.</span></p>
+  <table>
+    <thead><tr><th>维度</th><th>文本主义 Textualism</th><th>意图主义 Intentionalism</th><th>目的主义 Purposivism</th></tr></thead>
+    <tbody>
+      <tr><td><b>看什么</b></td><td>法条文字的<b>普通含义</b></td><td>立法者的<b>具体意图</b></td><td>法律的<b>整体目的</b></td></tr>
+      <tr><td><b>从哪找</b></td><td>文本本身（必要时查字典）</td><td>立法史（委员会报告、议员发言）</td><td>立法史 + 文本 + 语境</td></tr>
+      <tr><td><b>代表</b></td><td>Scalia、Taney</td><td>传统进路（近年失势）</td><td>Hart &amp; Sacks、Holy Trinity</td></tr>
+      <tr><td><b>典型问法</b></td><td>「普通人会怎么理解这个词？」</td><td>「立法者当时想解决什么？」</td><td>「这部法律想消除什么祸害？」</td></tr>
+    </tbody>
+  </table>
+  <p class="lead">一句话记：文本主义问「<b>文字说了什么</b>」，意图主义问「<b>立法者想什么</b>」，目的主义问「<b>法律想干什么</b>」。 <span class="en">Textualism asks what the words say; intentionalism asks what the lawmakers thought; purposivism asks what the law was meant to do.</span></p>
 </div>
 </details>
 
@@ -2697,6 +2786,129 @@
 </details>
 </section>
 
+<section class="card" id="s29">
+<h2><span class="num">4.6</span>审判与法律解释 · 同步课精讲（2026年9月23日）</h2>
+
+<details class="branch" id="b29-1">
+<summary><span class="arrow">▶</span><span class="bnum">4.6.1</span><span>审判的基本结构与对抗制 <span class="en">The adversary system and trial basics</span></span></summary>
+<div class="body">
+  <p class="lead">美国法律的<b>根本前提</b>是<b>对抗制</b>（adversary system）：<b>双方</b>都有机会陈述自己的论点。刑事案件里一方永远是<b>国家</b>（state，因为一切刑事法都是国家指控个人违法），另一方是<b>被告</b>；被告享有<b>无罪推定</b>（presumption of innocence），国家须以「<b>排除合理怀疑</b>」（beyond a reasonable doubt）的标准才能定罪，这与罪行<b>轻重无关</b>，从轻罪到谋杀都一样。 <span class="en">The adversary system lets both sides present their case. In criminal trials the state always prosecutes, and the defendant gets a presumption of innocence plus proof beyond a reasonable doubt, whatever the charge.</span></p>
+  <ul>
+    <li><b>民事案件</b>：<b>原告</b>（plaintiff）对<b>被告</b>（defendant），由原告承担<b>举证责任</b>（burden of proof）。 <span class="en">In civil cases the plaintiff bears the burden of proof against the defendant.</span></li>
+    <li><b>法官审</b>（bench trial）：法官同时是<b>法律裁判者</b>和<b>事实裁判者</b>；<b>陪审团审</b>（jury trial）：由陪审团认定事实。 <span class="en">A bench trial makes the judge both law and fact finder; a jury trial leaves the facts to the jury.</span></li>
+    <li>审判顺序：<b>开场陈述</b>（opening statements）→ <b>证据</b>（evidence）→ <b>结案陈词</b>（closing statements）→ 陪审团审时最后听到的是法官的<b>陪审团指示</b>（jury instructions）。 <span class="en">The sequence runs opening statements, evidence, closing statements, then jury instructions.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b29-2">
+<summary><span class="arrow">▶</span><span class="bnum">4.6.2</span><span>自行诉讼（pro se）与律师的角色 <span class="en">Pro se litigants and the lawyer's role</span></span></summary>
+<div class="body">
+  <p class="lead">对抗制<b>并不必然</b>要求律师。当事人可以<b>自己代表自己</b>，拉丁语叫 <b>pro se</b>（为自己）；但<b>非律师不能代理别人</b>，那会构成<b>非法执业</b>（unauthorized practice of law，UPL），就像《我的表兄文尼》里那个没执照的「文尼」。 <span class="en">The adversary system does not require lawyers. People may represent themselves pro se, but a nonlawyer who represents someone else commits the unauthorized practice of law.</span></p>
+  <ul>
+    <li>律师的两大功能：<b>建议</b>（advice，从是否起诉一路到上诉）+ <b>代理</b>（representation）。两者都<b>不是强制</b>的。 <span class="en">Lawyers give advice and representation; neither is mandatory.</span></li>
+    <li><b>小额法庭</b>（small claims court）通常<b>禁止律师</b>，就是 Judge Judy 那样的场面。 <span class="en">Small claims court usually bars lawyers, as on TV shows like Judge Judy.</span></li>
+    <li><b>律师权是宪法权利，但只在刑事</b>（Gideon v. Wainwright）；<b>民事</b>案件<b>没有</b>宪法上的律师权。 <span class="en">The right to counsel is constitutional but only in criminal cases; civil litigants have no such right.</span></li>
+    <li><b>公司</b>：大公司有<b>内部法律顾问</b>（in-house counsel），但诉讼时往往另请<b>外部律师</b>（outside counsel）。 <span class="en">Corporations keep in-house counsel but often hire outside counsel for litigation.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b29-3">
+<summary><span class="arrow">▶</span><span class="bnum">4.6.3</span><span>司法准入危机 <span class="en">The access-to-justice crisis</span></span></summary>
+<div class="body">
+  <p class="lead">美国存在严重的<b>司法准入危机</b>（access to justice crisis）：统计普遍认为<b>超过 80%</b> 的人对民事司法系统<b>没有现实的接近途径</b>。在<b>驱逐</b>（eviction）、<b>讨债</b>（debt collection）、<b>社安福利</b>（Social Security）等案件里，一边往往有律师（如债权人），一边没有，是「<b>大卫对歌利亚</b>」，只不过大卫<b>赢不了</b>。 <span class="en">Over 80 percent of Americans lack realistic access to civil justice. In eviction and debt cases, one side has a lawyer and the other does not, a David-and-Goliath matchup where David loses.</span></p>
+  <ul>
+    <li>法律援助（legal aid）和法学院<b>诊所</b>（如 Northwestern 的诊所）有帮助，但<b>资源永远不够</b>。 <span class="en">Legal aid and law school clinics help, but resources never cover the need.</span></li>
+    <li>现实里多数人不是「上庭抗辩」，而是<b>直接缺席</b>（default），对方也知道他会缺席。 <span class="en">Most people simply default; the other side counts on it.</span></li>
+    <li><b>AI</b> 或许能缩小差距，但已引发诉讼（如针对 OpenAI 的诉讼，指责其让个人被大模型误导后自行诉讼）。 <span class="en">AI might narrow the gap, but it has already drawn lawsuits, including one against OpenAI over self-representation gone wrong.</span></li>
+    <li>对<b>法官</b>也是巨大负担：法官会<b>极力劝阻</b>刑事被告自行辩护，但民事案件里当事人往往没有别的出路。 <span class="en">Pro se litigants burden judges, who strongly discourage self-representation in criminal cases.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b29-4">
+<summary><span class="arrow">▶</span><span class="bnum">4.6.4</span><span>证据规则的功能 <span class="en">What evidence rules are for</span></span></summary>
+<div class="body">
+  <p class="lead">证据规则的核心功能是<b>界定哪些信息可以摆到事实裁判者面前</b>，尤其是<b>陪审团</b>（lay fact-finder，非专业的普通公民）。教授点出一个关键洞察：这些排除规则<b>大多是冲着外行事实裁判者</b>去的，<b>法官审</b>（bench trial）里法官是「专家」，可以信任他自己判断相关性、偏见性，所以律师在法官审里<b>很少提证据异议</b>。 <span class="en">Evidence rules define what information may reach the fact finder, especially a jury. They mostly protect lay decision makers; in a bench trial the judge can be trusted to sort relevance from prejudice, so lawyers object far less.</span></p>
+  <p class="lead">「坏证据」的常见例子（对应 <a href="#b16-1-1">3.4.1.1 四道关卡</a>）： <span class="en">Common examples of bad evidence, matching the four filters in 3.4.1.1:</span></p>
+  <ul>
+    <li><b>不相关</b>（irrelevant）：与本案无关的信息。 <span class="en">Information irrelevant to the case.</span></li>
+    <li><b>偏见</b>（prejudicial）：医疗事故案里告诉陪审团「医生有保险、买单的是 UnitedHealthcare」，法官会以<b>不当偏见</b>为由排除。 <span class="en">Telling a jury the doctor is insured and UnitedHealthcare pays would be excluded as unduly prejudicial.</span></li>
+    <li><b>品格证据</b>（character evidence）：用「某人以前偷过钱」来推断他「这次也倾向偷」，是常见的<b>推断</b>（inference）陷阱。 <span class="en">Using a prior theft to infer a tendency to steal is the classic character-evidence trap.</span></li>
+    <li><b>先前性行为</b>（prior sexual conduct）：性侵案里的「rape shield」问题，有的州直接以<b>公共政策</b>理由排除。 <span class="en">Prior sexual conduct in assault cases raises the rape-shield question; some states exclude it on policy grounds.</span></li>
+    <li>法官那句「<b>陪审团，忘掉你们刚才听到的</b>」（strike that from the record）几乎不可能做到，这正是排除规则要<b>防患于未然</b>的原因。 <span class="en">Telling a jury to forget what it heard nearly never works, which is why rules exclude evidence up front.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b29-5">
+<summary><span class="arrow">▶</span><span class="bnum">4.6.5</span><span>刑事 vs 民事：给被告「加砝码」 <span class="en">Criminal vs civil: tipping the scale for the accused</span></span></summary>
+<div class="body">
+  <p class="lead">刑事案<b>后果更重</b>（涉及人身自由），所以制度<b>偏向被告</b>：<b>无罪推定</b> + <b>排除合理怀疑</b>的高标准 + <b>更严格的证据排除规则</b> + <b>律师权</b>，都是为了抵御<b>误导性推断</b>和误导信息。 <span class="en">Criminal cases stake a person's liberty, so the system tips toward the defendant with a presumption of innocence, a higher burden, stricter exclusion rules, and the right to counsel.</span></p>
+  <ul>
+    <li>但<b>国家</b>一方拥有巨大优势：更多<b>调查资源</b>、州财政支持、以及<b>起诉裁量权</b>（prosecutorial discretion，决定告谁不告谁）。 <span class="en">The state has more investigatory resources and prosecutorial discretion over which cases to bring.</span></li>
+    <li>因此现实中<b>检察官在绝大多数进入审判的刑事案件中胜诉</b>，这更多是<b>资源的系统性不对称</b>，而非「检察官律师更聪明」。 <span class="en">Prosecutors win most criminal trials that reach a verdict, a function of systematic resource imbalance, not better lawyers.</span></li>
+  </ul>
+</div>
+</details>
+
+<details class="branch" id="b29-6">
+<summary><span class="arrow">▶</span><span class="bnum">4.6.6</span><span>分组讨论一：毒品交易中「使用」枪支 <span class="en">Breakout 1: "use" a gun in a drug deal</span></span></summary>
+<div class="body">
+  <p class="lead">法条：<b>在毒品交易中「使用」（use）枪支是联邦重罪</b>，且刑罚<b>大幅加重</b>。事实：被告带一把<b>未上膛</b>的<b>机枪</b>，想用它<b>换取</b>（而非持枪威胁）毒品。 <span class="en">The statute makes it a federal crime to use a gun in a drug deal, with a steep penalty. The facts: a defendant brings an unloaded machine gun to trade, not to brandish, for drugs.</span></p>
+  <div class="sub3" id="b29-6-1">
+    <h4><span class="snum">4.6.6.1</span> 两种读法 <span class="en">Two readings</span></h4>
+    <ul>
+      <li><b>文本主义</b>：枪被「用了」，作为<b>支付手段</b>（currency）换取毒品，落入「use」的字面。 <span class="en">A textualist says the gun was used, as payment for the drugs.</span></li>
+      <li><b>目的主义</b>：国会的目的是<b>打击武器威胁</b>；把枪当「货币」用，不是法条所说的「<b>作为武器使用</b>」。 <span class="en">A purposivist says the point is to deter armed threats, and bartering a gun is not using it as a weapon.</span></li>
+    </ul>
+  </div>
+  <div class="sub3" id="b29-6-2">
+    <h4><span class="snum">4.6.6.2</span> 教授的追问 <span class="en">The professor's pushback</span></h4>
+    <p>国会<b>已经把毒品交易本身定为重罪</b>了；为什么还要因「用枪换毒品」再<b>大幅加刑</b>？如果目的是「阻止毒品交易」，那禁止交易本身已足够，加重刑罚并不能阻止交易（下次带戒指或别克车来换）。真正相关的目的只能是「<b>安全</b>」或「<b>威慑</b>」，但一把未上膛、未挥舞的枪，作为交易物，是否真构成威胁？深层问题是：<b>事实是否重要</b>（do facts matter）？法条很简洁，但答案可能取决于具体情境，而让刑罚取决于太具体的事实，对法律是有问题的。 <span class="en">Congress already made drug dealing a felony, so why add a large enhancement for trading a gun? If the goal is stopping drug deals, the base offense already does that; the only relevant purpose is safety or intimidation, and an unloaded, un-brandished gun is a thin threat. The deeper question is whether facts matter, since the statute is clean but the answer may turn on the circumstances.</span></p>
+  </div>
+  <div class="sub3" id="b29-6-3">
+    <h4><span class="snum">4.6.6.3</span> 真实案例 <span class="en">The real case</span></h4>
+    <p>这是<b>真实案例</b>（<b>Smith v. United States, 1993</b>）：最高法院<b>分歧意见</b>，最终认定是「use」，依据<b>文本</b>与<b>立法目的</b>（阻止可能造成坏结果的事），有异议意见。后来 <b>Bailey v. United States (1995)</b> 收窄了「use」，要求「积极使用」（作为武器），实质上推翻了 Smith 的「以枪易货」结论。 <span class="en">This is a real case, Smith v. United States (1993), where a divided Court held it was "use," leaning on text and legislative purpose. Bailey v. United States (1995) later narrowed "use" to active employment as a weapon.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b29-7">
+<summary><span class="arrow">▶</span><span class="bnum">4.6.7</span><span>分组讨论二：「故意且自愿地阻碍邮件投递」 <span class="en">Breakout 2: "obstruct the delivery of the mail"</span></span></summary>
+<div class="body">
+  <p class="lead">法条：<b>故意且自愿地阻碍邮件投递</b>（knowingly and willingly obstruct the delivery of the mail）是联邦罪。事实：<b>警长</b>向一名<b>涉嫌谋杀的邮递员</b>送达逮捕令，正赶上对方在投递途中。 <span class="en">The statute makes it a crime to knowingly and willingly obstruct the delivery of the mail. The facts: a sheriff serves an arrest warrant on a mail carrier suspected of murder, while the carrier is on his route.</span></p>
+  <div class="sub3" id="b29-7-1">
+    <h4><span class="snum">4.6.7.1</span> 文本主义 vs 目的主义 <span class="en">Textualism vs purposivism</span></h4>
+    <ul>
+      <li><b>文本主义</b>：警长「故意且自愿」地中断了投递，四个 corner 都满足，确实构成犯罪。 <span class="en">A textualist finds every element met: the sheriff knowingly and willingly disrupted delivery.</span></li>
+      <li><b>目的主义</b>：法律目的是阻止<b>抢劫邮件、阻塞邮路</b>，不是阻止警长抓杀人犯（呼应 Church of the Holy Trinity）。 <span class="en">A purposivist says the law targets robbers who block the mail, not a sheriff arresting a murderer, as in Church of the Holy Trinity.</span></li>
+      <li>教授举经典例子：旧法禁止「<b>街头放血</b>」（bloodletting in the streets），但医生在街头做<b>紧急气管切开术</b>（有血）不该被判罪，目的是阻止斗殴，不是阻止救人。 <span class="en">The classic example: a law against bloodletting in the streets should not convict a surgeon who performs an emergency tracheotomy there.</span></li>
+    </ul>
+  </div>
+  <div class="sub3" id="b29-7-2">
+    <h4><span class="snum">4.6.7.2</span> 荒谬结果规则与「常识」 <span class="en">The absurd-results canon and common sense</span></h4>
+    <p><b>荒谬结果规则</b>（absurd results canon）：即使 strict textualist 也承认，某些案件会导致荒谬结果，不该机械适用文本。教授指出：即便文本上满足，<b>检察官会不会起诉？陪审团会不会定罪？法官会不会判刑？</b>，对一个真抓了杀人犯的警长，答案大概都是「不会」。所以「<b>常识</b>」会作为<b>第二层</b>起作用。 <span class="en">The absurd-results canon concedes that some cases should not be read mechanically. Even if the text is met, would a prosecutor charge, a jury convict, or a judge sentence a sheriff who caught a murderer? Probably not, so common sense operates as a second-order check.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b29-8">
+<summary><span class="arrow">▶</span><span class="bnum">4.6.8</span><span>教授总结：解释理论如何落地 <span class="en">How the theories play out in practice</span></span></summary>
+<div class="body">
+  <p class="lead">教授用几个案例说明<b>三种解释理论在真实裁判中会混用</b>，法官并不严格恪守单一哲学： <span class="en">The professor closed by showing that judges mix the three theories rather than sticking to one:</span></p>
+  <ul>
+    <li><b>荒谬结果规则</b>：文本主义也有边界。 <span class="en">The absurd-results canon limits even strict textualism.</span></li>
+    <li><b>Garland v. Cargill</b>（bump stock）：Thomas 用「扣扳机」的<b>技术定义</b>把 bump stock 排除在「机关枪」之外，尽管其目的明显是让枪接近机枪，文本主义走到极致。 <span class="en">In Cargill, Justice Thomas used the technical definition of a trigger to exclude bump stocks, despite their obvious purpose.</span></li>
+    <li><b>Yates v. United States</b>（鱼）：鱼是不是「tangible object」（有形物）？文本主义说是，意图主义（立法者想的是销毁硬盘、妨碍取证）说不是，两种理论<b>正面冲突</b>。 <span class="en">In Yates, whether a fish is a "tangible object" pits textualism against intentionalism head on.</span></li>
+    <li><b>事实是否重要</b>：干净的回答是「取决于对法条的最佳解读」，但很多时候答案<b>取决于具体情境</b>。 <span class="en">Whether facts matter: the clean answer is the best reading of the statute, but the answer often turns on the circumstances.</span></li>
+    <li><b>番茄是水果还是蔬菜</b>（Nix v. Hedden）：植物学上番茄是<b>水果</b>，但普通人点「蔬菜沙拉」里放番茄不会抗议，文本主义的「普通含义」到底用<b>科学定义</b>还是<b>普通人理解</b>？没有魔法答案，最高法院常有「<b>字典之战</b>」（battle of dictionaries）。 <span class="en">A tomato is botanically a fruit, but ordinary people treat it as a vegetable, so "ordinary meaning" has no magic answer, and the Court sometimes has a battle of dictionaries.</span></li>
+  </ul>
+</div>
+</details>
+</section>
+
 <!-- ===================== 5.1 ===================== -->
 <section class="card" id="s23">
 <h2><span class="num">5.1</span>为什么需要行政机关 · Why Have Agencies?</h2>
@@ -2725,14 +2937,14 @@
 <details class="branch" id="b23-3">
 <summary><span class="arrow">▶</span><span class="bnum">5.1.3</span><span>行政法：限制行政裁量 <span class="en">Administrative law limits discretion</span></span></summary>
 <div class="body">
-  <p class="lead">这个难题自共和国之初就存在，200 多年来靠对<b>行政裁量</b>（administrative discretion）施加<b>程序性与结构性限制</b>来调和。我们之所以有一套<b>行政法</b>（administrative law）——通过<b>司法审查</b>对机关形成<b>制衡</b>——目的正是<b>限制和引导</b>行政裁量，使非民选官员的决策与<b>代议制政府</b>的宪法承诺保持一致。 <span class="en">Administrative law exists to limit and guide administrative discretion, so that unelected officials act consistently with our commitment to representative government.</span></p>
+  <p class="lead">这个难题自共和国之初就存在，200 多年来靠对<b>行政裁量</b>（administrative discretion，机关在法律允许范围内自行拿主意的空间）施加<b>程序性与结构性限制</b>来调和。我们之所以有一套<b>行政法</b>（administrative law）——通过<b>司法审查</b>对机关形成<b>制衡</b>——目的正是<b>限制和引导</b>行政裁量，使非民选官员的决策与<b>代议制政府</b>的宪法承诺保持一致。 <span class="en">Administrative law exists to limit and guide administrative discretion, so that unelected officials act consistently with our commitment to representative government.</span></p>
 </div>
 </details>
 
 <details class="branch" id="b23-4">
 <summary><span class="arrow">▶</span><span class="bnum">5.1.4</span><span>「第四分支」：三权综合体 <span class="en">The "fourth branch" as a blend of three</span></span></summary>
 <div class="body">
-  <p class="lead">行政机关（依 Bonfield 定义：<b>立法与行政分支的延伸</b>，独立运作，被授权制定和执行规则并裁决争议）看起来像是<b>三个分支的综合体</b>（compendium of all three branches）： <span class="en">Administrative agencies look like a compendium of all three branches.</span></p>
+  <p class="lead">行政机关（依 Bonfield 定义：<b>立法与行政分支的延伸</b>，独立运作，被授权制定和执行规则并裁决争议）看起来像是<b>三个分支的混合体</b>（三权集于一身）： <span class="en">Administrative agencies look like a blend of all three branches.</span></p>
   <ul>
     <li><b>像立法</b>：依国会授权制定有约束力的<b>规则</b>（rule）； <span class="en">They legislate by making binding rules under congressional delegation.</span></li>
     <li><b>像行政</b>：执行联邦法律和自己的规则、设定政府政策； <span class="en">They enforce law and set policy.</span></li>
@@ -2750,10 +2962,10 @@
 <details class="branch" id="b24-1">
 <summary><span class="arrow">▶</span><span class="bnum">5.2.1</span><span>立法授权与「可理解原则」 <span class="en">Delegation and the intelligible principle</span></span></summary>
 <div class="body">
-  <p class="lead">机关的规则制定权由<b>法律</b>设定，但国会委托立法权的程度<b>不是无限的</b>：国会授权机关制定规则时，必须给出一个「<b>可理解的原则</b>」（intelligible principle），即为机关提供<b>合理指导</b>。 <span class="en">Congress's ability to delegate is not unfettered; it must give the agency an "intelligible principle."</span></p>
+  <p class="lead">机关的规则制定权由<b>法律</b>设定，但国会委托立法权的程度<b>不是无限的</b>：国会授权机关制定规则时，必须给出一个「<b>可理解的原则</b>」（intelligible principle），即为机关提供<b>合理指导</b>。 <span class="en">Congress cannot delegate without limits; it must give the agency an "intelligible principle," a clear guide for how to use the power.</span></p>
   <div class="case">
     <div class="c-title">Gundy v. United States, 139 S. Ct. 2116 (2019)</div>
-    <p>国会用《性犯罪者登记与通知法》（SORNA）委托司法部长制定性犯罪者登记规则，并允许<b>溯及既往</b>适用。最高法院的<b>多元意见</b>质疑：该立法是否设定了「可理解的原则」来指导规则制定者？这是近几十年最高法院重新审视「<b>不授权原则</b>」（nondelegation doctrine）的标志性案件。 <span class="en">A plurality asked whether SORNA set out an intelligible principle to guide the Attorney General, revisiting the nondelegation doctrine.</span></p>
+    <p>国会用《性犯罪者登记与通知法》（SORNA）委托司法部长制定性犯罪者登记规则，并允许<b>溯及既往</b>适用。最高法院的<b>多元意见</b>（plurality，未达五票多数的一派大法官）质疑：该立法是否设定了「可理解的原则」来指导规则制定者？这是近几十年最高法院重新审视「<b>不授权原则</b>」（nondelegation doctrine）的标志性案件。 <span class="en">A plurality (justices short of a five-vote majority) asked whether SORNA set out an intelligible principle to guide the Attorney General.</span></p>
   </div>
 </div>
 </details>
@@ -2761,14 +2973,14 @@
 <details class="branch" id="b24-2">
 <summary><span class="arrow">▶</span><span class="bnum">5.2.2</span><span>独立机关 vs 行政分支机关 <span class="en">Independent agencies vs executive agencies</span></span></summary>
 <div class="body">
-  <p class="lead"><b>独立机关</b>（independent agencies）存在于联邦行政部门（由内阁部长领导）和总统行政办公室<b>之外</b>；狭义上指虽属行政分支、但有规制或规则制定权、且被<b>隔离于总统控制</b>（总统罢免其负责人或成员的权利受限）的机关。典型如 <b>FCC、FTC、SEC、NLRB、美联储</b>。 <span class="en">Independent agencies sit outside the executive departments and are insulated from presidential control, with limited removal power.</span></p>
+  <p class="lead"><b>独立机关</b>（independent agencies）存在于联邦行政部门（由内阁部长领导）和总统行政办公室<b>之外</b>；狭义上指虽属行政分支、但有规制或规则制定权、且被<b>隔离于总统控制</b>（总统罢免其负责人或成员的权利受限）的机关。典型如 <b>FCC、FTC、SEC、NLRB、美联储</b>。 <span class="en">Independent agencies sit outside the executive departments and are shielded from presidential control, with limited removal power.</span></p>
   <ul>
-    <li><b>结构特征</b>：通常是 <b>5–7 人</b>的委员会（Commission/Board），总统任命但需参议院确认，任期<b>交错</b>且长于四年，多数有<b>两党制</b>（bipartisan）要求。 <span class="en">They are collegial bodies of five to seven members with staggered terms and often bipartisan requirements.</span></li>
+    <li><b>结构特征</b>：通常是 <b>5–7 人</b>的委员会（Commission/Board），总统任命但需参议院确认，任期<b>交错</b>且长于四年，多数有<b>两党制</b>（bipartisan）要求。 <span class="en">They are committees of five to seven members with staggered terms and often bipartisan requirements.</span></li>
     <li><b>罢免权</b>：独立规制机关负责人通常只能「<b>有理由</b>」（for cause）罢免；而内阁成员和独立行政机关负责人（如 EPA 局长）则「<b>随总统意愿</b>」（at the pleasure of the president）可无理由罢免。 <span class="en">Independent regulatory heads are removable only for cause; executive agency heads serve at the president's pleasure.</span></li>
   </ul>
   <div class="case">
     <div class="c-title">Humphrey's Executor v. United States (1935) 及其后</div>
-    <p>最高法院裁定：总统可罢免「行政分支的手臂或眼睛」的官员，但支持对履行<b>准立法或准司法</b>职能的机关（如 FTC）官员的罢免限制。这一先例在 2026 年被 <b>Trump v. Slaughter</b> 推翻——法院认定对 FTC 官员的罢免限制「违反三权分立」；但同年的 <b>Trump v. Cook</b> 又维持了对<b>美联储</b>的罢免保护，援引「我们国家保护中央银行免受政治干预的传统」。 <span class="en">Humphrey's Executor upheld removal limits for quasi-legislative or quasi-judicial officers; it was overturned in 2026 by Trump v. Slaughter, while Trump v. Cook preserved protections for the Federal Reserve.</span></p>
+    <p>最高法院裁定：总统可罢免「行政分支的手臂或眼睛」的官员，但支持对履行<b>准立法（制定规则）或准司法（裁决争议）</b>职能的机关（如 FTC）官员的罢免限制。这一先例在 2026 年被 <b>Trump v. Slaughter</b> 推翻——法院认定对 FTC 官员的罢免限制「违反三权分立」；但同年的 <b>Trump v. Cook</b> 又维持了对<b>美联储</b>的罢免保护，援引「我们国家保护中央银行免受政治干预的传统」。 <span class="en">Humphrey's Executor upheld removal limits for officers who make rules or decide cases; it was overturned in 2026 by Trump v. Slaughter, while Trump v. Cook preserved protections for the Federal Reserve.</span></p>
   </div>
 </div>
 </details>
@@ -2857,6 +3069,17 @@
     <p>正式裁决由<b>行政法法官</b>（administrative law judge，ALJ）主持，最低限度的<b>正当程序权利</b>一般包括：<b>通知</b>审查事项、<b>提交证据</b>、<b>交叉询问</b>反驳对方证据、<b>律师代理</b>、制作<b>程序记录</b>、以及说明法律与事实依据的<b>书面决定</b>。 <span class="en">Minimum due process rights include notice, presenting evidence, cross-examination, counsel, a record, and a written decision.</span></p>
     <p class="lead">一个现实：联邦<b>行政裁决的数量</b>远远超过联邦法院的裁决量（仅福利金争议裁决就是每天由大批裁决者进行的庞大程序）。 <span class="en">Federal administrative adjudication greatly exceeds the volume of federal court adjudication.</span></p>
   </div>
+  <table>
+    <thead><tr><th>维度</th><th>规则制定 Rulemaking</th><th>行政裁决 Adjudication</th></tr></thead>
+    <tbody>
+      <tr><td><b>做什么</b></td><td>制定<b>规则</b>（普遍适用、面向未来）</td><td>发布<b>命令</b>（针对特定的人或公司）</td></tr>
+      <tr><td><b>结果</b></td><td>法规，载入《联邦法规》CFR</td><td>针对个体的决定（order）</td></tr>
+      <tr><td><b>程序</b></td><td>通知 + 评论（§553）</td><td>听证（正式或非正式）</td></tr>
+      <tr><td><b>性质</b></td><td>类似<b>立法</b></td><td>类似<b>审判</b></td></tr>
+      <tr><td><b>例子</b></td><td>安全气囊标准、排放限值</td><td>移民庇护、NLRB 裁定、福利金裁定</td></tr>
+    </tbody>
+  </table>
+  <p class="lead">一句话记：规则制定是「<b>造法</b>」（定一条面向所有人的规则），行政裁决是「<b>判案</b>」（针对某个人或公司下命令）。 <span class="en">Rulemaking makes law for everyone; adjudication decides one person's or company's case.</span></p>
 </div>
 </details>
 
@@ -2868,6 +3091,164 @@
     <li><b>任意或专断标准</b>（arbitrary and capricious）：除非行政决定<b>不合理</b>、「任意或专断」、非善意、或非基于<b>实质证据</b>，否则很可能被法院维持。推翻机关决定通常<b>很难</b>。 <span class="en">Unless a decision is unreasonable, arbitrary or capricious, or not based on substantial evidence, it will likely be affirmed.</span></li>
     <li><b>Chevron 尊重 vs Skidmore 尊重</b>：对经通知评论、有法律效力的<b>正式规则</b>，法院给予较高尊重（<b>Chevron</b> deference，Chevron v. NRDC, 1984）；对<b>非约束性</b>政策或解释性规则，给予较低尊重（<b>Skidmore</b> deference，Skidmore v. Swift, 1944）。 <span class="en">Formal rules with the force of law get Chevron deference; nonbinding policy or interpretive rules get Skidmore deference.</span></li>
   </ul>
+</div>
+</details>
+</section>
+
+<section class="card" id="s26">
+<h2><span class="num">6.1</span>行政法的结构与功能 · Structure &amp; Function of Administrative Law</h2>
+
+<details class="branch" id="b26-1">
+<summary><span class="arrow">▶</span><span class="bnum">6.1.1</span><span>司法审查是「辅助预防措施」 <span class="en">Judicial review as an "auxiliary precaution"</span></span></summary>
+<div class="body">
+  <p class="lead">开国元勋<b>麦迪逊</b>（James Madison）说过，成功的政府与法治需要「<b>辅助预防措施</b>」（auxiliary precautions）来确保官员行为符合民意与公共利益。联邦法院对<b>行政机关</b>决定的审查（我们称之为<b>行政法</b>，administrative law）正是这样一种关键的辅助预防措施。 <span class="en">Madison held that government under law needs "auxiliary precautions" to keep officials acting in the public interest. Judicial review of agency decisions, what we call administrative law, is one of them.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b26-2">
+<summary><span class="arrow">▶</span><span class="bnum">6.1.2</span><span>广泛裁量，但受司法监督 <span class="en">Wide discretion, checked by courts</span></span></summary>
+<div class="body">
+  <p class="lead">行政机关拥有制定和实施公共政策的<b>广泛裁量权</b>（wide latitude），这是美国宪政民主一个多世纪以来的特征。但这份权力有一个<b>强大的前提</b>（quid pro quo）：法院有责任确保机关在<b>法定权限范围内</b>行动，符合<b>法治</b>与<b>良好决策</b>的原则。 <span class="en">Agencies enjoy wide latitude to make policy, a settled part of our system for over a century. The condition is that courts ensure agencies stay within their legal authority and the rule of law.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b26-3">
+<summary><span class="arrow">▶</span><span class="bnum">6.1.3</span><span>APA §706 与审查对象 <span class="en">The APA and what courts review</span></span></summary>
+<div class="body">
+  <p class="lead">《<b>行政程序法</b>》（APA）赋予法院审查机关决定的<b>权力与责任</b>，并勾勒出审查的<b>流程</b>。大体上，法院只审查<b>最终的机关行为</b>（final agency action），无论是规则制定产生的<b>法规</b>（regulation），还是裁决产生的<b>命令</b>（order）。 <span class="en">The APA gives courts the authority to review agency decisions and maps out the process. Courts review only final agency action, a regulation or an order.</span></p>
+  <div class="sub3" id="b26-3-1">
+    <h4><span class="snum">6.1.3.1</span> 机关知道会被审查 <span class="en">Agencies know they will be reviewed</span></h4>
+    <p>机关官员很清楚，一旦有不满的个人或公司提出挑战，他们的决定就会接受<b>司法审查</b>。因此机关在行动时会<b>预先考虑</b>法院在相关法律原则下会怎么看。 <span class="en">Agencies know their decisions face review when someone challenges them, so they anticipate what courts will expect.</span></p>
+  </div>
+  <div class="sub3" id="b26-3-2">
+    <h4><span class="snum">6.1.3.2</span> 法院要求机关解释推理 <span class="en">Courts demand reasoned explanations</span></h4>
+    <p>法院会要求机关<b>解释其推理与理由</b>：正式程序要诉诸<b>面前证据</b>，非正式程序也要诉诸<b>合理的标准</b>。这一审查常常很复杂，法官要仔细审视机关决策时的<b>推理与证据</b>。 <span class="en">Courts ask agencies to explain their reasoning, by the record for formal processes or by reasonable standards for informal ones.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b26-4">
+<summary><span class="arrow">▶</span><span class="bnum">6.1.4</span><span>审查光谱的两端 <span class="en">The two ends of review</span></span></summary>
+<div class="body">
+  <p class="lead">善意的法院要在两个<b>极端</b>之间寻找平衡：一端是<b>从新审查</b>（de novo review），实质上用法院替代机关来评价决定；另一端是<b>完全顺从</b>（wholly deferential），走到极致就等于<b>没有真正审查</b>。 <span class="en">Courts balance between de novo review, which substitutes the court for the agency, and complete deference, which amounts to no review at all.</span></p>
+</div>
+</details>
+
+<details class="branch" id="b26-5">
+<summary><span class="arrow">▶</span><span class="bnum">6.1.5</span><span>机关与法院的来回循环 <span class="en">The agency-court back and forth</span></span></summary>
+<div class="body">
+  <p class="lead">法院的审查很少是<b>最终定论</b>。一方面，上诉法院的判决本身可上诉到最高法院；另一方面，机关决定若因<b>证据不足</b>被推翻，机关可以<b>回到起点</b>，为同一规则<b>发展新的理由</b>。这种「机关规则 → 法院判决 → 新机关规则」的<b>动态来回</b>，在美国规制体系中司空见惯，行政法的<b>架构</b>正是在这种审查与裁量的互动中显现。 <span class="en">Court review is seldom final. An agency whose rule is struck down can go back and develop a new rationale. This back and forth between rule and decision is how administrative law takes shape.</span></p>
+</div>
+</details>
+</section>
+
+<section class="card" id="s27">
+<h2><span class="num">6.2</span>审查标准与 State Farm · Review Standards &amp; State Farm</h2>
+
+<details class="branch" id="b27-1">
+<summary><span class="arrow">▶</span><span class="bnum">6.2.1</span><span>§706 的审查标准 <span class="en">The standards of review under §706</span></span></summary>
+<div class="body">
+  <p class="lead">APA <b>§706</b> 是法院审查机关行为的<b>标准清单</b>。最关键的两条：<b>§706(2)(A)</b>，法院须推翻「<b>任意、专断、滥用裁量</b>」或「不合法律」的机关行为；<b>§706(2)(E)</b>，正式裁决的事实认定须有「<b>实质证据</b>」（substantial evidence）支持。 <span class="en">Section 706 lists the standards of review. Under §706(2)(A), courts set aside agency action that is arbitrary, capricious, or an abuse of discretion; under §706(2)(E), findings must rest on substantial evidence.</span></p>
+  <p class="lead">这一周的重点，是看 <b>§706(2)(A)</b> 的「任意或专断」标准如何在<b>真实案件</b>里落地，判例就是 State Farm。 <span class="en">This week turns on how the arbitrary and capricious standard plays out in one real case, State Farm.</span></p>
+  <div class="sub3" id="b27-1-1">
+    <h4><span class="snum">6.2.1.1</span> hard look 审查的渊源 <span class="en">Where "hard look" came from</span></h4>
+    <p>「<b>严格审查</b>」（hard look）这个词，最早是 <b>Leventhal</b> 法官在 Greater Boston Television Corp. v. FCC（1970）里提出的：最初指<b>机构</b>必须对相关因素「严格审视」；后来含义转成<b>法院</b>要对机构的<b>推理过程</b>严格审视。判例脉络：<b>Overton Park</b>（1971）是 hard look 审查的起点，<b>Vermont Yankee</b>（1978）曾让人以为会收窄司法审查，而 <b>State Farm</b> 则<b>重新肯定并扩展</b>了 hard look。 <span class="en">"Hard look" began with Judge Leventhal in Greater Boston Television (1970), first as the agency's duty to scrutinize relevant factors, then as the court's duty to scrutinize the agency's reasoning. Overton Park (1971) started it, Vermont Yankee (1978) seemed to narrow it, and State Farm reaffirmed and expanded it.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b27-2">
+<summary><span class="arrow">▶</span><span class="bnum">6.2.2</span><span>State Farm 案：机构撤销规则 <span class="en">State Farm: rescinding a rule</span></span></summary>
+<div class="body">
+  <p class="lead"><b>Motor Vehicle Mfrs. Ass'n v. State Farm Mutual Auto. Ins. Co.</b>（1983）是「任意或专断」标准的<b>里程碑</b>判例，讲的是机构<b>撤销</b>（rescind）已有规则时，审查标准同样严格。 <span class="en">State Farm is the landmark case on the arbitrary and capricious standard, applied when an agency rescinds an existing rule.</span></p>
+  <div class="sub3" id="b27-2-1">
+    <h4><span class="snum">6.2.2.1</span> 事实背景 <span class="en">The facts</span></h4>
+    <p><b>国家公路交通安全管理局</b>（NHTSA）在 1977 年颁布 Standard 208，要求新车安装<b>被动约束装置</b>（passive restraints），即<b>自动安全带</b>或<b>安全气囊</b>。1981 年新政府上台后，NHTSA <b>撤销</b>（rescind）了这项要求。 <span class="en">In 1977 NHTSA required new cars to carry passive restraints, automatic seat belts or airbags. In 1981 the agency rescinded that requirement.</span></p>
+  </div>
+  <div class="sub3" id="b27-2-2">
+    <h4><span class="snum">6.2.2.2</span> 撤销的理由与法院的驳回 <span class="en">Why the rescission failed</span></h4>
+    <p>机构给的理由：一是<b>自动安全带</b>能被消费者轻易<b>脱离</b>（detach），形同虚设；二是<b>安全气囊</b>太贵、不为市场接受。最高法院（White 执笔）裁定这项撤销是<b>任意且专断</b>（arbitrary and capricious）：机构<b>完全没考虑</b>「单独要求安全气囊」这个<b>替代方案</b>，对自动安全带会被脱离的判断也<b>缺乏证据</b>。 <span class="en">The agency said detachable automatic belts were useless and airbags cost too much. The Court held the rescission arbitrary and capricious: the agency ignored the airbag-only alternative, and its claim about belts being detached lacked evidence.</span></p>
+  </div>
+  <div class="sub3" id="b27-2-3">
+    <h4><span class="snum">6.2.2.3</span> State Farm 确立的规则 <span class="en">The rules State Farm set</span></h4>
+    <ul>
+      <li><b>撤销规则 = 制定规则</b>：机构撤销（改变）既有规则，要受和制定规则时<b>同样严格</b>的审查。 <span class="en">Rescinding a rule is reviewed as strictly as making one.</span></li>
+      <li><b>必须给出令人信服的解释</b>（cogent explanation）：改变政策时，机构必须解释<b>为什么</b>变，说明考虑了<b>所有相关因素</b>。 <span class="en">An agency changing course must give a cogent explanation that considers all relevant factors.</span></li>
+      <li><b>必须考虑合理的替代方案</b>（reasonable alternatives）：不能直接跳到撤销，而不说明为何更温和的选项不可行。 <span class="en">The agency must consider reasonable alternatives before rescinding.</span></li>
+      <li><b>法院「严格审查」</b>（hard look）：法院要<b>深入审查</b>机构的推理过程，而不是照单全收。 <span class="en">Courts take a hard look at the agency's reasoning, not a rubber stamp.</span></li>
+    </ul>
+  </div>
+  <div class="sub3" id="b27-2-4">
+    <h4><span class="snum">6.2.2.4</span> State Farm 的三种「任意或专断」情形 <span class="en">Three forms of arbitrary and capricious</span></h4>
+    <p>State Farm 那句<b>经典表述</b>：「arbitrary and capricious 标准的审查范围<b>很窄</b>，法院不得用<b>自己的判断取代</b>机关的判断」，但机关必须「<b>检视相关数据，并为其行动作出令人满意的解释</b>，在<b>所认定的事实</b>与<b>所作的选择</b>之间建立<b>合理关联</b>」。教科书据此总结出三种会被认定任意或专断的情形： <span class="en">State Farm held the arbitrary and capricious standard is narrow and a court may not substitute its judgment, but the agency must examine the data and give a satisfactory explanation with a rational connection between facts and choice.</span></p>
+    <ul>
+      <li><b>完全没考虑问题的重要方面</b>（entirely failed to consider an important aspect of the problem）。 <span class="en">The agency entirely failed to consider an important aspect of the problem.</span></li>
+      <li><b>解释与证据相悖</b>（an explanation that runs counter to the evidence）。 <span class="en">It offered an explanation that runs counter to the evidence.</span></li>
+      <li><b>解释太难以置信</b>，不能归因于「观点分歧」或「机关专业判断」（so implausible that it could not be ascribed to a difference in view or the product of agency expertise）。 <span class="en">Its explanation is so implausible it cannot be chalked up to a difference of view or agency expertise.</span></li>
+    </ul>
+  </div>
+  <div class="sub3" id="b27-2-5">
+    <h4><span class="snum">6.2.2.5</span> Rehnquist 异议：政治考量之争 <span class="en">Justice Rehnquist's dissent on politics</span></h4>
+    <p><b>Rehnquist</b> 大法官部分异议，提出一个至今仍有争议的问题：机构能不能以「<b>总统换了、监管哲学变了</b>」为由撤销规则？他的名言：「<b>人民投票带来的政府更迭，是行政机关重新评估其项目成本与收益的完全合理的依据</b>」（"A change in administration brought about by the people casting their votes is a perfectly reasonable basis..."）。 <span class="en">Justice Rehnquist dissented in part, arguing that a change of administration, brought about by the voters, is a perfectly reasonable basis for an agency to reappraise the costs and benefits of its rules.</span></p>
+    <p>支持者（如 <b>Kathryn Watts</b>）主张法院应承认<b>公开透明的政治影响</b>是 arbitrary and capricious 审查下的正当理由；反对者（<b>Armijo</b>、<b>Seidenfeld</b> 等）认为 APA 要求机构用<b>非政治</b>的理由来解释决策。 <span class="en">Some, like Kathryn Watts, argue courts should accept openly disclosed political influence as a valid reason; others, like Armijo and Seidenfeld, say the APA demands nonpolitical explanations.</span></p>
+  </div>
+</div>
+</details>
+</section>
+
+<section class="card" id="s28">
+<h2><span class="num">6.3</span>现代判例 · Modern Cases</h2>
+
+<details class="branch" id="b28-1">
+<summary><span class="arrow">▶</span><span class="bnum">6.3.1</span><span>West Virginia v. EPA：重大问题原则 <span class="en">The major questions doctrine</span></span></summary>
+<div class="body">
+  <p class="lead"><b>West Virginia v. EPA</b>（2022）确立了「<b>重大问题原则</b>」（major questions doctrine）：当机关主张一项<b>重大经济与政治意义</b>的权力时，必须指出国会「<b>明确的授权</b>」（clear congressional authorization），模糊的授权条款不够。 <span class="en">West Virginia v. EPA holds that an agency claiming authority of major economic and political significance must point to clear congressional authorization.</span></p>
+  <div class="sub3" id="b28-1-1">
+    <h4><span class="snum">6.3.1.1</span> 事实：清洁电力计划 <span class="en">The Clean Power Plan</span></h4>
+    <p>2015 年，<b>EPA</b> 依据《清洁空气法》§111(d) 颁布「<b>清洁电力计划</b>」（Clean Power Plan），为现有煤电与气电厂的碳排放设限。它认定「最佳减排系统」（<b>BSER</b>）包括三个「<b>积木</b>」：一是煤厂提高热效率；二是<b>发电转移</b>（generation shifting），让煤电减产、气电增产；三是再转移到风能、太阳能等<b>可再生</b>能源。 <span class="en">EPA's 2015 Clean Power Plan set carbon limits using "generation shifting," moving electricity production from coal to gas and renewables across the grid.</span></p>
+  </div>
+  <div class="sub3" id="b28-1-2">
+    <h4><span class="snum">6.3.1.2</span> 重大问题原则 <span class="en">The major questions doctrine</span></h4>
+    <p>法院指出，在「<b>非同寻常的案件</b>」里，机关所主张权力的<b>历史与广度</b>、以及其<b>经济与政治意义</b>，都让人在断定国会确实授权之前「<b>踌躇</b>」。EPA 声称在一部<b>极少使用</b>的旧法里，发现了一项能<b>从根本上重组全国电力结构</b>的「隐藏权力」，而国会自己<b>多次拒绝</b>通过类似方案（碳排放交易）。 <span class="en">The Court saw EPA claiming a hidden, transformative power in a rarely used statute, to reshape how the nation gets its energy, something Congress had repeatedly declined to do itself.</span></p>
+  </div>
+  <div class="sub3" id="b28-1-3">
+    <h4><span class="snum">6.3.1.3</span> 判决与名言 <span class="en">The holding and a key line</span></h4>
+    <p>6 比 3，<b>Roberts</b> 执笔（Kagan 异议）。法院裁定：国会<b>没有</b>授权 EPA 用发电转移来设限。名言：脱离语境的「system」一词是「<b>一只空瓶子</b>」："The word 'system' shorn of all context, however, is an empty vessel." 模糊的授权不足以支持如此重大的权力。 <span class="en">The Court held 6-3 that Congress did not grant EPA authority to devise caps based on generation shifting. A vague grant, it said, is not clear authorization.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b28-2">
+<summary><span class="arrow">▶</span><span class="bnum">6.3.2</span><span>Loper Bright：推翻 Chevron <span class="en">Loper Bright overrules Chevron</span></span></summary>
+<div class="body">
+  <p class="lead"><b>Loper Bright Enterprises v. Raimondo</b>（2024）<b>推翻了</b> Chevron 尊重原则。法院裁定：APA §706 要求法院<b>独立判断</b>机关是否在法定权限内行动，<b>不能</b>仅仅因为法律模糊就服从机关的「可允许」解释。 <span class="en">Loper Bright overruled Chevron. The APA requires courts to use independent judgment on the meaning of statutes, and courts may not defer just because a statute is ambiguous.</span></p>
+  <div class="sub3" id="b28-2-1">
+    <h4><span class="snum">6.3.2.1</span> 回顾 Chevron 两步法 <span class="en">The Chevron two-step, recalled</span></h4>
+    <p>Chevron（1984）曾要求：<b>第一步</b>，看国会是否「直接说到了」争议问题，若意图明确就此打住；<b>第二步</b>，若法律「沉默或模糊」，法院应服从机关「<b>可允许的</b>」解释，即便法院自己会有不同读法。 <span class="en">Chevron's first step asked whether Congress spoke directly; its second step told courts to defer to a permissible agency reading when the statute was ambiguous.</span></p>
+  </div>
+  <div class="sub3" id="b28-2-2">
+    <h4><span class="snum">6.3.2.2</span> Loper Bright 的裁定 <span class="en">What Loper Bright held</span></h4>
+    <p>法院（Roberts 执笔，6 比 3）指出，Chevron 与 APA <b>无法调和</b>：§706 把「解释法律」「决定所有相关法律问题」的权力交给<b>法院</b>，不是机关。法律模糊<b>不等于</b>国会想把解释权让给机关；机关<b>没有</b>解释法律模糊的特殊能力，法院才有。 <span class="en">The Court held Chevron cannot be squared with the APA. Section 706 assigns interpretation of law to courts, and an ambiguity is not an implicit delegation to the agency.</span></p>
+  </div>
+  <div class="sub3" id="b28-2-3">
+    <h4><span class="snum">6.3.2.3</span> Chevron 之后用什么 <span class="en">What replaces Chevron</span></h4>
+    <p>推翻后，法院<b>独立解释</b>法律，但可以<b>借助</b>机关的解读作为参考，即回到 <b>Skidmore</b> 尊重：机关解释「<b>不能约束法院</b>」，但依其<b>说服力</b>（thoroughness、reasoning、consistency）获得相应分量。法院仍要<b>尊重</b>国会对机关作出的<b>真正授权</b>，并确保机关在授权边界内<b>理性决策</b>。 <span class="en">Courts now interpret statutes independently while consulting the agency's reading, the Skidmore approach. An agency's view cannot bind a court, but it carries weight by its power to persuade.</span></p>
+  </div>
+</div>
+</details>
+
+<details class="branch" id="b28-3">
+<summary><span class="arrow">▶</span><span class="bnum">6.3.3</span><span>三案例对比 <span class="en">Comparing the three cases</span></span></summary>
+<div class="body">
+  <table>
+    <thead><tr><th>判例</th><th>年份</th><th>审查焦点</th><th>确立的规则</th></tr></thead>
+    <tbody>
+      <tr><td>State Farm</td><td>1983</td><td>机构撤销规则</td><td>任意或专断：改变政策须合理解释，考虑替代方案</td></tr>
+      <tr><td>West Virginia v. EPA</td><td>2022</td><td>重大权力的授权</td><td>重大问题原则：重大权力须国会明确授权</td></tr>
+      <tr><td>Loper Bright</td><td>2024</td><td>法律解释的归属</td><td>推翻 Chevron：法院独立解释，Skidmore 尊重</td></tr>
+    </tbody>
+  </table>
+  <p class="lead">三案一脉相承，都在收紧机关的自由度：<b>State Farm</b> 管「机构<b>推理</b>是否理性」，<b>West Virginia</b> 管「机构<b>权力</b>是否够大」，<b>Loper Bright</b> 管「法律<b>解释</b>归谁」。 <span class="en">Together they tighten agency freedom: State Farm checks reasoning, West Virginia checks the breadth of power, and Loper Bright returns interpretation to courts.</span></p>
 </div>
 </details>
 </section>
@@ -2927,6 +3308,11 @@
     <tr><td>Humphrey's Executor v. United States</td><td>1935</td><td>独立机关官员罢免保护（2026 被推翻）</td></tr>
     <tr><td>Gundy v. United States</td><td>2019</td><td>立法授权须有「可理解原则」</td></tr>
     <tr><td>Chevron v. NRDC</td><td>1984</td><td>对机关成文法解释的尊重</td></tr>
+    <tr><td>Motor Vehicle Mfrs. v. State Farm</td><td>1983</td><td>撤销规则须合理解释（任意或专断标准）</td></tr>
+    <tr><td>West Virginia v. EPA</td><td>2022</td><td>重大问题原则：重大权力须国会明确授权</td></tr>
+    <tr><td>Loper Bright v. Raimondo</td><td>2024</td><td>推翻 Chevron，法院独立解释法律</td></tr>
+    <tr><td>Smith v. United States</td><td>1993</td><td>用枪换毒品算「use」（barter）</td></tr>
+    <tr><td>Nix v. Hedden</td><td>1893</td><td>番茄是「蔬菜」非水果（普通含义）</td></tr>
   </tbody>
 </table>
 </div>
